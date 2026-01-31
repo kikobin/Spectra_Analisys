@@ -1,9 +1,0 @@
-{
-    "target": "WISE_J1828+2650",
-    "run_id": "2026-01-31T14-35-merged",
-    "mode": "AUTO + MERGED (nrs1+nrs2)",
-    "sources": [
-        "jw01189011001_05101_00003_nrs1_x1d.fits",
-        "jw01189011001_05101_00002_nrs2_x1d.fits"
-    ]
-}

@@ -1,9 +1,0 @@
-{
-    "target": "2M1207_b",
-    "run_id": "2026-01-31T14-34-merged",
-    "mode": "AUTO + MERGED (nrs1+nrs2)",
-    "sources": [
-        "jw03181016001_02101_00003_nrs1_x1d.fits",
-        "jw01270003001_02103_00002_nrs2_x1d.fits"
-    ]
-}
