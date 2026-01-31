@@ -1,0 +1,21 @@
+Target: WISE_0855
+Run ID: 2026-01-31T13-05-single
+Input spectrum: jw01230007001_05101_00001_nrs1_x1d.fits
+Source files:
+ - jw01230007001_05101_00001_nrs1_x1d.fits
+
+============================================================
+Wavelength Range: 2.8793 - 5.0913 um
+Data Points: 1232
+Continuum Fit: OK
+Temperature: 161.3 K
+------------------------------------------------------------
+Molecular Detections (Depth / SNR):
+  H2O: Not Detected (Max SNR < 3.0)
+  O2: No Spectral Coverage
+  O3: No Spectral Coverage
+  No robust molecular detections found.
+------------------------------------------------------------
+INTERPRETATION LIMITS:
+1. O2/O3 are not definitive biosignatures alone.
+2. Cloud/Haze degeneracy applies.

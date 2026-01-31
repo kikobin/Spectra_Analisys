@@ -1,0 +1,9 @@
+{
+    "target": "PSO_J318_5-22",
+    "run_id": "2026-01-31T13-05-merged",
+    "mode": "AUTO + MERGED (nrs1+nrs2)",
+    "sources": [
+        "jw01275003001_03104_00001_nrs1_x1d.fits",
+        "jw01275003001_03104_00002_nrs2_x1d.fits"
+    ]
+}

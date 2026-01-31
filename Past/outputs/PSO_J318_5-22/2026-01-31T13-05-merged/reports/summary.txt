@@ -1,0 +1,23 @@
+Target: PSO_J318_5-22
+Run ID: 2026-01-31T13-05-merged
+Input spectrum: merged_nrs.fits
+Source files:
+ - jw01275003001_03104_00001_nrs1_x1d.fits
+ - jw01275003001_03104_00002_nrs2_x1d.fits
+
+============================================================
+Wavelength Range: 2.8703 - 5.2703 um
+Data Points: 3621
+Continuum Fit: OK
+Temperature: 858.1 K
+------------------------------------------------------------
+Molecular Detections (Depth / SNR):
+  H2O: DETECTED (Max SNR: 4.8)
+    - Band 2.95-3.20 um: Depth=0.139, SNR=1.3
+    - Band 3.85-4.20 um: Depth=0.821, SNR=4.8
+  O2: No Spectral Coverage
+  O3: No Spectral Coverage
+------------------------------------------------------------
+INTERPRETATION LIMITS:
+1. O2/O3 are not definitive biosignatures alone.
+2. Cloud/Haze degeneracy applies.

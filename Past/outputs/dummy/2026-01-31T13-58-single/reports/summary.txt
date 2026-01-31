@@ -1,0 +1,28 @@
+Target: dummy
+Run ID: 2026-01-31T13-58-single
+Input spectrum: dummy.fits
+Source files:
+ - dummy.fits
+
+============================================================
+Wavelength Range: 1.0000 - 12.0000 um
+Data Points: 1000
+Continuum Fit: OK
+Temperature: 10099.1 K
+------------------------------------------------------------
+Molecular Detections (Depth / SNR):
+  H2O: DETECTED (Max SNR: 11.8)
+    - Band 1.35-1.45 um: Depth=0.240, SNR=11.8
+    - Band 1.80-2.00 um: Depth=0.081, SNR=1.5
+    - Band 2.55-2.85 um: Depth=0.044, SNR=0.8
+    - Band 2.95-3.20 um: Depth=0.062, SNR=1.2
+    - Band 3.85-4.20 um: Depth=0.066, SNR=1.5
+    - Band 5.80-6.60 um: Depth=0.054, SNR=1.0
+    - Band 10.00-12.00 um: Depth=0.073, SNR=1.4
+  O2: DETECTED (Max SNR: 14.7)
+    - Band 1.24-1.30 um: Depth=0.095, SNR=14.7
+  O3: Not Detected (Max SNR < 3.0)
+------------------------------------------------------------
+INTERPRETATION LIMITS:
+1. O2/O3 are not definitive biosignatures alone.
+2. Cloud/Haze degeneracy applies.

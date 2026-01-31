@@ -1,0 +1,8 @@
+{
+    "target": "WD_0806-661B",
+    "run_id": "2026-01-31T13-05-single",
+    "mode": "AUTO (Best NRS1)",
+    "sources": [
+        "jw01276001001_02101_00001_nrs1_x1d.fits"
+    ]
+}

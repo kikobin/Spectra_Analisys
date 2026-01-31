@@ -1,0 +1,40 @@
+Target: WISE_J1828+2650
+Run ID: 2026-01-31T14-35-merged
+Input spectrum: merged_nrs.fits
+Source files:
+ - jw01189011001_05101_00003_nrs1_x1d.fits
+ - jw01189011001_05101_00002_nrs2_x1d.fits
+
+============================================================
+Wavelength Range: 2.8793 - 5.1419 um
+Data Points: 3235
+Continuum Fit: OK
+Temperature: 214.7 K
+------------------------------------------------------------
+Molecular Detections (Depth / SNR):
+  H2O: Not Detected (Max SNR < 3.0)
+  O2: No Spectral Coverage
+  O3: No Spectral Coverage
+  No robust molecular detections found.
+------------------------------------------------------------
+ML Quality Score: 1.00 (Usable)
+------------------------------------------------------------
+
+=== AUTOMATED ML REPORT ===
+
+REPORT FOR TARGET: WISE_J1828+2650
+----------------------------------------
+
+ABSTRACT
+This report defines the spectral analysis of WISE_J1828+2650 using data from JWST (Simulated/Real). The analysis focused on the identification of molecular absorption features within the observed wavelength range. No definitive molecular absorption features were identified above the noise threshold in this analysis. These results provide constraints on the atmospheric composition, subject to the instrumental sensitivity and spectral coverage described herein.
+
+RESULTS
+- H2O: Classified as NOT DETECTED.
+- O2: Classified as NO COVERAGE.
+- O3: Classified as NO COVERAGE.
+
+LIMITATIONS
+The validity of these results is strictly bound by the following limitations:
+1. Observational Data: Analysis is largely dependent on the sensitivity and calibration of JWST (Simulated/Real).
+2. Spectral Coverage: The dataset does not fully sample the characteristic absorption regions for O2, O3, preventing any assessment of their presence.
+3. Atmospheric Modeling: Detections are based on cross-correlation with template spectra; degenerate solutions with other atmospheric species or stellar activity cannot be fully ruled out.

@@ -1,0 +1,1133 @@
+SIMPLE  =                    T / conforms to FITS standard                      BITPIX  =                    8 / array data type                                NAXIS   =                    0 / number of array dimensions                     EXTEND  =                    T                                                  DATE    = '2025-12-15T05:22:01.344' / UTC date file created                     ORIGIN  = 'STSCI   '           / Organization responsible for creating file     TIMESYS = 'UTC     '           / principal time system for time-related keywordsTIMEUNIT= 's       '           / Default unit applicable to all time values     FILENAME= 'jw01276-o003_t001_miri_p750l_x1d.fits' / Name of the file            SDP_VER = '2025_4a '           / Data Processing (DP) Software Version          PRD_VER = 'PRDOPSSOC-072'      / S&OC Project Reference Database (PRD) Version  OSS_VER = '8.7     '           / Observatory Scheduling Software (OSS) Version  GSC_VER = 'GSC31   '           / Guide Star Catalog (GSC) Version               CAL_VER = '1.20.2  '           / Calibration Software Version                   CAL_VCS = 'RELEASE '           / Calibration software version control sys numberDATAMODL= 'MultiSpecModel'     / Type of data model                             TELESCOP= 'JWST    '           / Telescope used to acquire the data             HGA_MOVE=                    F / High Gain Antenna moved during data collection PWFSEET =   60138.906365393515 / [d] Previous WFS exposure end time in MJD      NWFSEST =    60141.08033179398 / [d] Next WFS exposure start time in MJD        COMPRESS=                    F / On-board data compression was used (T/F)                                                                                               Association information                                                                                                                                 ASNPOOL = 'jw01276_20251215t025925_pool.csv' / Name of the ASN pool             ASNTABLE= 'jw01276-o003_20251215t025925_spec3_00001_asn.json' / Name of the ASN                                                                                         Program information                                                                                                                                     TITLE   = 'Spectroscopic Observations of WD 0806-661B' / Proposal title         PI_NAME = 'Lagage, Pierre-Olivier' / Principal investigator name                CATEGORY= 'GTO     '           / Program category                               SCICAT  = 'Planets And Planet Formation' / Science category assigned during TAC                                                                                         Observation identifiers                                                                                                                                 DATE-OBS= '2023-07-14'         / [yyyy-mm-dd] UTC date at start of exposure     TIME-OBS= '08:38:18.807'       / [hh:mm:ss.sss] UTC time at start of exposure   DATE-BEG= '2023-07-14T08:38:18.807' / Date-time start of exposure               DATE-END= '2023-07-14T12:15:16.555' / Date-time end of exposure                 OBS_ID  = 'V01276003001P0000000005101' / Programmatic observation identifier    VISIT_ID= '01276003001'        / Visit identifier                               PROGRAM = '01276   '           / Program number                                 OBSERVTN= '003     '           / Observation number                             VISIT   = '001     '           / Visit number                                   VISITGRP= '05      '           / Visit group identifier                         SEQ_ID  = '1       '           / Parallel sequence identifier                   ACT_ID  = '01      '           / Activity identifier                            EXPOSURE= '1       '           / Exposure request number                        BKGDTARG=                    F / Background target                              TEMPLATE= 'MIRI Low Resolution Spectroscopy' / Observation template used        OBSLABEL= 'MIRI LRS'           / Proposer label for the observation             OBSFOLDR= 'WD0806 Observations' / Name of the APT observation folder                                                                                                    Visit information                                                                                                                                       ENG_QUAL= 'OK      '           / Engineering data quality indicator from EngDB  ENGQLPTG= 'CALCULATED_TRACK_TR_202111' / Quality of pointing information from EnVISITYPE= 'PRIME_TARGETED_FIXED' / Visit type                                   VSTSTART= '2023-07-14 07:33:45.2630000' / UTC visit start time                  VISITSTA= 'SUCCESSFUL'         / Status of a visit                              NEXPOSUR=                    4 / Total number of planned exposures in visit     INTARGET=                    F / At least one exposure in visit is internal     TARGOOPP=                    F / Visit scheduled as target of opportunity       TSOVISIT=                    F / Time Series Observation visit indicator        EXP_ONLY=                    F / Special commanding without SI configuration    CROWDFLD=                    F / Are the FGSes in a crowded field?                                                                                                      Target information                                                                                                                                      TARGPROP= 'WD0806-661B'        / Proposer's name for the target                 TARGNAME= '' / Standard astronomical catalog name for target                    TARGTYPE= 'FIXED   '           / Type of target (fixed, moving, generic)        TARGCAT = 'Star    '           / Target category from APT                       TARGDESC= 'Brown dwarfs'       / Target description from APT                    TARG_RA =   121.81668314690653 / [deg] Target RA at mid time of exposure        TARG_DEC=    -66.3154153145189 / [deg] Target Dec at mid time of exposure       TARGURA =                  0.1 / [arcsec] Target RA uncertainty                 TARGUDEC=                  0.1 / [arcsec] Target Dec uncertainty                MU_RA   =               0.3403 / [arcsec/yr] Target proper motion in RA         MU_DEC  =              -0.2896 / [arcsec/yr] Target proper motion in Dec        MU_EPOCH= '2000-01-01 00:00:00.0000000' / Target proper motion epoch in UT      PROP_RA =   121.81114583333333 / [deg] Proposer's target RA                     PROP_DEC=   -66.31352222222222 / [deg] Proposer's target Dec                    SRCTYAPT= 'POINT   '           / Source type from APT (point/extended)                                                                                                  Instrument configuration information                                                                                                                    INSTRUME= 'MIRI    '           / Instrument used to acquire the data            DETECTOR= 'MIRIMAGE'           / Name of detector used to acquire the data      FILTER  = 'P750L   '           / Name of the filter element used                FPE_SIDE= 'A       '           / Active side for FPE (A or B)                   ICE_SIDE= 'A       '           / Active side for ICE (A or B)                   CCCSTATE= 'OPEN    '           / Contamination control cover state              LAMP    = 'OFF     '           / Internal lamp state                                                                                                                    Exposure parameters                                                                                                                                     EXPCOUNT=                    4 / Running count of exposures in visit            EXPRIPAR= 'PRIME   '           / Prime or parallel exposure                     EXP_TYPE= 'MIR_LRS-FIXEDSLIT'  / Type of data in the exposure                   EXPSTART=    60139.35993989583 / [d] exposure start time in MJD                 EXPMID  =    60139.43527408565 / [d] exposure mid time in MJD                   EXPEND  =   60139.510608275465 / [d] exposure end time in MJD                   OSF_FILE= '2023195T130936391_002_osf.xml' / Observatory Status File name coverinREADPATT= 'FASTR1  '           / Readout pattern                                NOUTPUTS=                    4 / Number of detector outputs used                NINTS   =                    8 / Number of integrations in exposure             NGROUPS =                  290 / Number of groups in integration                NFRAMES =                    1 / Number of frames per group                     FRMDIVSR=                    1 / Divisor applied to frame-averaged groups       GROUPGAP=                    0 / Number of frames dropped between groups        DRPFRMS1=                    0 / Number of frames dropped prior to first integraDRPFRMS3=                    0 / Number of frames dropped between integrations  NSAMPLES=                    1 / Number of A/D samples per pixel                TSAMPLE =                 10.0 / [us] Time between samples                      TFRAME  =              2.77504 / [s] Time between frames                        TGROUP  =                2.775 / [s] Time between groups                        EFFINTTM=               807.19 / [s] Effective integration time                 EFFEXPTM=            12915.036 / [s] Effective exposure time                    TMEASURE=            12831.784 / [s] Measurement time                           DURATION=            12915.036 / [s] Total duration of exposure                 NRSTSTRT=                    0 / Number of reset frames at start of exposure    NRESETS =                    1 / Number of reset frames between integrations    ZEROFRAM=                    F / Zero frame was downlinked separately           DATAPROB=                    F / Science telemetry indicated a problem          SCA_NUM =                  493 / Sensor Chip Assembly number                    DATAMODE=                    7 / post-processing method used in FPAP            SCTARATE=                  0.0 / [ms/s] Spacecraft Clock Time Adjust RATE       PRIMECRS=   0.6528671460031423 / Cosmic Ray rate per thousand pixels per second EXTNCRS =                  0.0 / Snowballs/showers per million pixels per second                                                                                        Subarray parameters                                                                                                                                     SUBARRAY= 'FULL    '           / Subarray used                                  SUBSTRT1=                    1 / Starting pixel in axis 1 direction             SUBSTRT2=                    1 / Starting pixel in axis 2 direction             SUBSIZE1=                 1032 / Number of pixels in axis 1 direction           SUBSIZE2=                 1024 / Number of pixels in axis 2 direction           FASTAXIS=                    1 / Fast readout axis direction                    SLOWAXIS=                    2 / Slow readout axis direction                                                                                                            Dither information                                                                                                                                      PATTTYPE= 'ALONG-SLIT-NOD'     / Primary dither pattern type                    PATT_NUM=                    1 / Position number within dither pattern          NUMDTHPT=                    2 / Total number of points in dither pattern       XOFFSET =  -0.9452017704311846 / [arcsec] X offset in SI ideal coordinate frame YOFFSET = -9.9848497304863E-05 / [arcsec] Y offset in SI ideal coordinate frame DITH_RA =   121.81655666149904 / RA of dithered pointing location               DITH_DEC=   -66.31533717546856 / Dec of dithered pointing location                                                                                                      Aperture information                                                                                                                                    APERNAME= 'MIRIM_SLIT'         / PRD science aperture used                      PPS_APER= 'MIRIM_SLIT'         / original AperName supplied by PPS                                                                                                      Velocity aberration correction information                                                                                                              VA_RA   =   121.80369453198124 / [deg] Velocity aberrated apparent reference RA VA_DEC  =   -66.31604458371791 / [deg] Velocity aberrated apparent reference Dec                                                                                        Time information                                                                                                                                        BARTDELT=    56.51478851214051 / [s] Barycentric correction at exposure start   BSTRTIME=    60139.36059400218 / [d] Barycentric exposure start time in MJD     BENDTIME=    60139.43533220467 / [d] Barycentric exposure end time in MJD       BMIDTIME=     60139.3979631034 / [d] Barycentric exposure mid time in MJD       HELIDELT=    55.66430403850973 / [s] Heliocentric correction at exposure start  HSTRTIME=    60139.36058415861 / [d] Heliocentric exposure start time in MJD    HENDTIME=    60139.43532236119 / [d] Heliocentric exposure end time in MJD      HMIDTIME=   60139.397953259875 / [d] Heliocentric exposure mid time in MJD                                                                                              Guide star information                                                                                                                                  GS_ORDER=                    1 / index of guide star within list of selected guiGSSTRTTM= '2023-07-14 08:22:20.5880000' / UTC time when guide star activity starGSENDTIM= '2023-07-14 08:26:22.2520000' / UTC time when guide star activity compGDSTARID= 'S4PY016507'         / guide star identifier                          GS_RA   =    121.5193985085501 / guide star right ascension                     GS_DEC  =   -66.24037752411245 / guide star declination                         GS_URA  =         0.0223111343 / guide star right ascension uncertainty         GS_UDEC =           0.02064045 / guide star declination uncertainty             GS_MAG  =    14.33889389038086 / guide star magnitude in FGS detector           GS_UMAG =  0.01946747489273548 / guide star magnitude uncertainty               GS_V3_PA=    172.0021383378466 / V3 Position Angle of guide star for science    PCS_MODE= 'FINEGUIDE'          / Pointing Control System mode                   VISITEND= '2023-07-14 12:16:33.8660000' / Observatory UTC time when the visit en                                                                                        Reference file information                                                                                                                              CRDS_VER= '13.0.6  '           / Version of CRDS file selection software used   CRDS_CTX= 'jwst_1464.pmap'     / CRDS context (.pmap) used to select ref files  R_AREA  = 'N/A     '           / Pixel area reference file name                 R_CAMERA= 'N/A     '           / Nirspec Camera reference file name             R_COLLIM= 'N/A     '           / Nirspec Collimator reference file name         R_DARK  = 'crds://jwst_miri_dark_0113.fits' / Dark reference file name          R_DISPER= 'N/A     '           / Disperser reference file name                  R_DISTOR= 'crds://jwst_miri_distortion_0047.asdf' / Distortion reference file naR_MIREMI= 'crds://jwst_miri_emicorr_0003.asdf' / MIRI EMI correction reference fR_EXTR1D= 'crds://jwst_miri_extract1d_0007.json' / 1-D extraction parameters refR_FILOFF= 'N/A     '           / Filter Offset reference file name              R_FLAT  = 'crds://jwst_miri_flat_0790.fits' / Flat reference file name          R_DFLAT = 'N/A     '           / Detector Flat reference file name              R_FFLAT = 'N/A     '           / Fore-optics Flat reference file name           R_SFLAT = 'N/A     '           / Spectrograph Flat reference file name          R_FORE  = 'N/A     '           / Nirspec FORE Model reference file name         R_FPA   = 'N/A     '           / Nirspec FPA Model reference file name          R_GAIN  = 'crds://jwst_miri_gain_0042.fits' / Gain reference file name          R_IFUFOR= 'N/A     '           / ifufore reference file name                    R_IFUPOS= 'N/A     '           / ifupost reference file name                    R_IFUSLI= 'N/A     '           / ifuslicer reference file name                  R_LINEAR= 'crds://jwst_miri_linearity_0032.fits' / Linearity reference file nameR_MASK  = 'crds://jwst_miri_mask_0036.fits' / Mask reference file name          R_MSA   = 'N/A     '           / Nirspec MSA Model reference file name          R_OTE   = 'N/A     '           / Nirspec OTE Model reference file name          R_PTHLOS= 'crds://jwst_miri_pathloss_0002.fits' / Pathloss reference file name  R_PHOTOM= 'crds://jwst_miri_photom_0219.fits' / Photometric reference file name R_READNO= 'crds://jwst_miri_readnoise_0085.fits' / Read noise reference file namR_REGION= 'N/A     '           / Regions reference file name                    R_RESET = 'crds://jwst_miri_reset_0077.fits' / Reset reference file name        R_RSCD  = 'crds://jwst_miri_rscd_0017.fits' / RSCD reference file name          R_SATURA= 'crds://jwst_miri_saturation_0034.fits' / Saturation reference file naR_SPCWCS= 'crds://jwst_miri_specwcs_0010.fits' / Spectral distortion reference fR_SUPERB= 'N/A     '           / Superbias reference file name                  R_WAVRAN= 'N/A     '           / Wavelength Range reference file name                                                                                                   Calibration step information                                                                                                                            S_WCS   = 'COMPLETE'           / Assign World Coordinate System                 S_BKDSUB= 'COMPLETE'           / Background subtraction                         S_BPXSLF= 'SKIPPED '           / Bad Pixel Self-Calibration                     S_BARSHA= 'SKIPPED '           / Bar shadow correction                          S_CHGMIG= 'SKIPPED '           / Charge Migration                               S_CLNFNS= 'SKIPPED '           / Clean Flicker Noise                            S_DARK  = 'COMPLETE'           / Dark Subtraction                               S_DQINIT= 'COMPLETE'           / Data Quality Initialization                    S_MIREMI= 'COMPLETE'           / MIRI EMI Correction                            S_EXTR1D= 'COMPLETE'           / 1-D Spectral Extraction                        S_FRSTFR= 'COMPLETE'           / First Frame Correction                         S_FLAT  = 'COMPLETE'           / Flat Field Correction                          S_FRINGE= 'SKIPPED '           / Fringe Correction                              S_GANSCL= 'SKIPPED '           / Gain Scale Correction                          S_GRPSCL= 'SKIPPED '           / Group Scale Correction                         S_IMPRNT= 'SKIPPED '           / NIRSpec MSA Imprint Subtraction                S_IPC   = 'SKIPPED '           / Interpixel Capacitance Correction              S_JUMP  = 'COMPLETE'           / Jump Detection                                 S_LASTFR= 'COMPLETE'           / Last Frame Correction                          S_LINEAR= 'COMPLETE'           / Linearity Correction                           S_MSBSUB= 'SKIPPED '           / Master Background Subtraction                  S_MSAFLG= 'SKIPPED '           / NIRSpec MSA Stuck Shutter Flagging             S_NSCLEN= 'SKIPPED '           / NIRSpec 1/f Noise Correction                   S_OUTLIR= 'COMPLETE'           / Outlier Detection                              S_PTHLOS= 'COMPLETE'           / Pathloss Correction                            S_PHOTOM= 'COMPLETE'           / Photometric Calibration                        S_PXREPL= 'COMPLETE'           / Pixel Replacement                              S_RAMP  = 'COMPLETE'           / Ramp Fitting                                   S_REFPIX= 'SKIPPED '           / Reference Pixel Correction                     S_RESAMP= 'COMPLETE'           / Image resampling                               S_RESFRI= 'SKIPPED '           / Residual Fringe Correction                     S_RESET = 'COMPLETE'           / Reset Anomaly Correction                       S_RSCD  = 'COMPLETE'           / RSCD Correction                                S_SATURA= 'COMPLETE'           / Saturation Checking                            S_SRCTYP= 'COMPLETE'           / Source Type Determination                      S_STRAY = 'SKIPPED '           / Straylight Correction                                                                                                                  Resample Parameters                                                                                                                                     NDRIZ   =                    2 / Number of groups/pointings included in resampleRESWHT  = 'exptime '           / Type of drizzle weighting to use in resampling PIXFRAC =                  1.0 / Drizzle parameter describing pixel shrinking   PXSCLRT =                  1.0 / Pixel scale ratio relative to native detector sEND                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             XTENSION= 'BINTABLE'           / binary table extension                         BITPIX  =                    8 / array data type                                NAXIS   =                    2 / number of array dimensions                     NAXIS1  =                  140 / length of dimension 1                          NAXIS2  =                  388 / length of dimension 2                          PCOUNT  =                    0 / number of group parameters                     GCOUNT  =                    1 / number of groups                               TFIELDS =                   18 / number of table fields                         EXTNAME = 'EXTRACT1D'          / extension name                                 EXTVER  =                    1 / extension value                                TTYPE1  = 'WAVELENGTH'                                                          TFORM1  = 'D       '                                                            TUNIT1  = 'um      '                                                            TTYPE2  = 'FLUX    '                                                            TFORM2  = 'D       '                                                            TUNIT2  = 'Jy      '                                                            TTYPE3  = 'FLUX_ERROR'                                                          TFORM3  = 'D       '                                                            TUNIT3  = 'Jy      '                                                            TTYPE4  = 'FLUX_VAR_POISSON'                                                    TFORM4  = 'D       '                                                            TUNIT4  = 'Jy^2    '                                                            TTYPE5  = 'FLUX_VAR_RNOISE'                                                     TFORM5  = 'D       '                                                            TUNIT5  = 'Jy^2    '                                                            TTYPE6  = 'FLUX_VAR_FLAT'                                                       TFORM6  = 'D       '                                                            TUNIT6  = 'Jy^2    '                                                            TTYPE7  = 'SURF_BRIGHT'                                                         TFORM7  = 'D       '                                                            TUNIT7  = 'MJy/sr  '                                                            TTYPE8  = 'SB_ERROR'                                                            TFORM8  = 'D       '                                                            TUNIT8  = 'MJy/sr  '                                                            TTYPE9  = 'SB_VAR_POISSON'                                                      TFORM9  = 'D       '                                                            TUNIT9  = 'MJy^2 / sr^2'                                                        TTYPE10 = 'SB_VAR_RNOISE'                                                       TFORM10 = 'D       '                                                            TUNIT10 = 'MJy^2 / sr^2'                                                        TTYPE11 = 'SB_VAR_FLAT'                                                         TFORM11 = 'D       '                                                            TUNIT11 = 'MJy^2 / sr^2'                                                        TTYPE12 = 'DQ      '                                                            TFORM12 = 'J       '                                                            TZERO12 =           2147483648                                                  TTYPE13 = 'BACKGROUND'                                                          TFORM13 = 'D       '                                                            TUNIT13 = 'MJy/sr  '                                                            TTYPE14 = 'BKGD_ERROR'                                                          TFORM14 = 'D       '                                                            TUNIT14 = 'MJy/sr  '                                                            TTYPE15 = 'BKGD_VAR_POISSON'                                                    TFORM15 = 'D       '                                                            TUNIT15 = 'MJy^2 / sr^2'                                                        TTYPE16 = 'BKGD_VAR_RNOISE'                                                     TFORM16 = 'D       '                                                            TUNIT16 = 'MJy^2 / sr^2'                                                        TTYPE17 = 'BKGD_VAR_FLAT'                                                       TFORM17 = 'D       '                                                            TUNIT17 = 'MJy^2 / sr^2'                                                        TTYPE18 = 'NPIXELS '                                                            TFORM18 = 'D       '                                                            SLTNAME = 'MIR_LRS-FIXEDSLIT'  / Slit name                                      SLITID  =                    0 / Slitlet ID                                     SOURCEID=                    0 / Source ID number                               SRCTYPE = 'POINT   '           / Source type used for calibration               SRCXPOS =                  0.0 / Source position in slit (x-axis)               SRCYPOS =                  0.0 / Source position in slit (y-axis)               EXTRXSTR=                   28 / X axis start of extraction region              EXTRXSTP=                   35 / X axis end of extraction region                EXTRYSTR=                    1 / Y axis start of extraction region              EXTRYSTP=                  388 / Y axis end of extraction region                SHUTSTA = '' / All (open and close) shutters in a slit                          SLIT_RA =    121.8165385062621 / [deg] Right Ascension at middle of slit        SLIT_DEC=    -66.3152971271705 / [deg] Declination at middle of slit            SPORDER =                    1 / Spectral order number                          DISPAXIS=                    2 / Dispersion direction                           DETECTOR= 'MIRIMAGE'           / Name of detector used to acquire the data      END                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @,Và   ø                                      ø                                      €                                                  @,Và   ? 69p¦Ö«>ù “ÑôÜÂ>[{¡44Ë=‡^4ıÖ=ƒ3¡–Â@KüF?¶@%[äÙNSÙ@\H%{ÚI?à;OG1¦?Ú¬hU‡%‡€                                           @       @,9€   ¿â;G¢ìÙ>ñCr3xÚ=òxi›=tæ©A>#=s¸RòMÀ2=)Ôİ©l@Æ¿©¡Iê@I©<ïH?Í	€L¨¶?Êí¬Æà€                                           @       @+úà   ¿	½@¬Œ>óøù¥8Æ=øÁË «àº=zŞw¬ I=o;¹ğÅ ûÀ5s­g»Wë@ ¤«Nüa@Q2rKK>?Òªpúx?Å²sÒh¼€                                           @       @+òø@   ¿
+çúkÊºá>ò:!ñ•3=ô¤şë&,=v–æy¬ìK=`SÚÏÇÎÀ6lÃášÖ4@aî>­B@L®F­Ï?Ïaÿ÷d?¶DŸ#q €                                           @       @+ëÔ€   >Ä‹[Ö-]>óènØèl=ø§„×={ÜİT´=H/Íú{?ñe¥xG @ —š·(Yü@Qéñë¸?ÒÎi‡ğ´? Ì‡´$«õ€                                           @       @+ä®    ¾°ËßLHW>ğe«êÜ$0=ğºÀ¼‹å=rK½•óÉ×=0‘!Ù8^¿Ûÿn†æà@UñˆC@G=¡	ù?Éjø‰ŞaŞ?†YËòO€                                           @       @+İ†€   >ğï2Ç("…>ñùyöoP=ô~Íiğx=u:Bo¢d=*AvòyÕ@:QR&Ú@ö,‡æ$@Kï@ïé…?Í2“õ•ğ?‚<õ4çèp€                                           @       @+Ö\@   ¾Ò¸!hP_>ó#şñÔ»=öÉ­køŠÁ={°ày5Ê=\ãìù¿ÿ3øÉ´º2@çÆ6¹C°@O¨Š”C
+ñ?Ó<,Ã€?sz×ó°ÖL€                                           @       @+Ï/À   ?
+(ÖÎR>òDW²ük˜=ôÃöBú¡=vŸ7NÕ=ãcï1L}@6<zû@r÷ÈÄH÷@LÙL8ÀÉ?ÏmYŒ (9?mõQ©Ó€                                           @       @+È à   >ÕÚÌañ>óŸ3J÷ª¿=÷õéÏwºÍ=z2ı'vT(=ˆÁ·éÖ@‚ı—¼ñÈ@ Z’Q{’ @P¤Ó ãó?Ò2ç	nña?_NYZ< _€                                           @       @+ÀÏà   >ø£¼ç
+iƒ>õ¸?'Ù´=ûˆ÷7õÂù={>Êã!Ë—<ñ\p§"Gû@$‰*cÎğ»@!‡›è@S s‚h™1?Òìí‘¤õ?H„¯sÎè€                                           @       @+¹œ€   ?ˆÍC˜êI>ñ	ÂÛv¦=òbß}“=tLd5UOj<ôÃ$‡†@;¡æh›Å@f˜pj@Iƒ¯ÚD?Ì3.'ùñ4?LØ'²«Ù)€                                           @       @+²fÀ   ?;Npœ¶î>ñuøÉ‘TÍ=òú|û*H=s‹VæºW<ì`Ÿ– @>cçÓsŒÊ@ø?—Ûá@J]½ı—4?Ë&ú·VÇ?Cµáú¸aK€                                           @       @+«.    >ôªR@õö>ñ«6İS\=óm[É=uÁg(È7Ï<üøÖK½·x@!93äœJ\@s¸$Ñ:@Jüş•ÀŠ5?Î9d­…ı•?Tü¸9ş5€                                           @       @+£ô    >ãˆ(e¼,>ğa\5…¦÷=ğ“<Yâwõ=ˆÚ»¹Ì.o<÷	ÑšY˜V@G]üÚ;@Mã-´S@GıÙ¶ù?áCÅW¶[?P ÓN=Ê€                                           @       @+œ·@   >ø‘+F­ûj>ï›âÛš?´=ï;š~:=oÁpŠ	<ó'™mq3{@$y°~r±µ@X( È}_@Eš$™¢öA?Åõ®àØlÜ?JœiàÛ0C€                                           @       @+•wà   >ßdª¶ògç>ïP&%Vé=î„7Y§ˆ=o·’Á÷<ñßÏ“F*@
+*"æ°›è@	)Ãáû@E2¡†`ş¼?ÆÊ%š©?HÕ¦Œ€                                           @       @+6    ¾ã
+nzğ´ü>í$Däˆ¯=ëMŞà,²=kÇwÑ¦”<ÑÖc×ë¼UÀ½)Ibç†@¯PLM@B÷fÙ‹?ÃKŞ“ĞJ?(ÇğîŸF€                                           @       @+†ñÀ   >ÚÉŸSÿ”z>ğ[›ò³.-=ğ§Nôìú+=qÚ}Np»£<ú÷¤Q¤@Sw3ôC@DMF”7@G"àÀ1µ?ÈÍ¢~+ÇÆ?R»±Ù€                                           @       @+ªà   >ó‹ıkË/{>ïÈàƒÍŞ†=ït%L³ÿÁ=m¸şW.Ô= l:|pà@ JˆT@}§üD^@EÙKLù£G?Ä¥w/ø@õ?VĞÌÕÎ_€                                           @       @+xa`   ?1ôÉæŒU>îÓö 5=ìÄ¼şGp=l3Â*Û5_<üTì+Yõ@@ÔâTH@
+ºóJo6@C…	B
+x˜?Ã—ô¿±/?S® «½Î±€                                           @       @+q`   ?.’=)Ä~>íqGä“.=êLáÍ…=lìŠ`•-<ç øJ­@B|ÉÚmt,@:á½k-™@BDâúÉÃ¾?ÃËÿ0ZğS??õ[|¤Mü€                                           @       @+iÆÀ   ?Â,5Î_â>ëØ»@C½>=è#y¹h3=gàºÍòUí<î>ãéc@0w¸Ô+@5k”üî×@@ÄxÜÎ—W?À–Ê1d?DÛjµ0€                                           @       @+bu€   ?8	fšå`„>îŞ„y*«=í¢f3l A=hêÅëˆ=WåtQ@dˆ¦Z2@ºTv?>@D•ÅS~â?ÁNé¤UêÛ?°™d$ÖØ€€                                           @       @+[!    ?è…vb@>ê‰T¾pkÉ=åëv£Ç£„=eôLF«+<ØHE§¸B@3í!gñØ)@áºhîÍ@>sÓ˜Ü?¾€JUA¿?0Ş®ù¿è€                                           @       @+SË    ?}D}ÄğÛ>ëA0–ò¤Î=ç¨ı.4e=hÒVêÕ<ÖbWØQ#@4iB²¢l@·Iå‚@@›¯W.?Á>"¬È?/ûx¿²Ë€                                           @       @+Lq    ?ñÊ÷{"B>ëUC˜Sª=ç?âÃÀÊ=hÎö,²D<äcş¨;e@C~ÏV!Ç@ÇÙ_âµK@@&aØÛ°æ?Á:ş\ÛNå?<Sø¼¥_+€                                           @       @+E€   >ø¤½÷)>ê[‘$Ì$=å 88m½=eº†ı Y<Ø?¯å@$‰u‹¯MN@÷½d¼“R@>i·¯‡?¾/×T+Y?0×«R¬t}€                                           @       @+=¶    ¾£N_Õa±ê>é’‚RvM=ä[^Ï"¬Æ=dÜ©µ<é¼P];Ï£¿Ğ5 @P+0àe¹@<Gıq½V4?»áİşSW?Aàwà8X€                                           @       @+6U    >ï >è>êu¶á)=å6LËH=eÑ@dø›F<õ)g~Šu@[¦KçJè@ÁñÇ¬A›@=w¿]£8E?¾OiCÃ’¤?Mf9òwŠÂ€                                           @       @+.ğ€   >ü	Ô÷ò‡L>ê€Q7=åÛ¶¶d±Ï=f¬—o9	<ñˆrT‘Ô:@'^WÆªÅœ@^o5ò@>]ò*F…?¿€ÒwËú?H[§»~Ì€                                           @       @+'‰    ¾ì|TL(34>ésäøw9ş=ä*¡ve=cşß¢ù<éSp²¦À½Å7„ÊH@6§,`l@<G3·;?»Ç!\³s³?A—S³f®ê€                                           @       @+ à   >ü‰rƒ">é!êT.jQ=ã« ¢Û~=au|¿­îu<×ôOáâµ@'È´dî@òSë'JY@;SÖŸŞ©?¸APÎ°Í?0£µÕEàƒ€                                           @       @+±À   >ù¥‹n¦mf>æo¨F{=ßYM:X°¢=\¤âSˆä¹<ãªşo)@%`«’:ï@³ŸÈ4°@5Æ¥¹ŞÍ_?³å«ª¼ê„?;Rô±âú·€                                           @       @+A    ?
+åõ\hs>ækQ`s}=ßM­H’T&=\'r_H@î<Ú')/p@9ßQ¨SÇÄ@¯j°,U_@5¾’ˆ¬’s?³‰œ¨ªu?2*¯´¢*Z€                                           @       @+	Î    >ş+YÌH½>åæıdx©Â=İß¥Ç×Ï=[ª[ŠMÂ<Ï’!€àà@)%îJ@A![¥z@4ÀPå0»ß?³7¥vú¨J?%îsëI"€                                           @       @+X€   >ó:X×…»>æHøS=ŞLˆó&a}=Z»øqYª<Ëùä>/ô?@ JëeBª@aàmò!E@5óïxF?²’÷-¬?#nä³SJÊ€                                           @       @*úß€   >ód:Hë>å :üÑ è=İÀÕú=\=¦XÅE<ÒÇ&„@’'@ )kÂ>LÂ@'ªNë@4:0œé›÷?³õä×gº?*k–¿€                                           @       @*óc`   >üò+0Gë›>åÚ¦¨Ã_Ÿ=İÀ´H@=Y~àè¸O<Õ|j¿NS@(û¹4úü@6ØmN®c@4ª^=BsŠ?±µÊ`kì?-İÑ#qw_€                                           @       @*ëä    ? Òİ9Q>ärwÂuÈ=Ú
+Tª¸”=VÿN$Å7Â<Ä´p»3×@,à¾ªB@
+¦ÛAÃ@2¨òŸ„?¯ósøŠ?Ã»lÃ ­€                                           @       @*äaà   >ïr1êÚ|>ä'˜[V=ÙM'7Ê=V1ûº°ˆ<µSd…
+@5iKs6¤@Ì?£-^½@1“@ŒœĞ?®ÕË5÷Ô?G©HS€                                           @       @*ÜÜ€   >ğ¼“Ş5>ã}Ê~k€ =×ª}ÑoÚ›=TëO
+¦×<¼•éßÚd@±Ó¬¼i6@>º\~%@0po#ÿ8?«ë«éN·?ÛEƒüß0€                                           @       @*ÕSà   >Íõ%ÔL>ââ+Ë1¿+=Ö7r&F}d=Qç[MgÈ<·ÜÈû­uœ?ø¢¨–^ô@z!°Íw@.İbô"ú{?¨ß·š…¾$?“^ªıyü€                                           @       @*ÍÈ    >ğğƒ°7>âD)'è=ÔÇ€ÛAWo=R˜¾/g<Ğæ†d–O@³ÔøA@rlˆØÔí@,Ş7:?©ÕòÂRİ?'z³àÃ²÷€                                           @       @*Æ9@   >õìª!Şe>â6 è<½=Ô©[=R=])Ì”<È8ôj
+”@"EOoÌEV@\«wV@,´U-«Ÿ'?©VÿqÏ? ÒÏâ»¹ü€                                           @       @*¾§    ?CVY%´>áƒWjN‡=Ó—5Ì©@=P­ğ‹ ¦<Å‰³GCÀ@.qJÎ‹q@1Ah³Ë@*ŠWP`H?§,'U.?ìáµy€                                           @       @*·€   >ç€úñé¸>á¨ğÂh€=ÓmšÕÑÛ=PHÈ—ûfÍ<ÓËîtÌe6@.A«<è@oíÕg$Ã@*ı«„6»î?¦Ÿ½PL¾?+€·	t€                                           @       @*¯xÀ   ?	¸`ÃÚ>áä¸§ÑÉO=Óñ¶
+ôÌ}=Q
+Å´?<Ë»N^oO±@5oÖ-O¡$@Ó“Ï€<`@+µ3u‚í^?§¬N#-?#Ck\³@‰€                                           @       @*§ÜÀ   ? ‰	=e>áëü Dß=ÔXÍà=QïÉüb®<Üä§¤ªî@+á£ù´®@ß°.Í<ı@+ÊyÏàÃ¨?¨ê)'ç¶?3Ñb=›€                                           @       @* =@   ?”À0Û>á„XCßz=ÓTÂ§=Q#Ñøâ<Ã[]20÷>@1'-*4ˆ@2í‹ªİ@*ŒÂLµb;?§ÏÚj%ê|?äT"ß“Ï€                                           @       @*˜š€   ? ¿‰ˆ¨ÛT>á7^zâñ=ÒuŸt$$=P»©Ú<Ê‡v}Â@+êŞŞº»@²N“@)¥(jÒ?§?&ëW•?"m”e|–€                                           @       @*ô`   ?z`­¬‡G>à»Æ0)¯5=Ñp`d“¹°=OrZ+n‘<ÍH‹øM@1æ›N‹£@ä™#í†@(:7%ã#?¥×Û.cÙ?$Wh@½€                                           @       @*‰JÀ   >ñq7=ST/>àé²'ÍÅ=ÑÑÔ[ml—=M«|íÛU<Ïšê{Nr²@
+¹¡3Œ@1%
+ù6@(Ášbëi?¤›ÃG4å?%ô9«gck€                                           @       @*    >òZÀW—Ö>àÜÜd=Ğ"Zø"=LRÆç	Úy<È~gàUÙ@O ¶“¶@
+ÓÀ©°xÉ@&iÔ¦… 4?£¬¢ÜOÍc?!£GF0€                                           @       @*yí    >ìüÜ_¾j>ßÃ"e®ÅG=Ïi»?æ/*=LÜëÇJ<Ğ›ÆÒQQ@b£Ö‹ï@
+xŞ¸]n6@%Ò_(QÒ?¤î—“?'Ûqşr€                                           @       @*r9    >êïzA_>àuAÉBA=ĞÖX5q$=L*ˆõâ<¼€¹‚ãN@rŸ¾<&@
+¾²—é@&F¸Õ?£¨;óN¾?Ì‘‹V+€                                           @       @*j€   >ùŠqëeI	>àvK-*¦[=Ğá›î©o=LŸë’¼«<Õ}qLìŸ@%Irâı@pÈz¥@'sßŠ¢ ğ?£á›„Œ$?-Úú¬vz­€                                           @       @*bÆ@   ?ÑôÑe±>ß2Ò<Ç*=ÎQqœ¼q¼=I/‡Ÿ…<ÓP‘æ^@3ö¨A@
+ —™˜ón@%\ÛG?¡~«öŠ^½?*ÕU-b-.€                                           @       @*[€   >õãn›8×À>ŞãòƒuÌü=ÍºÈÁÓ†…=Fà†“e¼ß<Å-ìñÓ¤@">)øÍJ@	¾Úüq5@$¦µ1B?ŸÈHŸ ¡s?lô±!€                                           @       @*SE@   >ñÎ«ì*>ŞƒP˜=Ì)q„²òH=G`®‹¹<»NpĞ–}q@\«hui€@	wñ@#ì«ãş{? <» Û#?÷Ì8îµ€                                           @       @*K@   >ÿ6ª*üÏ>Ş´J%§E=Í]ùl¼±=GñÓÕãø<ÇKã&v§@*KÖ¨@	—"…Rg@$f=“‚º”? ¡üuÅª? .¸ÔŠ²€                                           @       @*Cµ€   >ì3›IùF>Şw›h´Š=Ì-<¾êº=G=å¿Wß„<ÁwO«k/@ Ñ¡@	)Ftê@#’QÇ=? % D5k?CÙ{+ùë€                                           @       @*;è    >å]3ø>İS§ëÈÔj=ÊÊBé•Ëá=Fõ­ËHˆ<È. ·k¾¼@‡K~Ù@q;Ö±Â›@"›ûCÛ·Q?¼ÂJ ä? Ì8tF…€                                           @       @*4    ?í(éÕša>Üä™5fÏõ=Éş(g­=G¬ÊqÌ°ï<ØXyÔå@3¢Lì`@¬XUû@"|[FÚí? rAûE?0¾!¾Ôıª€                                           @       @*,B@   >ü\Á;9‘©>Ş4£Ú¶:¬=Ìl£À$˜=FW„¼­“<¿/==è®W@'£thÀB@	,¾ÿî@#¾™}"ô‘?Ÿ	_{½Q4?©mê·!€                                           @       @*$i    >ùs•aÅ>Üèd?£l=Êj¾\b=I»}eê<<Ğpù”¦‰@%6^Çò2;@Õ§ID-@"Û‰Ø!?¡ßä²…m?&×dæX1Ê€                                           @       @*    >ôäKZËk1>ÜBõîP ½=Èá·ƒ`.=Cì‹·õ<Æjù4á§@!i…*êdP@ôèj}ê@!HŸ2¢Ø?›®C(?$øİó¬ €                                           @       @*¬à   >÷©ˆ*Fæ>Ûñgšì=ÈPÇøh†=DıŒ­rŸ7<Ø¯O4v«v@#¸¡±¢H)@I¼kpo?@ ãñĞÈ|e?)LãÓÕ€?1%›m4L€                                           @       @*ÈÀ   >şã!_±[>İb’cP_=Êæ´S­Zá=EUÄ±{Š<Î¡MFÅò@)|âz@}ªÚ @"¯½.İlá?4ÓÃäš?%FÕ¸T-Ú€                                           @       @*àÀ   >öUºŠ@
+>Ügº¥u=É!®?[Ê=E ²‚l*±<Óiçı?î@"œäâ¾*@¬™d
+ğ@!u¤æUÙ?-¬háÅ?*øˆ|›€                                           @       @)üôÀ   >ò÷¢•@>¢>Ü—aO=Éw‡èmB‚=DqDÔÄR<ÓØ*èrØU@Ô]À@Ô‚¢7Î@!°°21¡?œfÒƒ´Ez?+‘¶Ù.x€                                           @       @)õà   >öQ5Ê·éc>Û÷GO»´=ÆÏêvbH=BøTK$9<Ætò†’G@"™¨}8@Â}»@±5Kñ0?šZ¾(ô]v?2Ô‹?ù€                                           @       @)í    ?®.²ù–o>ÚİÜ-mŸå=Æ|¸fWeb=A±{;À6<Î^&Æç2@2ç%IxŠ@dUäHî@= ”tÛ?˜”©Ú;%?$çi…Œz€                                           @       @)å@   >ø|Æ·çŒ9>Újåé’‘Q=Å½JÏÜ†=A¿ËPñºÓ<ÀÄ¦@$h±o{mb@„{Š'@3®®aQ§?˜¨Œ?½ÆZ?_¡=ß§€                                           @       @)İ`   ?)9ÓZ>Úµ¡Dù}=Æ8›‰P|=BoÚĞ¥W<Ğ÷tş­w@0­â,2ù @BÍséğ:@ß f?™œ©Ëçƒ?'’9Íä€                                           @       @)Õ€   ?€|cÂi>Ùóÿ	\X=Äû?zy=A.és©ŠÏ<Ä‹p7(¥@1UÊ„pÒ@¡kJMşv@&UÒ‹?—ßD|ÒÍ«?ŠÄ«hS€                                           @       @)Í€   >ë»P‰½®>ÙØ¤‹l=ÄÎá7nZq=@D	$ˆ<Â¡=¨%A@ŠU\ÃÛ@Šúâ^@èvª0RN?–˜õûP›Ë?áuV2ÌË€                                           @       @)Å`   ?ÕC‰ğ>ØĞ¬C±SÀ=Ã.Ó©¯ÛL=>Å”ßëDó<Ì´y†4sz@0‡¡m}¤ @®Õ@w@¦tYßƒ¸?•`	3•Ïb?#ğ€µÉ›€                                           @       @)½    >ÿs,Djî8>Ø£’hqà=Âé¸èÙ–==™G8s¸<Ê.(‡Ç”N@*69ó\¥q@‰ùŞ@Fs'_™?”o¤i?"/Œ	3µ©€                                           @       @)´ôÀ   >ÌÒÃqH>Ø…6gF=Áú/°´y=<#ñ <°]{:¸Û?÷jÖ_ùĞ @Lµlté@ùª´’ÛÏ?“‹t5t]?¼Oöç¢Â€                                           @       @)¬à    ?eñO š>Ø·Ñ¤¥¹Î=Ã	Iœ>=<âFùîlj<Ï¢¡-Àè•@0*ÙªR@™æìÏf†@rMiU,?”PüÕÂ?%ù•\{3N€                                           @       @)¤Ç`   >îÈ	xsé>ØnKõMZ=Â˜Htqz==¸¯
+êë<¶õË..ü@§— BYç@\ ¾@Ôó!ñ‡?”¥@ÇîW?åÔ‹TÅ€€                                           @       @)œª`   ?;‘™¶ú>Ü!D°M3=È†•-ôí=@ÌåÄİ<Ø•;óÓ@3\ûÑ)uB@atˆÿ@!ëRâô3?—Waû]?0·Y°i„€                                           @       @)”‰    >òÇ‰á­>ØS†
+£h=Ân‚·2=>ã»ù04<Ô'ñıB@ÔÉ«X<@FKç­ou@›E¸ò\?•tû&^²@?+ôV=ğ-€                                           @       @)Œc€   >ñŒMCE÷š>ØŸ{@Têı=Ââ…ó]”=?t:ü¼¾<Ã¢àv@@1óz@…9)>@<rÉºÆ?•ÙZ»%?G­;ÃÆÁ€                                           @       @)„9    >ôÇÅµ|]>×V®êÌ^=Àö'ê(f=>¢œÓ©<·¡ôâšå@ ¯;¬Ö–!@s”WÆ Á@kôá²?•G¾ÍŸœ‘?j&D]e€                                           @       @)|@   >ø–9|CÍ‚>×)µç,=À¶í;ÀÅA=:b"‚°jœ<¸ÑJ¢ÄŞ@$}ç&9Ü@Nä•}}@8“mµ©`?’S¦ÒsİÂ?=6XÕtB€                                           @       @)sØ    ?’?3m¼>×>€šÍ]=ÀÕ"ÙNq7=:JTéîÒç<µŞAµJğ@0OÆqL’@_m½Ñ@b‹~1ÇÆ?’C ­ãÀ?ayÃ-€                                           @       @)k¡    ?ZÄ‘>×d bÚİ+=Á²´QVˆ=:ÉÁ”?RÒ<ÀC‰Æ‰¯@0!‰c0°@~ÉRE„@®X–gÔ>?’›¡lü•ô?˜E4ŠÖ€                                           @       @)cf    ?şî¼|¢Ç>ÖzãÏó“=¿|5åv¡=9KØÔºPD<ÀN0ôÈ	@/©ş`d@¼ebâ:@Şåp“F?‘’Wí÷ˆÜ?§ıq}ı€                                           @       @)[&@   ?ùÉçÙ@š>ÕâT‡sN =½ØbĞ46<=6uPÜ¹T<ÁİSÈ»!@0¦w^ø@=>àÔ@»E—ç5»?µmP2v?ÂğK¾ñ€                                           @       @)RáÀ   ?z(8’”Ğ>Õ«ëO²S=»¦hÈïW=5Rüÿ	öP<¸âĞµÉW@1æl@¦“8@˜ÁL@4ç[õKÖ?Ÿÿfùnš?Ib†×W´€                                           @       @)J˜à   ?_É·â	4>Õ„Øy.ê=¼ÚKdu=4±‹*´Éş<©%Ÿ—‘®l@0%¸~MzS@î¶ºµH¡@
+Å:œ°?Œ¿µ1pĞk?wÊÅ%«€                                           @       @)BK`   ?We‘%×>Ô¹¼>mcÑ=ºÂ…TÌS–=6-gË¨3<¯ò‡·+»!@0ôóÂŒ@F«kHı@–šÊ™„Â?Ïp¤ó?1Ç"Ço€                                           @       @)9ù`   ?j@ÄÁÛ>Ôõ®ä™T=»`g¸E‹=4uĞ
+UO<´6À®ÀYì@-T£ì\@xJl+@FÇ5²?Œl¹¸+ø5?E8ê
+€                                           @       @)1¢À   ? ‡­3x>ÓøGƒê=¸ØWCœE=4H$¾d“<·NaÁ@@+ÁºÁZ´@ ¤Ğmí¼@BæÏ"?Œ-G`YåÆ?ÄàÛU­€                                           @       @))G€   >üæÆ{Ïëö>Ó»ó¶ãíÏ=¸A•I+=5S÷´½¦}<¹±²Æğ	@(|Íæêœ@ rˆ×	U@Ùc	«4"?¡[´öY?ÙÇhı©€                                           @       @) ç    ? °3n²:>ÒöëIX5=¶fu~ù;=3æRè/8<¸#¸Äs@+ÑNx‹°$?ÿœ¢Óà.Â@³Fxåº?‹¥a¡E;?Ä¥ÒÃ€                                           @       @)ƒ    >ÿüPê_>Ò|5TÎt¹=µJÂ×4Î=0ïˆs,’<Îwm4uZ¨@*¨VO†Œ„?şĞ2vš@“˜™#s¬?‡‡7œ”?%)¿1£íd€                                           @       @)À   >üë!g™">ÒP+üàE;=´æB@£t=/Fy1Q<®hÓ"_Ì!@(Éƒ>Å?ş†¯èÁ0@ñ{ô?…¹‘Ürb®?šš[®B€                                           @       @)«À   ? ¹>¶f>Ò–A~çŠğ=µ‡Ú%ã=/)±W´³)<Ã¶ÊL|L@2ÛíY?şû‚6ô¤@ép“¨áö?…¥“›HÎV?bKBÓTm€                                           @       @(ÿ9    ?&D3ãƒ>Ñ^K™TÕ=²ÊÕm	™/=/	h&âU<Ã¶â¸!ó@.@Ö
+ÕC4?üó€ãœÚü@
+‰Š5ç)?…,°Ó›?czÙØN€                                           @       @(öÁ`   ?işû+O>ÑÈ9¤ˆo=³³ßõÃK¢=.né†…h0<ÆZ~-¨ş:@-‚ƒaº?ı¤Ëíß@_K;QXø?…#ÕM³Ê?“]€                                           @       @(îE    ? Nö3Ï¸>ÑY"Édº=²À10p=.²?4Å<»v°m”@*ÁÈ4¢òR?üêç<kå„@
+ÀØR¶j?„ê"iÔ?QVËæ€                                           @       @(åÃà   >ñãd¶YT©>Ñ¤Ùğù=³1b¹Áı7=0AY`©<ÏÕ<üÊV¾@Ñ])A¥Î?ıBmY=ƒI@
+ªh¨?†•:©Œe?&¼èæ	€                                           @       @(İ=à   >ö[Á°B’>ĞM>Yñ=¯ùPK#&å=*«®G‘“<¨`ñcr»@"¡Ö(Š½?ú³õôÇY@5ÌaY±?‚†½;Q(? ï+ë¯¬€                                           @       @(Ô²à   >ìôD»DuY>Ğ{_õòY=°ì•íºƒ=*mF†™<£s"Tõ¶î@!»¼­µş?ûx½HöĞ1@ƒ1/øF?‚[GFf
+°>ûZH_€                                           @       @(Ì#    >ÿ y6 Qş>Ğ<p›zºO=°lËp¹Ÿ=)Ò\˜–†<°ç–ùÆ¹Æ@*[ûd(¢ ?ûX[÷ÚÄ@Ñ–0%:ı?ïÈ.f­I?|.’6¹	€                                           @       @(Ã    ?8ˆ2ğĞ>ÎøÖ«írè=­âìª‘=&Ïûõ®ù¹<É8V``„z@._GíùØ%?ùĞDdˆ×X@Â—œË÷?±Mšã0U?!„Êœ–Æ€                                           @       @(ºô`   >û¸O^Â¯F>Î"ÌÎÈ“c=¬IıpN«='ŞCZl?<ÉyÖ©Ì’ì@'fn~?ùà›²¿@¦ˆSS?÷ş¡¢˜Z?!²Jo	«ë€                                           @       @(²U    ?VcÎ“:£>Î94¦\-=¬tqt`=&aƒÇ¤õ<Ñ3àˆia‡@3sVpS–P?ù0kkº_C@Ä™]<?Óğ¢¹Á?'æ*\¥Ğ€                                           @       @(©±À   ? y
+Ò6s>ÌÁ6GfÍ=©¾w1F=(+ÇÛóÁ<Àyÿ¦ğE\@+u\é0·?÷÷¥´?y@á¦pV@?€Ê>*FÉæ?ãî5Eò€                                           @       @(¡à   ?•²ˆ‘‘ª>Ì›‰Œ§á=¨uÛ“Q=#Å­‰Ûk<¸K¾@±@-OÚVÓ’Ä?÷ZÒuÚ@ ı³®ùM?{w+NÖƒ?àqï¾Ÿ€                                           @       @(˜[    >õf±À2œ>Ë°İÆaÏ=¦Ğh-4á`=!ìÁä)´!<¶œc˜¾µı@!Ö3 PØ?öİ;ëW?ÿ±ãò[«?xç…Â¹?iŸ¦'-:€                                           @       @(§à   >õÚøÈ9c>ËzK )=¦É’’	MD= íüÏğD<ªÊš³&@"7E†¾Â?ö‰÷òÕÎ‚?ÿ¨eF†Pi?w…÷ì?œ7Æø|”€                                           @       @(†ï    >ö@›íõú >É©¤şNöì=¤„7$ø
+= ;ÅIß˜“<±•!eò÷@"‹Òt1ºc?õcsl‚W`?ü€¼¡×u?vz©øFº?È”æ¤îN€                                           @       @(~2`   >üuøm–z>É]`ºîŠ»=¤
+§l±Ş]=ìÉLËm<ÆŠ8I¥@'¸xyQ–(?õ#âûó=?û×Úw/K—?v,šJ­3'?Pa»:Úù€                                           @       @(uoÀ   ?zÀ®Ğs>È”—SÄ+ =¢Ò&¨=.=Õ@R6}<ĞuúSóM@0<1¿¶K%?ô|Š¢Û¯ ?ú%³õÉ$?t¹'°Ñ$?&ŞX2MS†€                                           @       @(l¨    ?¿fp›P>È¼Å$wlá=£}º4•=!â¯²H<Ì§‚´÷s@2õ~£·ù¬?ôQmò?ú|Ob¯K<?t<€4A…?#ç2-ã8s€                                           @       @(cÛ    ?à]ˆâŸÒ>È:n„|÷/=¢IÅ¨Â5=y´ÄÜ<ÑÓx‘¾Ì@2;›§ÿw>?ô1f ÖÒè?ùh;‘âõ?sÙ~±y?(ÃAC³™€                                           @       @([    ?¼òB#>È£[¦2†=¡ö«;¹Åò=ß^9·<½=>jm@1H¹£‰Êd?ôå¾úÌ°?øôÈ’ß ?r%®WH™?O^õÊß€                                           @       @(R1    ?~Ø(YV>Çkæ¸Ÿ²p=¡Ëj3=Ë}}“ÊÈ<Å¨«¼`­@2¿‘²?ó…D)z?÷½Â­Ğ.?rœÕÈ&„?¢EãR€                                           @       @(IT    ?DvÇ1Pß>Ç	oéçYY= ‰uïã	4=ÚfUÿl<¸BÔş!m|@,ÈrW“?ó33è¤?öùiS¡Áı?p‘¶}-ÓÉ?ÚAKÁ€                                           @       @(@qà   >ü¥‚1ä)I>Æöü¦=TK,½@á=0 Ç«ˆ<¾Õ_Qşsw@'àT‰°ä?òcG•Zço?õW¢‚‰±?pÈ£ø¿?k8½î(€                                           @       @(7Š@   >ü^½ÆôÑ>Æ/;²¢U=¬‰w€Q=¹¼ó•IÆ<¦a5Å¯'d@'hÊó£j
+?ò}W–:?õN£^±Ş#?n.¾¥4&>ÿh{›t€                                           @       @(.    >ò4dy>Å"Ê@;a=›×—ôL=XnÚe<£ocH¢Ø@X`á%)?ñ›f¶ı?óV¾ÂA~?lCoSp’§>û %Qw–x€                                           @       @(%ª    ? àÒ³KÏE>Å¦b«Ñ9=›¸-Š;–U=öp@Tû¤<¼66-İb@,"ZÀœ\?ñ“}(Æø?óA?AO?jX²$<ê?˜Ë105ì€                                           @       @(²À   >øGËªÙ…>ÄnÛô‡µ=šËoV^=!ÈGò§}<¬‹çFç@$<‰Y´Å?ñ¤êtÜU?òĞEÿ¿v?j”U	TÒ?ÔQE­6€                                           @       @(µ@   >÷sôÍŸÌ>ÄlE@=˜ıFÛ=„qš¼qÇ<±¿¹Óx@#‹úËãÚY?ğ°™ıG?ñ[Ãnò£?i¹¿-½²Š?eÌ•!¨Ø€                                           @       @(
+²`   >øN·Ş*]š>ÃQÇÌj=—B¨Nüƒ=v2ÿm<§kÒNB@$BNbÃÉ^?ğİ!‰­n?ğ'èÚ3ò?g¶Zp¹”ô? icÂl€                                           @       @(©à   >û5ˆ"Œáb>Ã¾ÂDœ=–¬);ÖÊ=n$[[U<¥Zñµr“@&­fæ’Â€?ïËæÚ©Ò?ïRº;*?fÓu^B/`>ı«ñ%€                                           @       @'ø›À   >ûâ<­Ûc>Â¨4Ó[6,=•°\¥œ§=åîÀ)-<œ5aFG
+@'=W·(š%?ïn$œOÓ?î!·ú P+?gyá5[d$>óàV¿˜Êa€                                           @       @'ïˆ    >ü!ÖPı^>Â½]xĞë=•âªıôÌ=ô•¹¶½<§"~y@'rY˜aÉG?ï<³n~<?îg›rpü3?f2ƒ)•ä? >1­kÔ€                                           @       @'ænÀ   ?2K:ômu>ÂƒÛŠv=”@.äQ)y=fHËæB<µÂN„M @/ÿ›†BÑ~?î“,UñÍ?ì"8A¦?fÈŠÅë5ê?:c_¶l€                                           @       @'İOÀ   ?¬àù%ë>ÁİØ2õÆ+=“å2åÇV=±}Íl <¸ÿ™»sÓ{@-v~kÿ±‚?íÈPå®Ü?ë£Ñ­?c<šKê?]aLÍ›¥€                                           @       @'Ô+    ?:"ûb>Á}hi8ó=“n¤Üàe=ñTÊy><»7ÀâÃAä@.aç•?í'\æ}9B?ê}Oé„?aSw£à+§?è	ÖcÖ€                                           @       @'Ë à   ?Û?¿føH>ÁKÈÑLõO=’Ÿáè°Ş_=(İ=‡„<¹ğ®„ŸI@/nƒQ†8ã?ìÔ¥×£æÅ?éßİÑñÉä?i9Yuz§U?×‰¤3€                                           @       @'ÁĞÀ   ?ùÀŞvÖ>ÀÂGRğ=‘€ö2ÿÌ=Êo{)ü(<ºg_[&l3@0¦
+Moú?ëïp.X”¡?èQAµù V?a8s()Û?WJ8E€                                           @       @'¸šà   ?N+’\WN>À¦ÈgŠ=öÃ¶P@=”ˆ({+<­óÛ$@0ìfO¯Œ?ë€a:ãï‰?ç‘Cb2?a­“?³?.§šò"•€                                           @       @'¯_`   ? .ï¶xñ>ÀÊ§‚“=ó~=ı_= ×xAÏİ<±„6¬å@*øR…Š=?ê°@jš‚?æ1ÁHê—<?`ÑbÉç/?UÆ>JÂ€                                           @       @'¦à   >ü\ªChó>¿$î:”šğ=9ÙXxæ=–Êº¼ÏK<¢Ogâ¥’@'¢ß•k=p?éõù\pe?äşùÑL°?]ş1ò}²>ùX{@|©€                                           @       @'œÖ    >úíöé]ğw>¾Và…K[=Œ®]Uø˜¿=^¿;Ùi<¥ŠMÚ¢s@&qÁ!ˆl©?éIGâ”÷<?ãìAŒŞ”?]XIDÌc…>ı8‘Åt}€                                           @       @'“‰€   >ùSlÑâ?>¾G=ÛTŠ-=Œ’q”DŠÌ=u¼<<¢úL´ÿF@%—næ‹R?é<?àjIF?ãØÜyºEO?[şFr>ú]zë³Ç^€                                           @       @'Š6`   >ù ½4÷$°>¼œÒ(Cœ=‰›f{=š9SCXÏ<¥
+9À–@$Ö­YáÚ?çØÙ¶nJ?á·œ’j)/?[;¨jTv>şCºó€                                           @       @'€İ€   >õË/F-ú>¼QÚùwL=ˆı¯†p='œäÛfÛ<œ¶’Â‹l@")ô}7½I?çš^àÌ{_?á\Í¸ å?Y8Ç ‰>óñõEYX˜€                                           @       @'w~€   ?H¼ûV‰>»§jôº¼d=‡ÍvzïÓ4= ´ü„¿ <ğÊe?P«@9=0è²h?çQæ‚|.?àˆ¹öÍiV?VW5qß6?GS ¾*—€                                           @       @'n    >ıa’RÖ·>ºÚjáP! =†z$İÀÙ<üC>ÄOÑí<®€¨·!-è@(|ÔéÓœ?æav‰#p?ß:OŸŞK?S¡ØæÏ}?0(÷öya€                                           @       @'d®À   ?áMjAç>¹µ©¹±â=„™Ø'Â ~<ú¹¸å'»	<µo/CØÒ@/xšrÇ?åmw·’-×?ÜÈ|üSY?R~,6ê¾?Ç+ƒT€                                           @       @'[=À   ?~JCXÕ>¹Tá3ø¯=ƒÿÇ#j}ñ<úL!`¶Œï<²zğK@1I†WÎ?åÍËÂ¥Ø?ÛÈ¾X†´?RD]ÛIà?	«c£ÎÑ„€                                           @       @'QÆÀ   ?ê{—¬[>¹+x¾Kb=ƒ’_&P›ä<úşó^¢ï¸<Æ×…ÓPè@3XæŸ¨?äã‰°'¶?Û0¿¾^‡?RÀ”ÎW$?»Æ´ª•I€                                           @       @'HIÀ   ?›b½\0×>¸€IL+ş†=‚µKÄR»é<ø’z®wÍƒ<»gt)Euõ@3¬×Ş»?äkZˆ3y?Ùı—S¿?Q”ªıe?	,4ZCÓ€                                           @       @'>Æ€   ?m+˜Wöm>·ĞáÃdïš=­hh=zz<ö¶hk==ç<º2\ü@3†Rìê=é?ãÙm¢šbÓ?ØJ5?OÅPğÛU?q]m8€                                           @       @'5=@   ?½A·šœ>·šçÚªß=]_º§ï.<öB(x
+J<Á¥™œ*š‰@4o%"ˆq?ã¬q#¶×?ØĞÓ‹ì[?NìDÅ0¦Í?„(9ŞÌ¨€                                           @       @'+­À   ?€m§_]I>·ŒM=€ŒŒõ£YÈ<õf2š«Yâ<³vÑòÁ@1ë¦K¹?ã4…²›j?Öı´DÕDâ?Mº¯G³c?
+xóô¤€                                           @       @'"    ?­­>¶˜´2=Õ‰Ša¦<ó:/„É	<°[Cäœç¤@-wÓ‰0«4?âÕ>o
+.b?Öö?“»-?JtÿIó¡?¹;È@±"€                                           @       @'|    >ı±Ñ…ˆë>µ:BĞ=}!h"ñd<ñy^3ˆ<²¡õ*@(¿¶”?¾¬?âì×YTÏ?Ô<+Ş=?G·Â€	´X?	Ü½«@ÑÁ€                                           @       @'Ùà   >üÎî ë>µÄ)}ê`À=}ŠjÑÃ¡<ñ“+Ã<ªÚmÓ½¹@'`ÒÔJu?â$!ıô?Ô…³Õ¤T?G¾{øÅ?Åm?.±€                                           @       @'1€   >øŒC‘{Õş>µ:>ûsM=|âi¥<ñ©Ffş¼<©éWX÷ @$u™íû?á±(¹.Â?Óƒº7İÈ›?G¨¼àÒP?ÿ¾Š´f€                                           @       @&û‚À   >üÒ=…º>µ§>‘…Ì={ÌÖ:€Ö<ğ¼úİŞNs<±&ª›!@'ÎJ^W?á™SiÑÃ?ÓO˜Çæ`#?G@üHÑX•>õQÎ	Å
+€                                           @       @&ñÍ    >ú:ï¸{»œ>´Iğå¹x=y©°’:Â¯<ğù6	×<—Ù>æ|Ó@%Ü‹B‚4P?àèß ÄÁ?ÑÓ‡¢àTí?Fexßb,>ğéEQ¿€                                           @       @&è@   ?œF×G^m>´Ä‹)şÒŞ=zã’é4<ï¨.ò–ëÆ<¶8Ÿ\™D@-ZÑæ¿^\?áOÀGŠ?Ò­I¼,?Eıpøbü?ß |¸Y€                                           @       @&ŞP`   ?À¬ğšñy>´)„½ËäJ=yWÌ1Ó£o<íI@dwCp<¼lQPºó@2ö4W[?àÍÚ8br?Ñš¥LÉ?DWØ…¬Oë?¾`†aüµ€                                           @       @&Ôˆ    ?”s„/Á>´î6£ä=y0É¬§<í\ñÒµ<»èÕœŸU@3§ à`?àÀïB7ÄK?ÑŒì·Å?De…ô	n?c}y¶€                                           @       @&Ê¹€   ?
+ÔÈ×:>³ #’‘Q=x‡¬âà<ìÂ¶‡œnH<ÁkR»æY@6¡‹.wˆ?à[Z”$ä~?Ğ­>b	!ê?Cúdò?2É$®Yá€                                           @       @&Àä`   ?{Áé¯3ª>³ÏgÍ'Ñ
+=xw§|!<ê»ÑÂúş¢<À–ï@4gØ_^?à‚¿z“˜O?ĞşòyÃ<¯?B‘ó3C)?ÿ%+®‡N€                                           @       @&·À   ?	WA`>³L©Ç_Dè=w8ƒq <êæ „;&<ÀÍõß¨É@4éƒÃBĞ?àÇü¬¡²?Ğ ğ<Ÿ“m?B¯V‚L ?[ƒ7ºÏ€                                           @       @&­&€   ?	s[]h×T>³8|ƒ¨=wÍeı<éö…ÅÉ©î<²VØ0(õ@564|}ˆ@?àö¥R•)?Ğ `qş?Bæˆ>«?	ze¬²ø€                                           @       @&£=à   ? gƒâ…®>²p8ÿËÈñ=u2S6æ¦I<ç™`4‰FN<·7uË´³@3+¬[çÁ?Ş¼…½æ?Ír¥}à?@d‹…ú¡? ‡Œè!€                                           @       @&™N    ?ÂUH {>²)7kŞ"=t(`2¸^<æ¢»yYëÔ<µÌÜÿ9F@0wÚTõ\v?ŞE}d%R.?Ì‘Shîæi??ro¦^â?VñÌÅ€                                           @       @&XÀ   >ş¶¦Y´s«>±€{—*S>=sJdæ3<å’&Lİ¡<¯\ËSÈï@)™2¶Ç¬?İ,}ˆCµ?Êˆˆñ~8?=÷¾æŞ?ÉÌAk`€                                           @       @&…\    >ù‚C:¶™6>±@›gHe=rş“ûÕ4<å Â»<¨@I¨ä1q@%B Î«B?ÜÂ+ SR?ÉÈgj?=UàĞ°Ë? Ø|Úåõw€                                           @       @&{Y    >ú şdq$x>°ß ‹oû=q¿’ÂJÿ<äNZ…SÔ<šûÑ«e‡q@%¬@wKòA?ÜQ·ÄEb?È¨<Á|€†?<5è ·Åö>ò¾gê÷Â€                                           @       @&qO    >úU·ôÍz>°Â®²–Å=qƒ[
+“¦q<å=ıäA	<¤Z‹Z~ù*@%òÜÖQà?Ûğé¢X?ÈT•İO?=‚Òà4â >üF×¬ÿ\€                                           @       @&g>    ? ‚jmÂK>°`êÂ–ù=p¹¨¤êÀÑ<âíR8dç<°I!Hó@+„üÌgF{?ÛM&C¥?Ç<_ûhÇ?:Ksî‰0?VŸŸÑ×ü€                                           @       @&]'@   ?Ÿg¥¦À·>°/÷CŞF=pV?l…<â3âzâV<<´Ò0Z‹ü.@0Z½óé,?ÚûeXÅq?Æ²~<õ»?9IÔ!ÌÅÇ?í»(t€                                           @       @&S	@   ?J×9Ìu>¯«úíÕÛ=oC¹gD”<âµxøõ}<³[B)@2”Y¥Ÿ?Úe’|œQé?Å·¨t<èÙ?9ıÜcUZ8?
+ö	õ n€                                           @       @&Hä`   ?	"±-ØYÕ>¯¹•üÆğ=o\‡ÌH8<áü-:ú<Ác™@4òù¦TB"?Úp|ÀS'?ÅÈããÄ¶?8üoo42=? A›k"x€                                           @       @&>¸À   ?î‡Õ $>®‚ı3 »=mZ˜‹<à§ +æ“™<Á¹À«,@3ò#K¸Ù?Ùn«™;Q?Ä&ÇmÈ¼?7"sL3? '‹€                                           @       @&4†@   ?½))ç>®A§¤«o=lˆÂ}go.<İô¼İ(Ô<¿!k5BÕ“@2ó¡Ëb?Ù7—Şbœ?ÃÒ"jpÖù?4Î÷H5Å?ŸÔG?c€                                           @       @&*LÀ   ?ÅG(>­8˜†#;š=j›=*¦;<İµ›òö8<Ã‚N•LŒF@2%8İ¿?ØZ®8O‡ò?Â{QpÜ_?4£µ"?nIc]Ş€                                           @       @& €   ?Ô±H:\>¬Ü¿€]
+Ä=iøG•¬F®<Ü7ä&ò„<­æh!‰D‘@/c•6êÄÜ?Ø!\K•Ü?Â
+ü¨È?3™õŞCÚ?ÅÛ °€                                           @       @&Å@   >ÿ›ê#ñg•>«ï3ñÒz=hT\ååÆİ<Øºë‰'¯<®}`ÑSi@*X.²œºÇ?×H%k,´Ë?Àæn¾¥\­?1-«Àa6?-áŒw#€                                           @       @&w    >ûtX™i->«¦`­„›{=gÕûôº}º<ÙšàÅE¹
+<¥¬½ï¥òW@&áÀ ?×sø¿|e?À¥J‘ÖÒ?1É=¸ıà™>ş°‡„Q€                                           @       @&"    >ûÃìÙz>ªú"ô¸=f¬sÄS ı<Ø5§&Ô6»<Å•;µ?Ì^@&šl«®ŞÅ?Ö{ÒV6òÇ?¿ğ6&?0Ñµ[Û?ü™ Èr€                                           @       @%öÅÀ   >üˆnã ²v>ªÒ•:¿=fİ‰aA«<Öo1íáœ†<¦¶ş‚}ØÅ@'ÇÛº4.y?Ö.õÛt–İ?¾°›o#À?/*ÖGÇÚ«>ÿ•Õ"¯6€                                           @       @%ìb    >ş˜©9>©õ:Œ8=e‹æ/Ä©<ÖÑí#×#µ<¥±|34¡@)jÒô‹?Õ¢X&tt•?½.ÚkDÊÌ?/´ R[Zc>ş#GArJZ€                                           @       @%áø@   >ıåOë›ÿ>©ègzåuö=díxO¶<Ö€Hr}¥< ¨9—ë@(ê¡3*?Õ—Áıi1F?½ö&”N?/B“¨‚>R>öRø«N€                                           @       @%×‡    >ı±hcê>©JÔbïÒ=cï–_^æ<ÕÜhÏ½%Ï<¯Ôfa@(¿^´ëÙ?ÕÒÖÚÅ—?»²?ÂZ©à?.^é—ïk ?–cÿ
+Š€                                           @       @%Í€   >ûÄg®¸>¨ˆ…”À¡=bÄ\ææ<ÓÖı<¢:g{v@'$&Fû?Ôr{~}—?ºŒ-ôã?*Ó{>ùR{è¿ç~€                                           @       @%Âà   >øè *¡!‡>§×ÉKæÎ=a¹€cÉ<ÓIÆ*kÓ<£I!úuC‹@$Â”râ <?Óß.Ç¬À?¸Ÿ%Ÿ:‚?*Ëä8cöÁ>úË »Éz€                                           @       @%¸    >ñ»É8’X	>§wX•@óğ=a+¦İ”İ€<ÑçWÿJíæ<–=„ÌÉ³@W³éÚ?ÓÎƒ@Ï?·Ú½:å?(ß~$ğƒ>îå<Yêí€                                           @       @%­z    >ïXø÷?>¦ÇéşÙ!=`.•îuô„<Ñ¦…ÇÂ<•'dSPã´@ cÅ5?Òü—r°‹«?¶{)cm®Ä?'§ÖÇÄ^>ícn=Ró€                                           @       @%¢äà   >åØ'J‚å>¦q¦ƒÛX=_jªŸñ5É<ĞŸ€Ï¬BÉ<yÄ)p4)@4Ã‹ĞE?Ò´²	Fïç?µÒµ¦[ÒG?'ÊˆcÎ>Ñåëõù€                                           @       @%˜H`   >äÍ!ƒãd˜>¥áêW<¶=]Ú	â	6<Ğßø]@<sSm7ğ@V6õÛ?Ò<4~Œ´A?´¼kxÑ¡?'pgÚñÉ>Ê}/ã ³€                                           @       @%¤    >Ø3ŒKn¹>¥‰ÜŞh@=\îjxj<ĞVıBOĞ]<b•·DÑHÜ@+©H§Ûp?Ñóƒ?æTù?´}—o˜Ò?&³K
+Òwÿ>¹Ñ¾37p€                                           @       @%‚ù€   >Û£5pGÌ>¥'!õ¢lØ=[èÉ„a-Ò<ÌCZ‹ôˆ<féºÛ)½@”|—ƒ\'?Ñ¡9ólÃç?³c³ì€?#¡³¸xË>¿Ô©RYC€                                           @       @%xFà   ¾ÁG„c>¥Q›Š¶Ö=\XİİªJ©<Ëš’‚.j<’Ö“[Ñ¹¿ìy^lkmÒ?ÑÄ Á?³°İÅÈú?#,®lşœ>ê+8»zÔÂ€                                           @       @%mŒà   >ãaw‡1X>¤j¬-qü=YÿtšÒ $<Ë€†1Ió­<p0Õ]rO@¾¾QØûá?Ñ'¥	ã°?²&?#–c"Lå>Æ~HÑİ¢³€                                           @       @%bË    >è{„têÊ>£Òp•ÆU6=XõIN<É/ç”<t±õÃd@g¤ØDi?Ğ…Fã
+[?±Ó±]f?!_Şˆ”xL>Ø@5ê°rx€                                           @       @%X€   >ò•,ƒğª>£7} 0–ø=WpOÚ8<ÆSb:Ë4<â<dCU@ù´ƒñl?Ğ"(à†§?¯ÿ»Ê~ò‰?¯_¬ûşs>çt¾vn€                                           @       @%M0    >÷
+B¯e½>£rz¶ë‘=W–«hór<ÅEèR;Íu<œs~7‚"@#3ãIŸ€z?Ğ5LˆÍıÑ?°bªX[Ê?Ó1ú$5>óÍÁş¿€                                           @       @%BV€   >ühSğë2>¢ÜÔ)Oâ=V,Ò^¢¯<Å7ëE<² 5 Ø@'¬çüˆ¦÷?Ïp±Ü÷zÖ?®Î s;ŞW?õàU¤?	*	kÄÿb€                                           @       @%7tà   >üÉuùmï5>¢ÄÉ%^:=Uö (¥:t<Å’9Û7R<ª|Æààfñ@'ş1oÖ?ÏI¬¡^ø?®‚£ ó‡?÷Øò¿<?f({C©›€                                           @       @%,‹    >û½eOèN>¢Q!åyÜé=TéEQ­÷p<Ç€ÚÎ–´<©eÁ}8@&÷ÀŒg¥ó?ÎˆI†:;‡?­ ³¨ô'? Sƒtã®?hZj¦û€                                           @       @%!˜À   >ö ê…×êg>¢Úô÷ñg=T^ıÆıO›<Âí©HØ
+< r SØ\ë@"ÜÀˆŞM?Î zU½}?¬M@cgZ?Kë­ìÍÇ>öØşaÕ^®€                                           @       @%    >óÏ¬ÒF1>¡È&p1àá=S·mnrdØ<Â±üì0¾;<¢˜•¼äS@Øvæ7ï?Í£óÈê?«d:»2èX?ù¢aK>ùÕ	ÇÀy€                                           @       @%šÀ   >ô‰f–ˆk>¡‚cAŒÀ=S.½DÜ<ÂÈR}º<šaKà8‰l@!òfF™?Í/ª
+!sˆ?ªTÉSÅ?¯ö„>òSºÄº€                                           @       @% À   >òG¨2¼³>¡0B&!	=Rn,!g<Àá¦KK œ<”??œ¼?@x~#`?Ì§Eı÷Ô˜?©š¨Ùà_c?síïÙyš>ì ëÔœ&¶€                                           @       @$õz    >òíZî@ê>¡'GÅÂ=RZGl€:°<ÀT…5ÊD<˜Á 5ºF@Œ°?é1»?Ì—Ì£×ê?©++GÎ·?R„–×ŒI>ñL`÷A±€                                           @       @$ê\@   >ò6ßÆíÑ×> Wğ…¡v~=P©lÚm^<½ŒúNWé~<‰ÜE­@\„v”6Ù?Ë>/&Ëb÷?§%Ñ—œœ?†ä¾şâ>å5õ€’ƒ)€                                           @       @$ß5€   >îÔiÑCM> h—¦9÷=PCv[¹<¼3Ğ¿‘h<"ï/]ìÄ@±èÖ€¸?Ê¾zº‡t?¦O¥•ùÿ@?–›'H>×Î Ÿ©€                                           @       @$Ô€   >ç¼Ôå´>ŸÎNlE=N3e>^J½<»a¡¾5ö<x­zˆiï÷@È·©@¨Ø?ÉïÔË¸×?¤ú}y¡ê ? è¸„]>Ñ$UŞûÖ)€                                           @       @$ÈÌ`   >à-¿JÊÒ>™Ùi«=M6o¬e¯<¹Esÿ¥<b:øP~ïg@
+÷ÚEMx??É>;|?¤JÆªVë?æN£	>¹S¬¼ùú€                                           @       @$½‰À   >ÜÔ”Põ6
+>¤W€@=Kgñ„œdÜ<¸«%“+ü<ešİÄf”@RwèãP?È´;²ABñ?£	ƒH‰å?"·4'])>¾Û2 €                                           @       @$²=À   >ãcgûÚÚl>Vî¬„=KAÂ<«C<·ı‡ÂçnŸ<qÔ˜	«@(¼|”=,?È¢úm]ğ?¢îı
+ ós?ª¡s_[>ÈÄÃp}ŠÂ€                                           @       @$¦è    >îxÄCî>89İä=J¡@C<¶	§ÉÎ®<)GG¢xT@vÈXÁ?ÈZ^­M¶Á?¢~‹ ÙQ?ÅsÔ>æsÉÛlm:€                                           @       @$›ˆ    >ø\˜Öcö–>.’H(ç=J‡VÔ$4æ<¶†wz=‡<´%´)é@$Mß™‘.?ÈRSdïŒ?¢m~¼½»6?K*é­é?ınÇˆ/%€                                           @       @$`   ?\u~ğ¯>e×„à¼=JGë¥ë<·0ÒºÌ<¶ĞÀp °@,ğqEi«l?È5ØpÏ?¢A0Ñ1Õr?yƒÕ?²^»zÓ€                                           @       @$„¬@   ?çôº‰>Û÷ñÄ=Je_ß‘¬¼<¶p;÷µ‰é<¾èìcE@2h;;–?ÈE; Çï?¢Uæìù«3?,Gáÿ?x•éckI€                                           @       @$y/    ?	Ù„‰æ>œ¸/ï&d=I¡€éÍk<µ•Lf–HÃ<Ê+âëp Î@5‹YÄïÎ?Çï¨¨!P?¡ÍØT¾De?üÉĞ…?"-ø„ûk€                                           @       @$m§€   ?‚*´½H>œªòøşp=I’5š§y<µZ6µh™ô<Â’V‘@7Â¢º-s?Çä #:İ?¡Ã®qïo?ª	& ¾&?İU	p€                                           @       @$bÀ   ?ŸÎ¬šÄÒ>œQÇWšÒz=HØï!Ü<º|s¨¬æ<ÕĞÉ"9'@7ÛVå¤ ?ÇšNƒîJz?¡B9ŠşH?f —Ly@?-LfÓX`‡€                                           @       @$Vy    ?ƒz‚ó‰;>œë@=Hj¹b,,,<²Øö™”€<ÉŞ1ü_0@6î]Ñ,«Ü?Ç\ÑÙ…¾ó? õ÷*º¿?
+/*Ã‘E?!÷ïG‡E_€                                           @       @$JÓ    ?±IèèÓ>›u‡Fºš=Gqj­ên<²×@”<ÅRRş-}â@4”»Ê?Æâ½©Ñšb? HÉ¿6M?	ÈpA9øH?Ÿ8Õ»È€                                           @       @$?!À   ?€APr²>›Ò`}=FÁ=;HCŒ<±fº¦4÷<¶QûtıfK@1$"Òñ?Æ‡Næo?ŸœÑ~ıåƒ?xÄQfCÎ?@­¤Ãr€                                           @       @$3e    >şé'ÓÅ»z>š6—üW=Ej#?ÀÄ<±ı8:h1<§ÉÖ•»µ@)Ã2;…L-?ÅØì°ä[?À(7Ä?ıâ]¨'?? …¥ÍœFI€                                           @       @$'À   >ıéñ;{>™gÓÉG´=DÑ‚<­ºPV¯H<©+Ÿ}ñn3@(î}3£Ğ"?Å,—İ„åu?›òyÂ¨,‚?¦aÈq?{õ¨‚³Å€                                           @       @$Ìà   ?¸šO½·*>™^¨}¬u=D)­ı"Ü<¯0,ùXO<¬:.·ó;E@-Š	U¾Z.?Å$ô'Æ¤d?›Üºaïˆ5?œ2$|_?›Q3
+€                                           @       @$ïà   ?ÏÈÉ§º>™X'ë¸’=Cş ¾ÑÖ<<­ùĞ¹;m)<ºd%²@2dÑ£ª@?ÅˆÓÀS?›ÆG|ç:?Ò~5rP?Tÿ=¢€                                           @       @$À   ?ÖŞFäÊ>˜ÒUY€dˆ=C.Øyü°<¬çif|'<µ¨f4ÌWî@3Şjçx"?Ä° wiô?š¦{	ŞDV?áË,ªÄ?¨	ãE€                                           @       @#ø@   ?ıÇTI›5>˜:( =BÄ_Ü<©Ê€ç	Ö™<À^H—Üú@3)| «ã6?Äxçˆÿg?š!İğ”¸?êRÊ»aT?½mEQi€                                           @       @#ì`   ?¥ÄÄ''Æ>—ã%ëdSë=A¿±–‘¹><ªŒ½ÒæA§<¼ü=¨«÷@0`¼ÁÁX?Ãè¦ö½]?˜¨h€UŸ?q?i§Ä˜?"Ym.€                                           @       @#à
+à   >ıû)/À8>—°-”«g=A|”¯¤E<ª Âñ_=<§)è¢§2Ä@(ü·i)„<?Ã¾†¤$X?˜K+ ér®?&=ºT¤F? ¿e¤€                                           @       @#ÓôÀ   >õØ~œMD*>–ßxelJñ=@QVªÿH:<¨wŒİñ<›ÏlÑ_@"5RÙİ™?Ã9w»)?–«qVğÜ? şâ£+>åB‰Êc£€                                           @       @#ÇÒà   >÷U²X¹3>–Â³NkEÿ=@''3`ø <©¥*|÷0<–`‰[¨@#rÂˆ\
+œ?Âø?#ú/?–pÕüCà`?Áp:Ú9Ø>ïxô ü?€                                           @       @#»¥    >üÔR]µ"|>–¤ÍG£5.=?ù/©>İ<¨.
+jäé<šhı¦™¥@(€Lò?ÂßSÔRÒ‰?–5µe{jñ? ¼ *7g>òXi–P¾Ê€                                           @       @#¯k`   ?<OU>–æ‹¶á•=@S>'ï”q<¨ÿÔ7åU<³ü˜ƒãÿ@.3é4êo?Ã™°x´?–®—Tvu?]ú¨?ÄR­2Â€                                           @       @#£%€   ?~s_™µ>–£Ñ¾b2=?ÒñÏuƒ<©$®21R~<¸r]d„f/@1£7.€?ÂÙ[¼³p½?–à[”ZC?w#+ß?ûEà›Mo€                                           @       @#–Ó`   ?¼ ÌÚù>–·2IÕ=@8$¡0ã<¨gñ'iUì<¹W•şd™¿@0ršE<¤K?Âî¨‰FfŸ?–LÎŞæ? ôm•˜U?šjó^€                                           @       @#Štà   ? ;!Æ>õ>–"©0`2ò=>„W`yö‡<¨ª¨@Õ<­ßLñéb@+ü&°ì?ÂrÜ¡«¸t?•2·Åùd“?"`&|#»?À/ßs"€                                           @       @#~
+    >øü½!C£>•ç+,X±¥==äQÁö'4<§ş"–@“<§ÿì¿¾˜@$ÓWÓ³«†?ÂAG8@ß»?”Ã©]…? 
+«Î´? «&fVÊQ€                                           @       @#q’€   >ò¥Ó„¾¡>•4šaÃ"õ=<»O&İ<¥oáQ81< >}ZùŞ?@v~?Á¬tBIÃ?“xÁW)E>ıN§€Æ,‘>ö‘A¯ñ‘6€                                           @       @#e`   >ñš\Ì”|>•g1nÙè=;¡m*rÈ<¤•{t‹wŞ<“‚‰ÛBN@W¡·ay?ÁŠòŞ
+øW?“1q=~œa>ü˜¹³²F>ë¿|cëK€                                           @       @#X}`   >ô·,?“ç†>”ÇâÇ?b=:ìÊ2c<¤æŒpîŞ<›øz/˜'@!Céîœñ…?ÁQ×Ü;†ã?’³o˜Ä5>ı	X6>óm¨ÎÛD€                                           @       @#Kß€   >ú¿=•·n>”ÏÇ£"ˆª=:øk/leÈ<¤ŠaN”Aµ<®™ş5g—¬@&J 4zû.?ÁXl#£„Š?’¼?÷1d>ü‰L–@lÒ?AÂ@}€                                           @       @#?4    >ÿ:íqUÉÈ>”í¼
+èÑ…=;EÜL²¼+<¤½b)C<°=Ğ2·@*YJî˜ı?ÁqcY^Z|?’ñÖrÁ–>ûâ5 toé?Vì’€                                           @       @#2|    >ıš]"¸j>”…œÙ‘Y=:9³œF <£NÂé}İğ<¯i øÃ?Q@(¬*–Ğše?Á›¨<`?’7R?Ù8>úÒÑö‘S×?ÑıB‚ó€                                           @       @#%·@   >øÈQ\uGW>“ÒÂÎKíD=8|qF ëÈ<¢IŸèDÆ<<£¡­”Æş4@$§§+3/?À…‹iŞy1?‘Eó[öË>ùh „
+Ä>ûF~½¨ €                                           @       @#ä    >òYÉiş¢B>“ Ó(é²—=8;™Î<¡å0G)G<œ_¯gUÇ@–¶Â{k?À[ìëà³µ?®Å‚Öv(>øÜL!›¼Œ>óµšG‰%û€                                           @       @#€   >ğUcøøÈš>“f—>zf‚=7wxav-<¡Õ²V<˜ÖØàc—@9ïk³iæ?À+cöõ>?Lş8ß®s>÷¼mº*#ê>ñA¼ª.·€                                           @       @"ÿà   >ò[GÅX8>“7ˆS1=7±»ÅLù<£Ò¥©i<šRİì]°}@úB˜}?À?ê@èÙ¥?uvõˆR >û*mğ œŞ>òIÈ×Z‹€                                           @       @"ò`   >÷Tb¨:~™>“iÊÓÙ#=7}ğçaM<¢Ér?ù<“n@åÈ@#qªÁn~f?À-p¨sÓ?Q|K·e>úÿd¦I>êş‘ @+w€                                           @       @"å    >ü1|/æ×h>“bê#Ùv=7ôS<·€+<£½˜Ë'»5<°ÆëÖQ@'dG~ëç?ÀYä¥d±?£¸µxPë>ûlÌãuĞ·?\İH©ñ€                                           @       @"×û    >ş#Û¶>“r/……=7‹Öÿì<£Ò>ñĞ…<©@Á.®³æ@)R8Ú¨?À5òI¾ë?[$ ÿ¬>û‰|Ã¹üµ?Š£iÀ€                                           @       @"ÊÕÀ   >ø­Ô;õ>“v5¯CB’=7’:éiT<¤Šúñ‚º<¯Päk¨e9@$‘“u§x?À8hs‡ä?_”ÕGô÷>üŠ"tx’?ÀÎPî$€                                           @       @"½¢`   >õ"(Æ»s>’Ğ–4¨µ=6M§cŸå<¢uD¨Lñù<‘£Èk‘)Å@!Ñğ¤é?¿\½tò^Ï?©Éá¤E>ù¤©ò6EB>è¡óä€                                           @       @"°`À   >òõ
+Œª>’z§ÈÃc=5Ka#K<ŸçXcVü<‘+b9ä@™–Oóı±?¾Í€kú7\?•mN„ *>ö)vı	µ/>çÙßuç­'€                                           @       @"£    >ó›ï¹?E]>‘åt~dF¾=3öüD\ö<ŸhÌEI·‚<–n¼cÃ›@ WÙêcÈÙ?½ÔÌê¹?‹¼‡HHi©>õÑi^jt>ï*2üŠ‡f€                                           @       @"•²    >önôœWˆU>’,Ô‰¯=4•{k¼kG<3íBU¯< ¦ÕrÎP@"²s	˜™é?¾KÆzÊIê?Œ˜¹vÔ*>ôúÛôÃe™>÷"7ñt¦€                                           @       @"ˆDà   >ùÖ§~C}Ì>‘¹+
+©ï=3‰Çıº< 2É˜Ù<¤•dQ°¾@%ˆöÑBÃ•?½Šú”Á‘1?‹,ÏÈŒTÑ>öKcvRN8>ü˜˜‰+qñ€                                           @       @"zÉ    >ø†}Ğ4Ô>‘¨ğÚñò=3k|PLíf<g–Áƒò<¥¿^úÜU@$pÊL$’?½oì¯Ä_?Šú¹ÏæE>õ¾ÕöÆP>ş6’0æD€                                           @       @"m>@   >÷3n¿S´>‘ø[Î_„=4 ğûX\Ô<Ÿ®“†óÃ<—í|-Ü?Û@#:y˜!`?½ôNHĞ<w?‹öÑ{
+é>õíËP“n>ğø]K5€                                           @       @"_¤€   >õ•ù{Õ¤>‘Qgª„•a=2°×
+ı<¿‘¹Ét<™N}Àg@!ı›r°v¿?¼Ş@HÈ?‰÷l×.±R>ôª…Ô?ë>ñ“ßw•Š%€                                           @       @"QûÀ   >öé<bfÒ}>‘âµ/àÊ=2AÔO]–§<Ÿ².ãÂ<—âá1åpŸ@#]T;I?¼ˆ#§If•?‰]3•$ĞX>öc0é+>ğ—šq¯Pû€                                           @       @"DCÀ   >÷“ƒ]½R>‘İE=2*²À`<šÈ¿½BÑ†<©=:m´@#¥éË?È5?¼j!É ¯?‰ Söìb¿>òšîRJ<™?jSæ<€                                           @       @"6|€   >øŞ&b”ƒ>Ôq+3R=1£4 :<›Içƒhû<£êdf[–@$¹ÙRù€V?¼·T,ô~?ˆ€¶İ”Y>òô¥Šûlª>û«	{Š€                                           @       @"(¥à   >ø%ÂEà>ğÈL¯M=1×Ûî;ˆ1<œÆÇêEÎ<°ªÕPg¾@$¢¦t+?¼<ô·ÓÂY?ˆÉúşO¾>óı7jF2%?&Ä¯1Ú­€                                           @       @"¿    >ù‰buªj§>}Fdt=0ët-£7<™aVQûfá<©C¦Úò]‘@%H_ŠÀì?»|'õ
+}§?‡Ú
+:_>ñ¡Eswä?Œ¦š´Ó€                                           @       @"Éà   >ùØüC¿ø¶>r;s=0Ñ˜‚6ûw<š]xÆµa<®í+˜ìå@%Šè1ßŠK?»jå&NÆ?‡] WğŸÆ>òPiro?{‰ÙÅ€                                           @       @!şÄ@   >øÀ¸‘Gû>êµbÉÖû=/¯vÀŸ<˜sú"óŠ<© |]æb¾@$¡RI¯T@?º™Ú\åÅt?†›7¥]t>ğüd•SRÂ?Í"ïÁ·¨€                                           @       @!ğ®À   >øıÒê8¦>Ï‚Ôªi(=/~®c‡<˜ó÷›Îêc<¤'şåî@$†ÄİH²?ºƒ/qûÑ?…àœ%÷>ñUL˜‰o>ûÿbk6€€                                           @       @!â‰@   >÷ZÛ*á£r>»ŒÇMB=.ÀõÂ<˜eåØÅÒ<²7”»	@#w^‰ö?¹èYL–øâ?„æşZ>ğòœëÍƒã>õR•WE¯˜€                                           @       @!ÔSÀ   >ù)ŞÎÑàƒ>ûóÍ2;„=-å]ÇE<—‹Ğ%<·¤(¦0@$øõ7NŸé?¹ÒÜÂ!Ì·?„ÄI`vš>ğ[©Ìp[>ôŞí¨Á)Î€                                           @       @!Æ    >ı¾½ZGá?>_ş~Ÿ@=-ìW¸ä5<–»±æ1É<¸f™f²à@(Ê{{‡üÙ?¹ãâ.îu?„É"iµ¦ò>ï•©ºûú?°G'ÁÊ€                                           @       @!··à   >ÿŒ"†®> ß’ÄXD=.ûV~¢K<—öÈ5tN<¶nLïú@*KŒú‡Y?¹ñ¢OG+Ò?„á2)˜|*>ğ¥m33?)Sy‚,)€                                           @       @!©Q`   >şQÓğS>ªL³A­c=--÷ú¸<—!Bx®<Âá£5:@)E–$†'?¹Ï!K?„/Ì~ÙB>ğ¶õ?N˜&
+c€                                           @       @!šÚ@   >ú:EçÂd>š™ Ö=-ÎÇ§­<–÷Ô2°îL<­~ 5ƒÛÅ@%ÛıºKuå?¹HçÏ”n?„7•—Íè»>ïè¨x9K?||»t>¿€                                           @       @!ŒR    >ú¢×œzŞ>Ş*†| =+¼Ì¸úè¶<–›Xdï›K<¨™Ö ‹^@&3$Ü>j?¸ä¬µA"?ƒDtõ>gW>ïh,nîAš?0B‰)ı€                                           @       @!}º    >ıº&i·Ë'>/á…ÆÎ=,M~·Î<•­©xä,Ê<°ÜW¶‰w@(Æ¨;…Ïà?¹(Ç(I­Ö?ƒ¨÷>áÓ>î÷À‹ñÍ?l€PH6€                                           @       @!o    >ÿ´?D[ Õ>¦)€a¨=+Gš¸ËÜ<•ûÍ ø[G<²øV—¢½@*lvXN£8?¸µÿ:±îA?‚óŒ_±E>îŠ†1 ´¨?
+ZÁZ˜¥ş€                                           @       @!`V@   >şç¾g;.Ç>—âØÁ=+/g[A†®<•&İabÔZ<²áÂÀÄ@)Â6Ôˆ?¸ªèÍÚ?‚â=	sú»>íb²ÃÄó?	Îªè¨h€                                           @       @!QŠÀ   >ûío•%11>ŒcjIîê=)#®kt<”„Öº­µ<¬ÈÁ|¥ñ·@'F­ ²™s?·©{Dà€?cO»ËÂ~>ì™ÌsC?ş–š<‰Š€                                           @       @!B­à   >úôH˜Y¬>ŒOƒlsÔ¸=(İoôÖ…<’ï8l÷ X<²´BQO½.@&wb>Ç}?·˜k/[ë?E`\âªĞ>êN’"9?	ü,ÏHV+€                                           @       @!3¿À   >ı8Ãö©K”>‹°Ig\8?='Âë{=6Ô<”9–?4Ÿ<´`Š_@(ZÒl­«T?·¶2ÍC&?€g%Òı>ìFé?ô¤#s€                                           @       @!$À@   >ş&yô…’>Œgµ0¼ŸM=)	•²0ÄQ<“`\¦òë<±Ã§˜ùnñ@) ñ ÖÉÁ?·¬•\O‰´?dPÂfV>êëE£—}?­é<•Àı€                                           @       @!¯    >ü“2è[‹À>‹Ÿ¹¸"¢='«¢•ıô<“Ş¨¼[$,<±Š_¶˜,@'ĞÔ¹wá?·è¥À´
+?€q:„TU>ëš»’Uƒ?^U+=á€                                           @       @!Œ@   >ù`gï¤ó>‹cÓ ã=='U¯  À<›cÈáV…<œ•İ@U¼@%&iÇ|?¶Óûø.Š±?€5†Š$>óŞu7½>óÛ<¿_u€                                           @       @ ÷W    >øWTf\‰>Š}z€)Í=%Á«áäf<’GNLÿz•<±!¼ƒj%@$IFXñ6%?¶ &šÊ?~9Ä&ˆ•i>édÏRÎÔÊ?Ìö’ßK€                                           @       @ è    >øÇª+Ğz»>Š7KÃ=J=%cá!?Š<¥:ÃÎ-Í<¾W?c=@$§ÓŒ$(?µÙ‚…Š¶?}¶JZSÓÖ>çıdÄ
+9>ô©.XçO€                                           @       @ Ø¸`   >÷„ÛèwGİ>‰s²€…î=$Tü.Od<Dí:Š#N<ª1·Aìò@#š5‘aV?µ5íëš>Z?{ïìş>å¸~„+0?2ŞÚ^	€                                           @       @ ÉM    >ôÚ@=ê‹>‰ÑEíz=#›B‘6$<w¡×]K’<—t60g@!ah!‘›’?´ê¿_]?{=ÒÒMõ>åÛ·J[0Å>ğJ÷èJßO€                                           @       @ ¹Ğ    >òhu–3>ˆ¾¢20He=#J£Ø<j¬?S<¡ãÎ™Sé|@¯*áÂ‡?´Ÿ”êâDÒ?zpêr.Œ`>æÍÓ¿•ÃU>øÚ”M¬´Ÿ€                                           @       @ ªA    >ò	Øô~ó>ˆ¥ù÷Œç="ßĞå³çj<"P‚İ<¤qÆæP@şF˜‚?´‹äÖ?z8¯óş-È>æjú˜>ügRÛÑ€                                           @       @ š`   >ñù/îĞ—ù>ˆhœë¤É="~‰¯Š<‹é0ôÙ<©8÷l{@õ±!l…?´WãY§DT?y°Şêt>>ãcŒf\»„?…:DŸÈ€                                           @       @ Šè    >ğÁÉ†ú¶>ˆJ_¼¼¹4="PæIä¼<Œ,èP²¬ë<¨Jó	‚h1@ídacR‹?´>¯{İ-?yr#YK,>ã’T«³*? ßäÅş<€                                           @       @ {`   >íöíõ*>‡dkÃ¥Á;=! p7Gio<‹É£
+­\<¢3l&ó4@ù @é"&?³% a—?w´	â>ãM_¾ÅÉ>ùI/¼óÀ¼€                                           @       @ k>    >éKŸ EI8>‡4“… !Á= Æ5‰Ğ+<Œ[’µ™ <Šxr@ı@áiã?³W'â0É‘?wMÎ«&IÚ>ã²¾—’+ˆ>âbáÂ(€                                           @       @ [I    >å?à:SëÂ>†j(ö+Á=Q.³ºVÍ<‹VdŠ‹§<~\íbØ#Å@µÙ:i®Ô?²®`Ú_ê†?uÁéM^î>âıRN¡£ë>ÕVì8ù5€                                           @       @ K>@   >ätÖåj>†Gùô+ À=òD4ÿÀw<ŠöŒ¼©ò
+<}Î¶ÆØ¼H@¸!Šş5?²‘öZñl?uYÃ„â>âº¾çFâÅ>Ô´§z*û€                                           @       @ ;À   >âøÁ«•¨>…é»Š´,Ú=êtNf3X<‹åìå•p<„öëü}0#@Ÿ²ç‡œí?²CjD¨ş?tÇÒ6´>ãa/&ªV>İ »*5Ç€                                           @       @ *ä@   >ŞíƒŸ£šA>…âáÕ‰)Ë=ß¬Üe<Š ³í<ß¶<k­WÇï¬@	ÆÔ0€(?²=´¥L.z?tÀU9×>>âøÚıÁY>Ã9¸Tó\B€                                           @       @ “à   >Ú’M<[qù>…n1üˆÚÀ=¥|u#û+<‰ªY71á¦<^ˆQBãA’@%[»ˆn°?±Üt
+ÍÑ?sæ»UZ>áÓüÈI#Ô>µ5zÔ˜å€                                           @       @ 
++@   >ÔÌøÌŞ>…&Ø6W	1=çu‘<‹qË[ôtñ<Yx“Kø@Vll¸¸?± ü|ˆN]?saÉìø->ã[	Èoş>±±¬lÜo€                                           @       @óS@   >Ò(…<t>„ŒNé‰ö=W;Q<—Ú<…îyM›<V‘ ?şD— `~?± 0<Ç¸?rLöãÊê>Şx§F>®©d1±WÚ€                                           @       @Ò@   >Ğı^·á
+O>„5UÇëñ=xöÀëV‰<†T-ÏÎÀ}<Ud¨°§X1?üQğqÄ¶?°×ƒJ?q±®æˆ">ßMğ”*>­¸Œwƒ€                                           @       @°³    >Ês0[f>ƒË±Xêí*=q*äĞy<‡’;^*<R×/&he“?öOH˜÷v?°§S_Ô•?púpùr>à~‡œP¾>ª,² k–€                                           @       @€   >ÇÕxK&Û>ƒÃvZ}&ÿ=]¦FA<…ş³“š­<LñªË·}?óİ@‹C	Õ?°xËB[ç?pìáû›{>Ş¦{z>¤·›¢ù€                                           @       @m=    >ÉŠQôN³Æ>ƒµìÙæô=:ùzNd9<†¹›)ÜL1<]¡V$?˜?õIWú·D†?°m‚ñöLò?pÔÌÄD}>ß’6Å˜´Ã>´-¼uSö€                                           @       @K0    >É^*Eê>ƒÜÄy\\
+=›Õ½Ö,–<†»´Ìb<PXXJAß?õ$Š½éÓ"?°âmªÓ¶?qZ®È…>ß”*EçeQ>¦µ,ÔqU€                                           @       @(éÀ   >Ê«ÍÆ—~|>ƒ€Ëi¤ß=¹j7Ê<…
+E('Ø<WµK(œ©?ö:œìË`?°A
+Ş–?pzÌëY>İ:øÓóëÊ>°ÜÜ¡õ'€                                           @       @i€   >Éós4Å¹Œ>ƒLöC[ˆ=<û)
+G<…^W>„œ<Fû*ÛˆÚï?õ ö¿öı&?°š#’q?p$]PrŠ>İBCAhL>ŸíKÒı	€                                           @       @ã®    >Ã©­¾É­›>ƒ4ÙŸgÚ=ˆSŠÙHü<ƒ`É…yÄ<K5‘î£c?ğcN ~?¯­È³Ôè?oMÀK\é>ÚëÜãİØÚ>¢æ„÷»1€                                           @       @À¶€   >À-Nÿ[ca>‚ÏbKyR=‡a×yÛ<‚í#b–l<2^,õT|ä?ê÷v7õ?¯Z$ªÛ÷y?nªNÌ¤>ÚK2à>‰„•VÂ€                                           @       @€   >Äåp5Vd>‚Æ›Se‘$=ü¶ãºç<…N¾n¤<RIXz¨?ñjy(H~?¯L¿(ç?n‹ÉØõvM>İ™(’ïX>©&Dy.€                                           @       @zà   >ÑEÍ@7Ég>ƒª¬²á%=¶ß±	<†po§a›<R¼ùıÏà?üÊ¬áıär?°csGp?pÁ*Ÿä”>Ş®$b~Ç>ªI3åJe€                                           @       @VZ€   >Ñ›Ùı»>‚Û+±É=,ïÂUr8<„›*ò<<YÙˆ‰ŠŸ?ü|ÁÁñAº?¯n`ÀwWA?nÎÉGÈG>Ü şŸu,>±ôÃ}¬½€                                           @       @2f`   >Ë¹ƒhlìS>‚ÓDVù=·mƒu×<…¸Âx“·<E‚Z… ï…?÷fÍÉÁ-?¯a5ˆÉF?nµyF0Š2>Ş-b¨pĞ~>áÍP£€                                           @       @0    >ÆğÅÚ¦ml>‚(ñ“çé=‘«:sf#<‚ö€,­-°<@ÏÛgÄÇ?ó¥/µ{³?®Dªèc,|?l“lÚì2>ÚX3ÑFÉX>—[6 –5€                                           @       @é¶€   >ÁàLF‰4>‚ø£Ù¡
+=rğÉ„óğ<ƒrb5v<)v›Ej{?íÌ4?ãø£?®.œ2LÏ?lh¼AÂÍX>ÛO¸fO>°²ô«Á€                                           @       @Äø€   >Á[ÌL~
+>1V¸=6øù­gÒ<‡Ù­3qC{<)YM¼9I?í\Ÿ=‰¨?­CWè- §?j±Åh¯5‘>à‘5ãı;_>›ÓO Ì€                                           @       @Ÿõ    >Äczåsº>ˆC=-oi<€¡|Ëe<4¯DÒùöp?ğµ’üˆñ?­9(VPÈ(?j£şİakÒ>×É`óğ>Œ¼Œ)¾oÊ€                                           @       @zªà   >¿×ªş¨>°Fí_=.6G¤³<Lµ~ñ«İ<4ªwğqÉ?ê‰ûĞiÁ?¬tYî'%ç?iAò£p½>Õ½æi…Û>Œµàé¡_?€                                           @       @Uà   >Å2·Ú0P6> ŠÆ“%=c¶„R<€€KB|ek<@aß2ë»¹?ñªáİÿ™?¬W:àF?ifôAºU>Öì­)·Ü>–Âiu™»€                                           @       @/=À   >Î.O E{î>€Ÿï’°«=<Ü\pïí<€äıÚšHÉ<I¿,/Ù?ù'x F*?«¶0ï,6?gò¥p¿U>×x’‰ì"&>¡âsÅ!<Ù€                                           @       @	€   >Ôü!Õ¤dU>€™¢hùyœ=-òVP<·Iñë<aÏ¾îÁ‚@}cBó]”?««°ÊF™È?gİí-•àâ>Ø/0>>¸¾‡a™)Y€                                           @       @â§à   >×°ÕÒ+µ>€l…ı‰#=Ğ³ÍCËı<º*˜èCG<bo7 ¢ó*@¾¸h[ı?«`tP?g\b›Â >Ø º´Oío>¹œAí­š°€                                           @       @»êÀ   >Ø×H Ü>€E4I&”=¬O¼<,ÖP–<aQ¡Õy`@´ØùF·?«ôU=òr?fî„²÷ÂÈ>Õ§<_3’>¸€ÕÅ#€                                           @       @”ßà   >Û8bR2¶>n¹‡Î=Ì¡$³ÒÕ<}úØœ,(£<aœƒJC@¯Çx»?ª2„Ÿ¼X?edî‚ÔX>ÔÓ5ƒg™Ì>¸w–‹ßÒl€                                           @       @m†@   >İßCìH»>»gC4%=ü70à<zµ¤B#r<sc4^”@å—<ò¾?©Û`½Õû?dÔ(ú×>Ò¨ˆPó>Ê¹%¡â€€                                           @       @EÜ€   >Ş˜½}É‚>~´›vÎæ=`æß6Ù<y»yV¿Ûî<q´s!Œ	@	€,œˆÈM?©—feÑW©?dhF+I Ä>Ñßâ$·rÉ>È˜É¹ú×€                                           @       @áÀ   >Ù!M‹>~9îöùÂÎ=rôòçT<{;
+¨ö<zÒî+zİ@ñĞÎ~N?©1(i™åÏ?cÂTD#S>ÒêRV\=>Ò¢ Ö2|^€                                           @       @õ”€   >ØzŞ¬¯ø>}üh´Jf=ÿ…Œw_W<{¬¶#‘<x_«ºŸ£Ä@l.1Ì?¨ıágB‹«?crÍág1Ü>ÒÖ*†Ûº>ĞîI—»ºò€                                           @       @Ìóà   >Ù‡kßÚÚ6>}O:
+æX©=
+ÃÍ¬½¯<|ã%$şƒı<hxpErx˜@Fí~¼
+?¨mŠÏœò¢?b—~ŞGDÜ>ÔëOÙıØ>Àÿ}òìæ>€                                           @       @£ş    >×B!)>@O>|œÛEİ*=	‚$|<<zBËÒävË<hìUbdº@bs¤âG?§ØáŠáz¯?a¸1å÷š>Ò=áı¼yİ>ÁOÿggã€                                           @       @z³€   >Ôî\“…R>|{¢§) =	I¨…¡ñ<| Œ\Ãu²<T1J­@qè½jå?§½1(ÁqÉ?aÒ¸KŠq>Ó‰¾á¨† >«ÙıjoO€                                           @       @Q`   >Ğ¬V?¹¶š>|Aï[Î =“Ç…Ğú<zÜ¼RôÚ<RV!#b³ô?ûÊİœN?§g7àÚ9?a{ŠQ~>Ò¨Ğy£¦›>©yg^¢äª€                                           @       @'    >Ï5ÔS—Uh>{‡;ÅÍ6Ù=Ÿæ¡5÷’<x Îû9à<QÊ®ÛhR³?úŒ&?Æ?¦ñ~ú3£"?`iÛd=“>ÑˆÊ°>¨·¬ãê•w€                                           @       @üÃ    >ĞƒÂ4‹¢à>{ô‡¶&=îÊ¾)Õ<yG˜Âœ‘ <Tğdo²W?û‡9×{h¶?¦›kD»Pá?_ÜuÚhĞ>Ñd] >­¡inS[€                                           @       @ÒÀ   >Ì¹á§†5>{1‡ğa‘=UOå¸é<wŸ_ğ¤ª<7¡økò›?÷ñ#¼àÿ?¦ªIS?`§íC†0>Ğh¶Lb>>jƒ¢:Õ¸€                                           @       @§à   >Ç_r¬>z¦œï ·=$x³n¢<yĞ²ƒ<òğ<8.âï×÷U?ózû8! ?¦6IgãC¿?^Ã§áÒl>Ñî 5ìux>Ìft.A€                                           @       @{£@   >ÀÍŠã’Ğ%>yù%gŸn=	SÖ
+J²<vp\[¬Üª<$şaô§?ì7Gû¥?¥¥¶Ë‡?]9©ÀÓï÷>Ï,tàÊZ>|µjåû›€                                           @       @OÖ`   >¼[.‘…Bª>yû˜f-îô=2ı€A<€(X0÷ˆô</:ãÒVÌ?ç¢$Ï›îş?¥§À¥Ø?]8xáD>Ör}²õ)>…±…·Úã2€                                           @       @#Ÿ@   >· c³Æ>x×äÄÆY=?d0Ïo<sÕ¨÷Ôûï<Y*ÑÄEô?ãFxñøü ?¤´¢v¢{?Z½w”¤tø>Ë;”†e>s±9^ €                                           @       @öø    >´ôı}>x
+lbè@Ğ=–!.Bõ<q§ªä1ê<¬M˜Ë?áwon›7Î?¤	bÔbu ?Y
+å±~B>È‡Sïîª>t×ó„Õƒ,€                                           @       @ÉÚ`   >¶ÍJÜıs>wx«\EÑ=.¶O·KW<p¾ 9Ÿ»™<ÌkB‡?ã[Íé?£èeã’–?WŞıp™ş;>ÇBga÷?>kÒ?ÍJÆ€                                           @       @œ@    >À8Máû'>vÊö±²óô= 3wFÎà<pÁ]¦ÓP< ®‹FŠLî?ë	à ÍÜF?¢ÿ"u˜¤?VğÖ’§î>ÇG"9†³>w,î4.Â€                                           @       @n$€   >Æ/½tu7¡>v—c¼¢<ÿÒèJÃø<p€´öE~G<D0R©?ò}Ã;â_?¢Ô%óØš?Vké(>Æí@P>›ÔmJòmÁ€                                           @       @?€@   >Ó—âN[•>vdÂ¡„î<ÿ>Ÿ-Òv<oüû{<\ Ò¦@ TyH2°Ñ?¢©X¾Ë?U´WM[>ÅàÚfZ†>³â[*àÎ€                                           @       @MÀ   >Ö]ìW½M>v—SÜU!ç<ÿÌ«h
+C²<o­¢İCº<bwJ±Ç@¤@ü&öT?¢ÔëĞ7?VÉ+¤’>Æ:Ÿ­->¹§xÁ`xâ€                                           @       @à‡    >Ğqâx'İ¬>vUäjÇ<ÿfì¥¨±<qÛôš·o<Eò·ZşE?ûin“MY?¢9„Îì?UšB±<^>ÈÎƒ=Ö>}çÆq€                                           @       @°&    >ÅÈŒm±>v:ìÅ·À<şĞ) ƒ÷<q/~ó–<<ŒŸ™‹¬?ò'Á¿Ä¾ê?¢‡¨J·A?UgM¡0ºI>Ç´“éÃ¼}>“ÔÑ{ÚÓF€                                           @       @$À   >¿=n“ÀÙİ>v Æ¨·a<şˆ*LÍc<q:Züi‰</æ]®F?ê	o¤ò)[?¢qIü‚<,?U5_ÄAä½>Çï*eI¢>†(¢©¬fF€                                           @       @M}@   >¼Ä½L‡½>vıêÁ<ş_;AP)ï<q»ÿ1í<"›3½šó?çúÓÎ­?¢d÷\\a@?Uğªsv>È£Eµ#tF>yÙ]=†z;€                                           @       @)    >½ê…#%>u®QH­‡á<ıNLÒ³t<q=©·¤ù(<2Ym»]‡?èî•·kf?¢åRÒ
+?T[’0Ã†>ÇóÂ»‚.O>‰}‹ÈÜ€                                           @       @è#    >ºn‰MÛ
+>u)™ÁqW<ûì!mœÙ<pú†×KòÑ< z#J#'ò?æŒ¾ìÛ]?¡£H„ığğ?SeU¢4P>Ç–}%<‘>vä·×\•€                                           @       @´e`   >·pôU‚+>tJ´R|EÛ<ù«âq7Uï<n3Lòr<29ÌHİiÜ?ã‰z!? é‚Õõˆ©?QÕîS‰Ê>ÄúH‡Á¶>‰R6Zâ€                                           @       @é    >¸¯Êâ´FC>sïÂûœ¤<øÈZ!Tm<m\]Rs<óob…´?ä“6d´-İ? ·oíÅ?Q7 ¬$ĞX>Ädà"Ä–>sjh‘¯¦l€                                           @       @J¨@   >»3Ì‹Ã¼8>s+_	m:<öè³‹„<l$'ı7<'…9®‚Ñ?æ«õ1Vl‘?Ÿôw1üŠ?OÓ£·¢²>Ã~@óñ¯Œ>€V‹×‚{ €                                           @       @@   >¼üïvêƒÂ>r—$åéT<õ‹¸ÆeK<iüäûÙè®<-³R„£ø?è(ôîúŞè?üûÙÍˆƒ?MîĞÒº;!>ÂS 2j>„¡†³¾€                                           @       @İÂ    >¹î‘ÎA'>q±#ÉÏ/À<ó‚Ğ›’­T<išáShpg<Ê/>22}?åœï>Ëb?}˜±ò¹™?K"ìñnÄ>ÁÉ>¹SÔ>t±h3Ş¹ù€                                           @       @¦    >¿©seİè>rÒ3ĞVâ<ôbê'¸«“<h¼¿¨Và<>âù™Ö€?êc)W É!?%kêùè?LRx™ıµm>Á.ñHÿ>•tt!Õ|4€                                           @       @m‚à   >Ç
+–÷ >qêâ3'<ôËŠÕº<hÂyQ¦P<7’HUª+?ó4(Òcş?İÙh¼;Ç?KÍSÌåæ×>À¼UåõÆú>_(l!æ€                                           @       @4    >ÏÖ=·Úí>qİJÛÃ<óß¹àÇF<i°û> <V€	…°È?úˆË`’ü3?Ç0yç?Kœ7
+Q°Ô>Á×ü‚œn
+>¯Bß’•²€                                           @       @ù¹à   >ÖE±éVR>q®%6”<órÑP¡À<fÓİ@‚<fÊ}Ø´‘@–>ôÅ?x›u¬BH?Ké#œÓW>¿D¸ÿL˜>¿©¬#°3€                                           @       @¾k    >Ü¡E¶ÈY7>pÙßcğæ<ñ£˜Ğ„J/<d¦b¿$çø<qiŒÙª„(@Üy
+˜\?œÄÔ°>?H_ĞÏéå>¼°4Ü*xé>È0»WÌß®€                                           @       @‚    >ãæéˆù>p ı+¢(<ğ}çô<aooÂ§½ê<‡˜€´ '@•­;~/ú?šá£T?FF<·òjí>¸8èØOÕ>àcğEÜ)„€                                           @       @D›    >é5?ç¦ªÈ>p3šÔpç<ğ7—£œJ„<_¯lTJO<„+‚m¨% @q Ïû?›œèÏÚU?F‡¬¢Y·&>¶x?šŒ>Üš–ÄÊ€                                           @       @ë@   >ëÁë5vœÑ>o•CF©O5<î:¡9Öêõ<]vZ+î^ <œQÅ¡Tu@"h7Lo
+?šR£sMH/?DÿƒìÌ³ß>´w,œåH >ó«ğ&‡c€                                           @       @ÅíÀ   >ğ°{l\l+>pkZ‹¶<ïâa°–<[~Z»ß‡”<¬bxu"Ñ@ÑÆyÑ°E?›^=ÊC?F%¤ø3T>³‹ù”l?ˆïô¨BN€                                           @       @„‹à   >õßÙRì	P>qp–F)ÑK<ğÌË-nì<^^Ñ‚Å\ñ<Áo¥…l¢@";-w-òÅ?şi§X¥?GVôyh½>µ§6T›ë?93ˆp\€                                           @       @A¯    >ú{¥¹ƒ“Ú>r+}¿Ë;<ò}ÛXÿ<]vD9¢·<Àï]×(y¨@&z%§¹­?I‹Y¤?I¯r²Ûœ’>´w^<?†üjuD:€                                           @       @ı@`   >ü<p!UÊ=>s_C7¦ü@<ó¾Qëg}<`0ø°]õ<Ípj©Âo@'ˆ…7§³›? %HdÜ¼?KmÌÏŸ>X>¶~yäçàS?$sQ£B€                                           @       @·)    >şè	³ËW>tûæ}G<ø_§:Â(B<e!G“_˜í<ÈÇ«å	??@)ÂSU1Ì?¡|‰Éd´ë?PîFw›Îm>½Zğaı%š?!6‡¤®ó¥€                                           @       @oSà   >şœ¯Ö’>xPíÊ×jB= ò-Œı_ƒ<qGÏBÚG<ÇõşxR?@)
+ ÁWª`?¤D&ÍÍ¦?WŠäIKf®>ÈÛi¤"Ö? ¤áz‘‰€                                           @       @%¨    >ıbøœŞp>~Ñ_= ‚l¾&<~ù&ã×ú<ÁïP™«¤@(}ÿ‡Ïµ?©·ÿ¬Q?b×äqè-¶>ÕƒÛÅ)Q`?êûªvÍç€                                           @       @Ú@   >ş>Ü?"!>„áp=îà4I5‡<‘4ÜÊ¬E<ÁÏ;’„Y–@)4¥ÇİÔ-?±.û•‘È?r–½áÙ>ççˆĞŸÌ?½şığ–€                                           @       @ŒD    >ıÖ#:¦>“0\-=6³üôk›<²&€<«<ª½İ”‡@(C‹Oêø±?¿ÚÂÉ?/?Šh·ÕV?	6œÃ*¹Ø?”¥C€                                           @       @;â@   >şå5‘›\á>©¦°bMºô=d{f‘ïÜø<áç¬ÿH~<´M#“|øu@)¿è<Mê?Õ`üÔzV¦?¼t}û?8ßô;eÔW?48n3t€                                           @       @èm    ? Wx·DOË>»Òö‡‰2u=ˆ{ııå=Àò"’<¬D9 àº@+=gr‹¦<?ç0œĞ6?à¿ø?\}P”ŞM?¢‡(˜u€                                           @       @‘m@   >øã`J8a>ÂÏ3-Âªà=–	 C—k==es°6<¤V—£æŒÉ@$¾46¢¼@?ïZm«/lu?î	,C»¢?jòW¥ö›>üAZ"‰°T€                                           @       @6gÀ   >ìœNR’Á·>ÈAÈ¤}+Ù=¢Rb^Â—= ¹‹¢¢q,<¨H\Ğ9ßp@ØkÕÚPˆ?ô7†§¢bt?ùt3bFD/?w<6Ëâ²æ? ŞÅ0Šå€                                           @       @Öí    >ıÁ@5>Ís¦	º¢ =«AJ›l='è”s7 ß<¥I§å.²ó@(=¤z@?ğ?ø‹åŞ|¶@Ã’ò?€›¢ê>ı“Lú6ª€                                           @       @rÈ    ? ˜õºşf>ĞU`Ã	l=°Ôg|Ê=,mH<ˆŠ<ÊRê–d@*±˜MÄ#ğ?û9ê—@ nJ+?ƒ¿²Y?"Hs§¥=³€                                           @       @
+"    >şÒ$úK>ÑHLß®W=²›<”Ã)a=/²hzE<¾"©­ª?@)°…Eu?üÎ×¤ @	Ùi†e›Ë?…ğAäT¢?îİà×œ…€                                           @       @1Ô    ? £9Vº:>ÒĞİ÷·Ec=¶‘J±¥	=1àÑ_Ks<Ãô=±•U·@+»z²¼¼š?ÿ]5 Åw@¤˜v62³?ˆÖm2ÎEü?¸·8<²„€                                           @       @ÿ\À   ? x¾»ú‡>Ô4K»ê?¯=¹oš]Üz¿=3³«×åÂB<º9Á+¥|´@+tŞ	ux@ ÖÕ±yS$@«.I`?‹_Óä(È?7š'
+€                                           @       @¯N@   ø                                      ø                                      €                                                                                                                                                                                                                                                                                                                                                                                                                                                                  XTENSION= 'BINTABLE'           / binary table extension                         BITPIX  =                    8 / array data type                                NAXIS   =                    2 / number of array dimensions                     NAXIS1  =                86716 / length of dimension 1                          NAXIS2  =                    1 / length of dimension 2                          PCOUNT  =                    0 / number of group parameters                     GCOUNT  =                    1 / number of groups                               TFIELDS =                    1 / number of table fields                         TTYPE1  = 'ASDF_METADATA'                                                       TFORM1  = '86716B  '                                                            EXTNAME = 'ASDF    '           / extension name                                 END                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             #ASDF 1.0.0
+#ASDF_STANDARD 1.6.0
+%YAML 1.1
+%TAG ! tag:stsci.edu:asdf/
+--- !core/asdf-1.1.0
+asdf_library: !core/software-1.0.0 {author: The ASDF Developers, homepage: 'http://github.com/asdf-format/asdf',
+  name: asdf, version: 5.0.0}
+history:
+  extensions:
+  - !core/extension_metadata-1.0.0
+    extension_class: asdf.extension._manifest.ManifestExtension
+    extension_uri: asdf://asdf-format.org/core/extensions/core-1.6.0
+    manifest_software: !core/software-1.0.0 {name: asdf_standard, version: 1.4.0}
+    software: !core/software-1.0.0 {name: asdf, version: 5.0.0}
+  - !core/extension_metadata-1.0.0
+    extension_class: asdf.extension._manifest.ManifestExtension
+    extension_uri: asdf://astropy.org/astropy/extensions/units-1.0.0
+    software: !core/software-1.0.0 {name: asdf-astropy, version: 0.8.0}
+  - !core/extension_metadata-1.0.0
+    extension_class: asdf.extension._manifest.ManifestExtension
+    extension_uri: asdf://asdf-format.org/transform/extensions/transform-1.6.0
+    manifest_software: !core/software-1.0.0 {name: asdf_transform_schemas, version: 0.6.0}
+    software: !core/software-1.0.0 {name: asdf-astropy, version: 0.8.0}
+  - !core/extension_metadata-1.0.0
+    extension_class: asdf.extension._manifest.ManifestExtension
+    extension_uri: asdf://asdf-format.org/astronomy/coordinates/extensions/coordinates-1.0.0
+    manifest_software: !core/software-1.0.0 {name: asdf_coordinates_schemas, version: 0.4.0}
+    software: !core/software-1.0.0 {name: asdf-astropy, version: 0.8.0}
+  - !core/extension_metadata-1.0.0
+    extension_class: asdf.extension._manifest.ManifestExtension
+    extension_uri: asdf://asdf-format.org/astronomy/gwcs/extensions/gwcs-1.4.0
+    manifest_software: !core/software-1.0.0 {name: asdf_wcs_schemas, version: 0.5.0}
+    software: !core/software-1.0.0 {name: gwcs, version: 0.26.0}
+_fits_hash: 1d4358e358e0611d48b53363b8f54ef90e6685a693f3e95f0b070135e2c11b60
+cal_logs:
+  calwebb_detector1: ['2025-12-15T03:38:04.812 - stpipe.step - INFO - Step Detector1Pipeline
+      running with args (''jw01276003001_05101_00001_mirimage_uncal.fits'',).', "2025-12-15T03:38:04.834
+      - stpipe.step - INFO - Step Detector1Pipeline parameters are:\n  pre_hooks:
+      []\n  post_hooks: []\n  output_file: None\n  output_dir: None\n  output_ext:
+      .fits\n  output_use_model: False\n  output_use_index: True\n  save_results:
+      True\n  skip: False\n  suffix: None\n  search_output_file: True\n  input_dir:
+      fits\n  save_calibrated_ramp: False\n  steps:\n    group_scale:\n      pre_hooks:
+      []\n      post_hooks: []\n      output_file: None\n      output_dir: None\n
+      \     output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: fits\n    dq_init:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: fits\n    emicorr:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: fits\n      algorithm: joint\n      nints_to_phase: None\n
+      \     nbins: None\n      scale_reference: True\n      onthefly_corr_freq: None\n
+      \     use_n_cycles: 3\n      fit_ints_separately: False\n      user_supplied_reffile:
+      None\n      save_intermediate_results: False\n    saturation:\n      pre_hooks:
+      []\n      post_hooks: []\n      output_file: None\n      output_dir: None\n
+      \     output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: fits\n      n_pix_grow_sat: 1\n      use_readpatt: True\n
+      \   ipc:\n      pre_hooks: []\n      post_hooks: []\n      output_file: None\n
+      \     output_dir: None\n      output_ext: .fits\n      output_use_model: False\n
+      \     output_use_index: True\n      save_results: False\n      skip: True\n
+      \     suffix: None\n      search_output_file: True\n      input_dir: fits\n
+      \   superbias:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      fits\n    refpix:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      True\n      suffix: None\n      search_output_file: True\n      input_dir: fits\n
+      \     odd_even_columns: True\n      use_side_ref_pixels: True\n      side_smoothing_length:
+      11\n      side_gain: 1.0\n      odd_even_rows: True\n      ovr_corr_mitigation_ftr:
+      3.0\n      preserve_irs2_refpix: False\n      irs2_mean_subtraction: False\n
+      \     refpix_algorithm: median\n      sigreject: 4.0\n      gaussmooth: 1.0\n
+      \     halfwidth: 30\n    rscd:\n      pre_hooks: []\n      post_hooks: []\n
+      \     output_file: None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      fits\n    firstframe:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      fits\n      bright_use_group1: True\n    lastframe:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: fits\n    linearity:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: fits\n    dark_current:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: fits\n      dark_output: None\n      average_dark_current:
+      1.0\n    reset:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      fits\n    persistence:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      fits\n      input_trapsfilled: ''\n      flag_pers_cutoff: 40.0\n      save_persistence:
+      False\n      save_trapsfilled: True\n      modify_input: False\n    charge_migration:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: True\n      suffix: None\n      search_output_file:
+      True\n      input_dir: fits\n      signal_threshold: 25000.0\n    jump:\n      pre_hooks:
+      []\n      post_hooks: []\n      output_file: None\n      output_dir: None\n
+      \     output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: fits\n      rejection_threshold: 4.0\n      three_group_rejection_threshold:
+      6.0\n      four_group_rejection_threshold: 5.0\n      maximum_cores: '1'\n      flag_4_neighbors:
+      True\n      max_jump_to_flag_neighbors: 1000\n      min_jump_to_flag_neighbors:
+      30\n      after_jump_flag_dn1: 500\n      after_jump_flag_time1: 15\n      after_jump_flag_dn2:
+      1000\n      after_jump_flag_time2: 3000\n      expand_large_events: False\n
+      \     min_sat_area: 1\n      min_jump_area: 0\n      expand_factor: 0\n      use_ellipses:
+      False\n      sat_required_snowball: False\n      min_sat_radius_extend: 0.0\n
+      \     sat_expand: 0\n      edge_size: 0\n      mask_snowball_core_next_int:
+      True\n      snowball_time_masked_next_int: 4000\n      find_showers: False\n
+      \     max_shower_amplitude: 4.0\n      extend_snr_threshold: 3.0\n      extend_min_area:
+      50\n      extend_inner_radius: 1\n      extend_outer_radius: 2.6\n      extend_ellipse_expand_ratio:
+      1.1\n      time_masked_after_shower: 30\n      min_diffs_single_pass: 10\n      max_extended_radius:
+      200\n      minimum_groups: 3\n      minimum_sigclip_groups: 100\n      only_use_ints:
+      True\n    clean_flicker_noise:\n      pre_hooks: []\n      post_hooks: []\n
+      \     output_file: None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      True\n      suffix: None\n      search_output_file: True\n      input_dir: fits\n
+      \     autoparam: False\n      fit_method: median\n      fit_by_channel: False\n
+      \     background_method: median\n      background_box_size: None\n      mask_science_regions:
+      False\n      apply_flat_field: False\n      n_sigma: 2.0\n      fit_histogram:
+      False\n      single_mask: True\n      user_mask: None\n      save_mask: False\n
+      \     save_background: False\n      save_noise: False\n    ramp_fit:\n      pre_hooks:
+      []\n      post_hooks: []\n      output_file: None\n      output_dir: None\n
+      \     output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: fits\n      algorithm: OLS_C\n      int_name: ''\n      save_opt:
+      False\n      opt_name: ''\n      suppress_one_group: True\n      firstgroup:
+      None\n      lastgroup: None\n      maximum_cores: '1'\n    gain_scale:\n      pre_hooks:
+      []\n      post_hooks: []\n      output_file: None\n      output_dir: None\n
+      \     output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: fits", '2025-12-15T03:38:04.866 - stpipe.pipeline - INFO
+      - Prefetching reference files for dataset: ''jw01276003001_05101_00001_mirimage_uncal.fits''
+      reftypes = [''dark'', ''emicorr'', ''gain'', ''linearity'', ''mask'', ''persat'',
+      ''readnoise'', ''reset'', ''rscd'', ''saturation'', ''superbias'', ''trapdensity'',
+      ''trappars'']', '2025-12-15T03:38:04.876 - stpipe.pipeline - INFO - Prefetch
+      for DARK reference file is ''jwst_miri_dark_0113.fits''.', '2025-12-15T03:38:04.877
+      - stpipe.pipeline - INFO - Prefetch for EMICORR reference file is ''jwst_miri_emicorr_0003.asdf''.',
+    '2025-12-15T03:38:04.878 - stpipe.pipeline - INFO - Prefetch for GAIN reference
+      file is ''jwst_miri_gain_0042.fits''.', '2025-12-15T03:38:04.879 - stpipe.pipeline
+      - INFO - Prefetch for LINEARITY reference file is ''jwst_miri_linearity_0032.fits''.',
+    '2025-12-15T03:38:04.880 - stpipe.pipeline - INFO - Prefetch for MASK reference
+      file is ''jwst_miri_mask_0036.fits''.', '2025-12-15T03:38:04.881 - stpipe.pipeline
+      - INFO - Prefetch for PERSAT reference file is ''N/A''.', '2025-12-15T03:38:04.881
+      - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is ''jwst_miri_readnoise_0085.fits''.',
+    '2025-12-15T03:38:04.882 - stpipe.pipeline - INFO - Prefetch for RESET reference
+      file is ''jwst_miri_reset_0077.fits''.', '2025-12-15T03:38:04.883 - stpipe.pipeline
+      - INFO - Prefetch for RSCD reference file is ''jwst_miri_rscd_0017.fits''.',
+    '2025-12-15T03:38:04.884 - stpipe.pipeline - INFO - Prefetch for SATURATION reference
+      file is ''jwst_miri_saturation_0034.fits''.', '2025-12-15T03:38:04.884 - stpipe.pipeline
+      - INFO - Prefetch for SUPERBIAS reference file is ''N/A''.', '2025-12-15T03:38:04.885
+      - stpipe.pipeline - INFO - Prefetch for TRAPDENSITY reference file is ''N/A''.',
+    '2025-12-15T03:38:04.885 - stpipe.pipeline - INFO - Prefetch for TRAPPARS reference
+      file is ''N/A''.', '2025-12-15T03:38:04.885 - jwst.pipeline.calwebb_detector1
+      - INFO - Starting calwebb_detector1 ...', '2025-12-15T03:39:13.491 - stpipe.step
+      - INFO - Step group_scale running with args (<RampModel(8, 290, 1024, 1032)
+      from jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:39:50.794
+      - jwst.group_scale.group_scale_step - INFO - NFRAMES and FRMDIVSR are equal;
+      correction not needed', '2025-12-15T03:39:50.794 - jwst.group_scale.group_scale_step
+      - INFO - Step will be skipped', '2025-12-15T03:39:50.797 - stpipe.step - INFO
+      - Step group_scale done', '2025-12-15T03:39:51.523 - stpipe.step - INFO - Step
+      dq_init running with args (<RampModel(8, 290, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:39:51.540 - jwst.dq_init.dq_init_step - INFO - Using MASK reference
+      file jwst_miri_mask_0036.fits', '2025-12-15T03:40:05.163 - stdatamodels.dynamicdq
+      - WARNING - Keyword RESERVED_4 does not correspond to an existing DQ mnemonic,
+      so will be ignored', '2025-12-15T03:40:05.164 - stdatamodels.dynamicdq - WARNING
+      - Keyword UNRELIABLE_ERROR does not correspond to an existing DQ mnemonic, so
+      will be ignored', '2025-12-15T03:40:05.187 - stdatamodels.dynamicdq - WARNING
+      - Keyword UNRELIABLE_RESET does not correspond to an existing DQ mnemonic, so
+      will be ignored', '2025-12-15T03:40:47.474 - stpipe.step - INFO - Step dq_init
+      done', '2025-12-15T03:40:48.451 - stpipe.step - INFO - Step emicorr running
+      with args (<RampModel(8, 290, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:40:54.938 - jwst.emicorr.emicorr_step - INFO - Using CRDS reference
+      file: jwst_miri_emicorr_0003.asdf', '2025-12-15T03:40:54.961 - jwst.emicorr.emicorr
+      - INFO - Using reference file to get subarray case.', '2025-12-15T03:40:54.961
+      - jwst.emicorr.emicorr - INFO - With configuration: Subarray=FULL, Read_pattern=FASTR1,
+      Detector=MIRIMAGE', '2025-12-15T03:40:54.962 - jwst.emicorr.emicorr - INFO -
+      Will correct data for the following 1 frequencies: ', '2025-12-15T03:40:54.962
+      - jwst.emicorr.emicorr - INFO -    [''Hz10'']', '2025-12-15T03:40:54.962 - jwst.emicorr.emicorr
+      - INFO - Running EMI fit with algorithm = ''joint''.', '2025-12-15T03:43:24.633
+      - stpipe.step - INFO - Step emicorr done', '2025-12-15T03:43:24.994 - stpipe.step
+      - INFO - Step saturation running with args (<RampModel(8, 290, 1024, 1032) from
+      jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:43:31.066
+      - jwst.saturation.saturation_step - INFO - Using SATURATION reference file jwst_miri_saturation_0034.fits',
+    '2025-12-15T03:43:31.067 - jwst.saturation.saturation_step - INFO - Using SUPERBIAS
+      reference file N/A', '2025-12-15T03:43:31.126 - stdatamodels.dynamicdq - WARNING
+      - Keyword RESERVED_4 does not correspond to an existing DQ mnemonic, so will
+      be ignored', '2025-12-15T03:43:31.126 - stdatamodels.dynamicdq - WARNING - Keyword
+      UNRELIABLE_ERROR does not correspond to an existing DQ mnemonic, so will be
+      ignored', '2025-12-15T03:43:31.143 - stdatamodels.dynamicdq - WARNING - Keyword
+      UNRELIABLE_RESET does not correspond to an existing DQ mnemonic, so will be
+      ignored', '2025-12-15T03:43:31.147 - jwst.saturation.saturation - INFO - Using
+      read_pattern with nframes 1', '2025-12-15T03:44:06.537 - stcal.saturation.saturation
+      - INFO - Detected 490389 saturated pixels', '2025-12-15T03:44:08.835 - stcal.saturation.saturation
+      - INFO - Detected 87 A/D floor pixels', '2025-12-15T03:44:08.841 - stpipe.step
+      - INFO - Step saturation done', '2025-12-15T03:44:09.107 - stpipe.step - INFO
+      - Step ipc running with args (<RampModel(8, 290, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:44:09.108 - stpipe.step - INFO - Step skipped.', '2025-12-15T03:44:09.329
+      - stpipe.step - INFO - Step firstframe running with args (<RampModel(8, 290,
+      1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:44:15.717
+      - jwst.firstframe.firstframe_sub - INFO - Number of usable bright pixels with
+      first group not set to DO_NOT_USE: 17', '2025-12-15T03:44:15.720 - stpipe.step
+      - INFO - Step firstframe done', '2025-12-15T03:44:15.993 - stpipe.step - INFO
+      - Step lastframe running with args (<RampModel(8, 290, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:44:22.290 - stpipe.step - INFO - Step lastframe done', '2025-12-15T03:44:22.576
+      - stpipe.step - INFO - Step reset running with args (<RampModel(8, 290, 1024,
+      1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:44:28.915
+      - jwst.reset.reset_step - INFO - Using RESET reference file jwst_miri_reset_0077.fits',
+    '2025-12-15T03:44:29.539 - stdatamodels.dynamicdq - WARNING - Keyword RESERVED_4
+      does not correspond to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:44:29.540
+      - stdatamodels.dynamicdq - WARNING - Keyword UNRELIABLE_ERROR does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:44:29.556 -
+      stdatamodels.dynamicdq - WARNING - Keyword UNRELIABLE_RESET does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:44:29.778 -
+      stpipe.step - INFO - Step reset done', '2025-12-15T03:44:30.061 - stpipe.step
+      - INFO - Step linearity running with args (<RampModel(8, 290, 1024, 1032) from
+      jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:44:36.521
+      - jwst.linearity.linearity_step - INFO - Using Linearity reference file jwst_miri_linearity_0032.fits',
+    '2025-12-15T03:44:36.636 - stdatamodels.dynamicdq - WARNING - Keyword RESERVED_4
+      does not correspond to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:44:36.637
+      - stdatamodels.dynamicdq - WARNING - Keyword UNRELIABLE_ERROR does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:44:36.657 -
+      stdatamodels.dynamicdq - WARNING - Keyword UNRELIABLE_RESET does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:45:11.954 -
+      stpipe.step - INFO - Step linearity done', '2025-12-15T03:45:12.252 - stpipe.step
+      - INFO - Step rscd running with args (<RampModel(8, 290, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:45:19.410 - jwst.rscd.rscd_step - INFO - Using RSCD reference file
+      jwst_miri_rscd_0017.fits', '2025-12-15T03:45:19.451 - jwst.rscd.rscd_sub - INFO
+      - Number of groups to skip for integrations 2 and higher: 2', '2025-12-15T03:45:19.464
+      - stpipe.step - INFO - Step rscd done', '2025-12-15T03:45:19.773 - stpipe.step
+      - INFO - Step dark_current running with args (<RampModel(8, 290, 1024, 1032)
+      from jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:45:19.788
+      - jwst.dark_current.dark_current_step - INFO - Using DARK reference file jwst_miri_dark_0113.fits',
+    '2025-12-15T03:45:36.396 - stdatamodels.dynamicdq - WARNING - Keyword UNRELIABLE_ERROR
+      does not correspond to an existing DQ mnemonic, so will be ignored', '2025-12-15T03:45:36.471
+      - jwst.dark_current.dark_current_step - INFO - Using Poisson noise from average
+      dark current 1.0 e-/sec', '2025-12-15T03:45:36.472 - stcal.dark_current.dark_sub
+      - INFO - Science data nints=8, ngroups=290, nframes=1, groupgap=0', '2025-12-15T03:45:36.472
+      - stcal.dark_current.dark_sub - INFO - Dark data nints=2, ngroups=360, nframes=1,
+      groupgap=0', '2025-12-15T03:45:37.859 - stcal.dark_current.dark_sub - DEBUG
+      - subtract_dark: nints=8, ngroups=290, size=1024,1032', '2025-12-15T03:46:27.905
+      - stpipe.step - INFO - Step dark_current done', '2025-12-15T03:46:28.226 - stpipe.step
+      - INFO - Step refpix running with args (<RampModel(8, 290, 1024, 1032) from
+      jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:46:28.227
+      - stpipe.step - INFO - Step skipped.', '2025-12-15T03:46:28.485 - stpipe.step
+      - INFO - Step charge_migration running with args (<RampModel(8, 290, 1024, 1032)
+      from jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:46:28.486
+      - stpipe.step - INFO - Step skipped.', '2025-12-15T03:46:28.758 - stpipe.step
+      - INFO - Step jump running with args (<RampModel(8, 290, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:46:35.675 - jwst.jump.jump_step - INFO - CR rejection threshold
+      = 4 sigma', '2025-12-15T03:46:35.675 - jwst.jump.jump_step - INFO - Maximum
+      cores to use = 1', '2025-12-15T03:46:35.687 - jwst.jump.jump_step - INFO - Using
+      GAIN reference file: jwst_miri_gain_0042.fits', '2025-12-15T03:46:35.691 - jwst.jump.jump_step
+      - INFO - Using READNOISE reference file: jwst_miri_readnoise_0085.fits', '2025-12-15T03:46:40.975
+      - stcal.jump.jump - INFO - Executing two-point difference method', '2025-12-15T03:50:48.387
+      - stcal.jump.jump - INFO - Total elapsed time = 247.411 sec', '2025-12-15T03:50:49.128
+      - jwst.jump.jump_step - INFO - The execution time in seconds: 260.360191', '2025-12-15T03:50:49.131
+      - stpipe.step - INFO - Step jump done', '2025-12-15T03:50:50.521 - stpipe.step
+      - INFO - Step clean_flicker_noise running with args (<RampModel(8, 290, 1024,
+      1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:50:50.521
+      - stpipe.step - INFO - Step skipped.', '2025-12-15T03:50:50.751 - stpipe.step
+      - INFO - Step ramp_fit running with args (<RampModel(8, 290, 1024, 1032) from
+      jw01276003001_05101_00001_mirimage_uncal.fits>,).', '2025-12-15T03:50:57.727
+      - jwst.ramp_fitting.ramp_fit_step - INFO - Using READNOISE reference file: jwst_miri_readnoise_0085.fits',
+    '2025-12-15T03:50:57.727 - jwst.ramp_fitting.ramp_fit_step - INFO - Using GAIN
+      reference file: jwst_miri_gain_0042.fits', '2025-12-15T03:50:57.791 - jwst.ramp_fitting.ramp_fit_step
+      - INFO - Using algorithm = OLS_C', '2025-12-15T03:50:57.791 - jwst.ramp_fitting.ramp_fit_step
+      - INFO - Using weighting = optimal', '2025-12-15T03:51:13.298 - stcal.ramp_fitting.ols_fit
+      - INFO - Number of multiprocessing slices: 1', '2025-12-15T03:51:13.302 - stcal.ramp_fitting.ols_fit
+      - INFO - Number of leading groups that are flagged as DO_NOT_USE: 0', '2025-12-15T03:51:13.305
+      - stcal.ramp_fitting.ols_fit - INFO - MIRI dataset has all pixels in the final
+      group flagged as DO_NOT_USE.', '2025-12-15T03:51:13.309 - stcal.ramp_fitting.ols_fit
+      - DEBUG - Running ols_slope_fitter', '2025-12-15T03:57:40.379 - stcal.ramp_fitting.ols_fit
+      - INFO - Ramp Fitting C Time: 387.0699098110199', '2025-12-15T03:57:40.486 -
+      stpipe.step - INFO - Step ramp_fit done', '2025-12-15T03:57:40.684 - stpipe.step
+      - INFO - Step gain_scale running with args (<ImageModel(1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:57:40.718 - jwst.gain_scale.gain_scale_step - INFO - Using GAIN
+      reference file: jwst_miri_gain_0042.fits', '2025-12-15T03:57:40.740 - jwst.gain_scale.gain_scale_step
+      - INFO - GAINFACT not found in gain reference file', '2025-12-15T03:57:40.740
+      - jwst.gain_scale.gain_scale_step - INFO - Step will be skipped', '2025-12-15T03:57:40.743
+      - stpipe.step - INFO - Step gain_scale done', '2025-12-15T03:57:40.872 - stpipe.step
+      - INFO - Step gain_scale running with args (<CubeModel(8, 1024, 1032) from jw01276003001_05101_00001_mirimage_uncal.fits>,).',
+    '2025-12-15T03:57:40.972 - jwst.gain_scale.gain_scale_step - INFO - Using GAIN
+      reference file: jwst_miri_gain_0042.fits', '2025-12-15T03:57:40.991 - jwst.gain_scale.gain_scale_step
+      - INFO - GAINFACT not found in gain reference file', '2025-12-15T03:57:40.992
+      - jwst.gain_scale.gain_scale_step - INFO - Step will be skipped', '2025-12-15T03:57:40.994
+      - stpipe.step - INFO - Step gain_scale done', '2025-12-15T03:57:42.437 - stpipe.step
+      - INFO - Saved model in jw01276003001_05101_00001_mirimage_rateints.fits', '2025-12-15T03:57:42.437
+      - jwst.pipeline.calwebb_detector1 - INFO - ... ending calwebb_detector1', '2025-12-15T03:57:42.439
+      - jwst.stpipe.core - INFO - Results used CRDS context: jwst_1464.pmap']
+  calwebb_spec2: ['2025-12-15T04:49:15.606 - stpipe.step - INFO - Step Spec2Pipeline
+      running with args (''jw01276-o003_20251215t025925_spec2_00002_asn.json'',).',
+    "2025-12-15T04:49:15.640 - stpipe.step - INFO - Step Spec2Pipeline parameters
+      are:\n  pre_hooks: []\n  post_hooks: []\n  output_file: None\n  output_dir:
+      None\n  output_ext: .fits\n  output_use_model: False\n  output_use_index: True\n
+      \ save_results: True\n  skip: False\n  suffix: None\n  search_output_file: True\n
+      \ input_dir: level2\n  save_bsub: False\n  fail_on_exception: True\n  save_wfss_esec:
+      False\n  steps:\n    assign_wcs:\n      pre_hooks: []\n      post_hooks: []\n
+      \     output_file: None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      level2\n      sip_approx: True\n      sip_max_pix_error: 0.01\n      sip_degree:
+      None\n      sip_max_inv_pix_error: 0.01\n      sip_inv_degree: None\n      sip_npoints:
+      12\n      slit_y_low: -0.55\n      slit_y_high: 0.55\n      nrs_ifu_slice_wcs:
+      False\n    badpix_selfcal:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      True\n      suffix: None\n      search_output_file: True\n      input_dir: level2\n
+      \     flagfrac_lower: 0.001\n      flagfrac_upper: 0.001\n      kernel_size:
+      15\n      force_single: False\n      save_flagged_bkg: False\n    msa_flagging:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n    nsclean:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: True\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: level2\n      fit_method: fft\n      fit_by_channel: False\n
+      \     background_method: None\n      background_box_size: None\n      mask_spectral_regions:
+      True\n      n_sigma: 5.0\n      fit_histogram: False\n      single_mask: False\n
+      \     user_mask: None\n      save_mask: False\n      save_background: False\n
+      \     save_noise: False\n    bkg_subtract:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: level2\n      bkg_list: None\n      save_combined_background:
+      False\n      sigma: 3.0\n      maxiters: None\n      soss_source_percentile:
+      35.0\n      soss_bkg_percentile: None\n      wfss_mmag_extract: None\n      wfss_maxiter:
+      5\n      wfss_rms_stop: 0.0\n      wfss_outlier_percent: 1.0\n    imprint_subtract:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n    extract_2d:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: level2\n      slit_names: None\n      source_ids: None\n      extract_orders:
+      None\n      grism_objects: None\n      tsgrism_extract_height: None\n      wfss_extract_half_height:
+      5\n      wfss_mmag_extract: None\n      wfss_nbright: 1000\n    master_background_mos:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: True\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n      sigma_clip: 3.0\n      median_kernel: 1\n
+      \     force_subtract: False\n      save_background: False\n      user_background:
+      None\n      inverse: False\n      steps:\n        flat_field:\n          pre_hooks:
+      []\n          post_hooks: []\n          output_file: None\n          output_dir:
+      None\n          output_ext: .fits\n          output_use_model: False\n          output_use_index:
+      True\n          save_results: False\n          skip: False\n          suffix:
+      None\n          search_output_file: True\n          input_dir: level2\n          save_interpolated_flat:
+      False\n          user_supplied_flat: None\n          inverse: False\n        pathloss:\n
+      \         pre_hooks: []\n          post_hooks: []\n          output_file: None\n
+      \         output_dir: None\n          output_ext: .fits\n          output_use_model:
+      False\n          output_use_index: True\n          save_results: False\n          skip:
+      False\n          suffix: None\n          search_output_file: True\n          input_dir:
+      level2\n          inverse: False\n          source_type: None\n          user_slit_loc:
+      None\n        barshadow:\n          pre_hooks: []\n          post_hooks: []\n
+      \         output_file: None\n          output_dir: None\n          output_ext:
+      .fits\n          output_use_model: False\n          output_use_index: True\n
+      \         save_results: False\n          skip: False\n          suffix: None\n
+      \         search_output_file: True\n          input_dir: level2\n          inverse:
+      False\n          source_type: None\n        photom:\n          pre_hooks: []\n
+      \         post_hooks: []\n          output_file: None\n          output_dir:
+      None\n          output_ext: .fits\n          output_use_model: False\n          output_use_index:
+      True\n          save_results: False\n          skip: False\n          suffix:
+      None\n          search_output_file: True\n          input_dir: level2\n          inverse:
+      False\n          source_type: None\n          apply_time_correction: True\n
+      \       pixel_replace:\n          pre_hooks: []\n          post_hooks: []\n
+      \         output_file: None\n          output_dir: None\n          output_ext:
+      .fits\n          output_use_model: True\n          output_use_index: True\n
+      \         save_results: False\n          skip: True\n          suffix: None\n
+      \         search_output_file: True\n          input_dir: level2\n          algorithm:
+      fit_profile\n          n_adjacent_cols: 3\n        resample_spec:\n          pre_hooks:
+      []\n          post_hooks: []\n          output_file: None\n          output_dir:
+      None\n          output_ext: .fits\n          output_use_model: False\n          output_use_index:
+      True\n          save_results: False\n          skip: False\n          suffix:
+      None\n          search_output_file: True\n          input_dir: level2\n          pixfrac:
+      1.0\n          kernel: square\n          fillval: NAN\n          weight_type:
+      exptime\n          output_shape: None\n          pixel_scale_ratio: 1.0\n          pixel_scale:
+      None\n          output_wcs: ''\n          single: False\n          blendheaders:
+      True\n          in_memory: True\n        extract_1d:\n          pre_hooks: []\n
+      \         post_hooks: []\n          output_file: None\n          output_dir:
+      None\n          output_ext: .fits\n          output_use_model: False\n          output_use_index:
+      True\n          save_results: False\n          skip: False\n          suffix:
+      None\n          search_output_file: True\n          input_dir: level2\n          subtract_background:
+      None\n          apply_apcorr: True\n          extraction_type: box\n          use_source_posn:
+      None\n          position_offset: 0.0\n          model_nod_pair: True\n          optimize_psf_location:
+      True\n          smoothing_length: None\n          bkg_fit: None\n          bkg_order:
+      None\n          log_increment: 50\n          save_profile: False\n          save_scene_model:
+      False\n          save_residual_image: False\n          center_xy: None\n          ifu_autocen:
+      False\n          bkg_sigma_clip: 3.0\n          ifu_rfcorr: True\n          ifu_set_srctype:
+      None\n          ifu_rscale: None\n          ifu_covar_scale: 1.0\n          soss_atoca:
+      True\n          soss_threshold: 0.01\n          soss_n_os: 2\n          soss_wave_grid_in:
+      None\n          soss_wave_grid_out: None\n          soss_estimate: None\n          soss_rtol:
+      0.0001\n          soss_max_grid_size: 20000\n          soss_tikfac: None\n          soss_width:
+      40.0\n          soss_bad_pix: masking\n          soss_modelname: None\n          soss_order_3:
+      True\n    wavecorr:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      level2\n    flat_field:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      level2\n      save_interpolated_flat: False\n      user_supplied_flat: None\n
+      \     inverse: False\n    srctype:\n      pre_hooks: []\n      post_hooks: []\n
+      \     output_file: None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      level2\n      source_type: None\n    straylight:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: level2\n      clean_showers: False\n      shower_plane: 3\n
+      \     shower_x_stddev: 18.0\n      shower_y_stddev: 5.0\n      shower_low_reject:
+      0.1\n      shower_high_reject: 99.9\n      save_shower_model: False\n    fringe:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n    residual_fringe:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: True\n      suffix: residual_fringe\n      search_output_file:
+      False\n      input_dir: level2\n      save_intermediate_results: False\n      ignore_region_min:
+      None\n      ignore_region_max: None\n    pathloss:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: False\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: level2\n      inverse: False\n      source_type: None\n      user_slit_loc:
+      None\n    barshadow:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      level2\n      inverse: False\n      source_type: None\n    wfss_contam:\n      pre_hooks:
+      []\n      post_hooks: []\n      output_file: None\n      output_dir: None\n
+      \     output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: True\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n      save_simulated_image: False\n      save_contam_images:
+      False\n      maximum_cores: none\n      orders: None\n      magnitude_limit:
+      None\n      wl_oversample: 2\n      max_pixels_per_chunk: 50000\n    photom:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n      inverse: False\n      source_type: None\n
+      \     apply_time_correction: True\n    pixel_replace:\n      pre_hooks: []\n
+      \     post_hooks: []\n      output_file: None\n      output_dir: None\n      output_ext:
+      .fits\n      output_use_model: True\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: None\n      search_output_file: True\n
+      \     input_dir: level2\n      algorithm: fit_profile\n      n_adjacent_cols:
+      3\n    resample_spec:\n      pre_hooks: []\n      post_hooks: []\n      output_file:
+      None\n      output_dir: None\n      output_ext: .fits\n      output_use_model:
+      False\n      output_use_index: True\n      save_results: False\n      skip:
+      False\n      suffix: None\n      search_output_file: True\n      input_dir:
+      level2\n      pixfrac: 1.0\n      kernel: square\n      fillval: NAN\n      weight_type:
+      exptime\n      output_shape: None\n      pixel_scale_ratio: 1.0\n      pixel_scale:
+      None\n      output_wcs: ''\n      single: False\n      blendheaders: True\n
+      \     in_memory: True\n    cube_build:\n      pre_hooks: []\n      post_hooks:
+      []\n      output_file: None\n      output_dir: None\n      output_ext: .fits\n
+      \     output_use_model: True\n      output_use_index: True\n      save_results:
+      False\n      skip: False\n      suffix: s3d\n      search_output_file: False\n
+      \     input_dir: level2\n      pipeline: 3\n      channel: all\n      band:
+      all\n      grating: all\n      filter: all\n      output_type: None\n      scalexy:
+      0.0\n      scalew: 0.0\n      weighting: drizzle\n      coord_system: skyalign\n
+      \     ra_center: None\n      dec_center: None\n      cube_pa: None\n      nspax_x:
+      None\n      nspax_y: None\n      rois: 0.0\n      roiw: 0.0\n      weight_power:
+      2.0\n      wavemin: None\n      wavemax: None\n      single: False\n      skip_dqflagging:
+      False\n      offset_file: None\n      debug_spaxel: -1 -1 -1\n    extract_1d:\n
+      \     pre_hooks: []\n      post_hooks: []\n      output_file: None\n      output_dir:
+      None\n      output_ext: .fits\n      output_use_model: False\n      output_use_index:
+      True\n      save_results: False\n      skip: False\n      suffix: None\n      search_output_file:
+      True\n      input_dir: level2\n      subtract_background: None\n      apply_apcorr:
+      True\n      extraction_type: box\n      use_source_posn: True\n      position_offset:
+      0.0\n      model_nod_pair: True\n      optimize_psf_location: True\n      smoothing_length:
+      None\n      bkg_fit: None\n      bkg_order: None\n      log_increment: 50\n
+      \     save_profile: False\n      save_scene_model: False\n      save_residual_image:
+      False\n      center_xy: None\n      ifu_autocen: False\n      bkg_sigma_clip:
+      3.0\n      ifu_rfcorr: True\n      ifu_set_srctype: None\n      ifu_rscale:
+      None\n      ifu_covar_scale: 1.0\n      soss_atoca: True\n      soss_threshold:
+      0.01\n      soss_n_os: 2\n      soss_wave_grid_in: None\n      soss_wave_grid_out:
+      None\n      soss_estimate: None\n      soss_rtol: 0.0001\n      soss_max_grid_size:
+      20000\n      soss_tikfac: None\n      soss_width: 40.0\n      soss_bad_pix:
+      masking\n      soss_modelname: None\n      soss_order_3: True", '2025-12-15T04:49:15.705
+      - stpipe.pipeline - INFO - Prefetching reference files for dataset: ''jw01276-o003_20251215t025925_spec2_00002_asn.json''
+      reftypes = [''apcorr'', ''area'', ''barshadow'', ''bkg'', ''camera'', ''collimator'',
+      ''cubepar'', ''dflat'', ''disperser'', ''distortion'', ''extract1d'', ''fflat'',
+      ''filteroffset'', ''flat'', ''fore'', ''fpa'', ''fringe'', ''ifufore'', ''ifupost'',
+      ''ifuslicer'', ''mrsxartcorr'', ''msa'', ''msaoper'', ''ote'', ''pastasoss'',
+      ''pathloss'', ''photom'', ''psf'', ''regions'', ''sflat'', ''speckernel'', ''specprofile'',
+      ''specwcs'', ''wavecorr'', ''wavelengthrange'']', '2025-12-15T04:49:15.727 -
+      stpipe.pipeline - INFO - Prefetch for APCORR reference file is ''jwst_miri_apcorr_0017.fits''.',
+    '2025-12-15T04:49:15.728 - stpipe.pipeline - INFO - Prefetch for AREA reference
+      file is ''N/A''.', '2025-12-15T04:49:15.728 - stpipe.pipeline - INFO - Prefetch
+      for BARSHADOW reference file is ''N/A''.', '2025-12-15T04:49:15.728 - stpipe.pipeline
+      - INFO - Prefetch for BKG reference file is ''N/A''.', '2025-12-15T04:49:15.728
+      - stpipe.pipeline - INFO - Prefetch for CAMERA reference file is ''N/A''.',
+    '2025-12-15T04:49:15.728 - stpipe.pipeline - INFO - Prefetch for COLLIMATOR reference
+      file is ''N/A''.', '2025-12-15T04:49:15.728 - stpipe.pipeline - INFO - Prefetch
+      for CUBEPAR reference file is ''N/A''.', '2025-12-15T04:49:15.728 - stpipe.pipeline
+      - INFO - Prefetch for DFLAT reference file is ''N/A''.', '2025-12-15T04:49:15.728
+      - stpipe.pipeline - INFO - Prefetch for DISPERSER reference file is ''N/A''.',
+    '2025-12-15T04:49:15.729 - stpipe.pipeline - INFO - Prefetch for DISTORTION reference
+      file is ''jwst_miri_distortion_0047.asdf''.', '2025-12-15T04:49:15.729 - stpipe.pipeline
+      - INFO - Prefetch for EXTRACT1D reference file is ''jwst_miri_extract1d_0007.json''.',
+    '2025-12-15T04:49:15.730 - stpipe.pipeline - INFO - Prefetch for FFLAT reference
+      file is ''N/A''.', '2025-12-15T04:49:15.730 - stpipe.pipeline - INFO - Prefetch
+      for FILTEROFFSET reference file is ''N/A''.', '2025-12-15T04:49:15.730 - stpipe.pipeline
+      - INFO - Prefetch for FLAT reference file is ''jwst_miri_flat_0790.fits''.',
+    '2025-12-15T04:49:15.731 - stpipe.pipeline - INFO - Prefetch for FORE reference
+      file is ''N/A''.', '2025-12-15T04:49:15.731 - stpipe.pipeline - INFO - Prefetch
+      for FPA reference file is ''N/A''.', '2025-12-15T04:49:15.731 - stpipe.pipeline
+      - INFO - Prefetch for FRINGE reference file is ''N/A''.', '2025-12-15T04:49:15.731
+      - stpipe.pipeline - INFO - Prefetch for IFUFORE reference file is ''N/A''.',
+    '2025-12-15T04:49:15.731 - stpipe.pipeline - INFO - Prefetch for IFUPOST reference
+      file is ''N/A''.', '2025-12-15T04:49:15.732 - stpipe.pipeline - INFO - Prefetch
+      for IFUSLICER reference file is ''N/A''.', '2025-12-15T04:49:15.732 - stpipe.pipeline
+      - INFO - Prefetch for MRSXARTCORR reference file is ''N/A''.', '2025-12-15T04:49:15.732
+      - stpipe.pipeline - INFO - Prefetch for MSA reference file is ''N/A''.', '2025-12-15T04:49:15.732
+      - stpipe.pipeline - INFO - Prefetch for MSAOPER reference file is ''N/A''.',
+    '2025-12-15T04:49:15.732 - stpipe.pipeline - INFO - Prefetch for OTE reference
+      file is ''N/A''.', '2025-12-15T04:49:15.732 - stpipe.pipeline - INFO - Prefetch
+      for PASTASOSS reference file is ''N/A''.', '2025-12-15T04:49:15.732 - stpipe.pipeline
+      - INFO - Prefetch for PATHLOSS reference file is ''jwst_miri_pathloss_0002.fits''.',
+    '2025-12-15T04:49:15.733 - stpipe.pipeline - INFO - Prefetch for PHOTOM reference
+      file is ''jwst_miri_photom_0219.fits''.', '2025-12-15T04:49:15.734 - stpipe.pipeline
+      - INFO - Prefetch for PSF reference file is ''jwst_miri_psf_0002.fits''.', '2025-12-15T04:49:15.735
+      - stpipe.pipeline - INFO - Prefetch for REGIONS reference file is ''N/A''.',
+    '2025-12-15T04:49:15.735 - stpipe.pipeline - INFO - Prefetch for SFLAT reference
+      file is ''N/A''.', '2025-12-15T04:49:15.735 - stpipe.pipeline - INFO - Prefetch
+      for SPECKERNEL reference file is ''N/A''.', '2025-12-15T04:49:15.735 - stpipe.pipeline
+      - INFO - Prefetch for SPECPROFILE reference file is ''N/A''.', '2025-12-15T04:49:15.735
+      - stpipe.pipeline - INFO - Prefetch for SPECWCS reference file is ''jwst_miri_specwcs_0010.fits''.',
+    '2025-12-15T04:49:15.736 - stpipe.pipeline - INFO - Prefetch for WAVECORR reference
+      file is ''N/A''.', '2025-12-15T04:49:15.736 - stpipe.pipeline - INFO - Prefetch
+      for WAVELENGTHRANGE reference file is ''N/A''.', '2025-12-15T04:49:15.736 -
+      jwst.pipeline.calwebb_spec2 - INFO - Starting calwebb_spec2 ...', '2025-12-15T04:49:15.744
+      - jwst.pipeline.calwebb_spec2 - INFO - Processing product jw01276003001_05101_00001_mirimage',
+    '2025-12-15T04:49:15.744 - jwst.pipeline.calwebb_spec2 - INFO - Working on input
+      jw01276003001_05101_00001_mirimage_rate.fits ...', '2025-12-15T04:49:16.100
+      - stpipe.step - INFO - Step assign_wcs running with args (<ImageModel(1024,
+      1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:16.298
+      - jwst.assign_wcs.miri - INFO - Applied Barycentric velocity correction : 0.999978737875829',
+    '2025-12-15T04:49:16.388 - jwst.assign_wcs.miri - INFO - Created a MIRI mir_lrs-fixedslit
+      pipeline with references {''distortion'': ''jwst_miri_distortion_0047.asdf'',
+      ''filteroffset'': None, ''specwcs'': ''jwst_miri_specwcs_0010.fits'', ''regions'':
+      None, ''wavelengthrange'': None, ''camera'': None, ''collimator'': None, ''disperser'':
+      None, ''fore'': None, ''fpa'': None, ''msa'': None, ''ote'': None, ''ifupost'':
+      None, ''ifufore'': None, ''ifuslicer'': None}', '2025-12-15T04:49:16.503 - stcal.alignment.util
+      - INFO - Update S_REGION to POLYGON ICRS  121.815574901 -66.315250365 121.815596495
+      -66.315393099 121.818856770 -66.315311621 121.818834360 -66.315168657', '2025-12-15T04:49:16.562
+      - jwst.assign_wcs.assign_wcs - INFO - COMPLETED assign_wcs', '2025-12-15T04:49:16.568
+      - stpipe.step - INFO - Step assign_wcs done', '2025-12-15T04:49:16.810 - stpipe.step
+      - INFO - Step badpix_selfcal running with args (<ImageModel(1024, 1032) from
+      jw01276003001_05101_00001_mirimage_rate.fits>, [], [''jw01276003001_05101_00002_mirimage_rate.fits'']).',
+    '2025-12-15T04:49:16.811 - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:17.027
+      - stpipe.step - INFO - Step msa_flagging running with args (<ImageModel(1024,
+      1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:17.027
+      - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:17.246 - stpipe.step
+      - INFO - Step nsclean running with args (<ImageModel(1024, 1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).',
+    '2025-12-15T04:49:17.247 - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:17.464
+      - stpipe.step - INFO - Step imprint_subtract running with args (<ImageModel(1024,
+      1032) from jw01276003001_05101_00001_mirimage_rate.fits>, []).', '2025-12-15T04:49:17.464
+      - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:17.695 - stpipe.step
+      - INFO - Step imprint_subtract running with args (''jw01276003001_05101_00002_mirimage_rate.fits'',
+      []).', '2025-12-15T04:49:17.695 - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:17.912
+      - stpipe.step - INFO - Step bkg_subtract running with args (<ImageModel(1024,
+      1032) from jw01276003001_05101_00001_mirimage_rate.fits>, [''jw01276003001_05101_00002_mirimage_rate.fits'']).',
+    '2025-12-15T04:49:17.978 - jwst.background.asn_intake - INFO - Working on input
+      <ImageModel(1024, 1032) from jw01276003001_05101_00001_mirimage_rate.fits> ...',
+    '2025-12-15T04:49:18.062 - jwst.background.background_sub - INFO - Accumulate
+      bkg from jw01276003001_05101_00002_mirimage_rate.fits', '2025-12-15T04:49:18.398
+      - jwst.background.background_sub - INFO - Subtracting avg bkg from jw01276003001_05101_00001_mirimage_rate.fits',
+    '2025-12-15T04:49:18.448 - stpipe.step - INFO - Step bkg_subtract done', '2025-12-15T04:49:18.692
+      - stpipe.step - INFO - Step srctype running with args (<ImageModel(1024, 1032)
+      from jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:18.734
+      - jwst.srctype.srctype - INFO - Input EXP_TYPE is MIR_LRS-FIXEDSLIT', '2025-12-15T04:49:18.734
+      - jwst.srctype.srctype - INFO - Input SRCTYAPT = POINT', '2025-12-15T04:49:18.734
+      - jwst.srctype.srctype - INFO - Using input source type = POINT', '2025-12-15T04:49:18.736
+      - stpipe.step - INFO - Step srctype done', '2025-12-15T04:49:18.959 - stpipe.step
+      - INFO - Step straylight running with args (<ImageModel(1024, 1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).',
+    '2025-12-15T04:49:18.960 - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:19.180
+      - stpipe.step - INFO - Step flat_field running with args (<ImageModel(1024,
+      1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:19.342
+      - stdatamodels.dynamicdq - WARNING - Keyword CDP_PARTIAL_DATA does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T04:49:19.342 -
+      stdatamodels.dynamicdq - WARNING - Keyword CDP_LOW_QUAL does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T04:49:19.342 -
+      stdatamodels.dynamicdq - WARNING - Keyword CDP_UNRELIABLE_ERROR does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T04:49:19.346 -
+      stdatamodels.dynamicdq - WARNING - Keyword DIFF_PATTERN does not correspond
+      to an existing DQ mnemonic, so will be ignored', '2025-12-15T04:49:19.348 -
+      jwst.flatfield.flat_field_step - INFO - Using FLAT reference file: jwst_miri_flat_0790.fits',
+    '2025-12-15T04:49:19.348 - jwst.flatfield.flat_field_step - INFO - No reference
+      found for type FFLAT', '2025-12-15T04:49:19.348 - jwst.flatfield.flat_field_step
+      - INFO - No reference found for type SFLAT', '2025-12-15T04:49:19.349 - jwst.flatfield.flat_field_step
+      - INFO - No reference found for type DFLAT', '2025-12-15T04:49:19.495 - stpipe.step
+      - INFO - Step flat_field done', '2025-12-15T04:49:19.728 - stpipe.step - INFO
+      - Step fringe running with args (<ImageModel(1024, 1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).',
+    '2025-12-15T04:49:19.729 - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:19.953
+      - stpipe.step - INFO - Step pathloss running with args (<ImageModel(1024, 1032)
+      from jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:19.970
+      - jwst.pathloss.pathloss_step - INFO - Using PATHLOSS reference file jwst_miri_pathloss_0002.fits',
+    '2025-12-15T04:49:20.013 - jwst.pathloss.pathloss - INFO - Input exposure type
+      is MIR_LRS-FIXEDSLIT', '2025-12-15T04:49:20.191 - stpipe.step - INFO - Step
+      pathloss done', '2025-12-15T04:49:20.423 - stpipe.step - INFO - Step barshadow
+      running with args (<ImageModel(1024, 1032) from jw01276003001_05101_00001_mirimage_rate.fits>,).',
+    '2025-12-15T04:49:20.424 - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:20.662
+      - stpipe.step - INFO - Step photom running with args (<ImageModel(1024, 1032)
+      from jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:20.680
+      - jwst.photom.photom_step - INFO - Using photom reference file: jwst_miri_photom_0219.fits',
+    '2025-12-15T04:49:20.680 - jwst.photom.photom_step - INFO - Using area reference
+      file: N/A', '2025-12-15T04:49:20.725 - jwst.photom.photom - INFO - Using instrument:
+      MIRI', '2025-12-15T04:49:20.725 - jwst.photom.photom - INFO -  detector: MIRIMAGE',
+    '2025-12-15T04:49:20.725 - jwst.photom.photom - INFO -  exp_type: MIR_LRS-FIXEDSLIT',
+    '2025-12-15T04:49:20.725 - jwst.photom.photom - INFO -  filter: P750L', '2025-12-15T04:49:20.751
+      - jwst.photom.photom - INFO - Attempting to obtain PIXAR_SR and PIXAR_A2 values
+      from PHOTOM reference file.', '2025-12-15T04:49:20.752 - jwst.photom.photom
+      - INFO - Values for PIXAR_SR and PIXAR_A2 obtained from PHOTOM reference file.',
+    '2025-12-15T04:49:20.753 - jwst.photom.photom - INFO -  subarray: FULL', '2025-12-15T04:49:20.753
+      - jwst.photom.photom - INFO - PHOTMJSR value: 13.8517', '2025-12-15T04:49:20.838
+      - stpipe.step - INFO - Step photom done', '2025-12-15T04:49:21.071 - stpipe.step
+      - INFO - Step residual_fringe running with args (<ImageModel(1024, 1032) from
+      jw01276003001_05101_00001_mirimage_rate.fits>,).', '2025-12-15T04:49:21.072
+      - stpipe.step - INFO - Step skipped.', '2025-12-15T04:49:21.350 - stpipe.step
+      - INFO - Step pixel_replace running with args (<ImageModel(1024, 1032) from
+      jw01276003001_05101_00001_mirimage_cal.fits>,).', '2025-12-15T04:49:21.999 -
+      jwst.pixel_replace.pixel_replace - INFO - Input model had 304 pixels replaced.',
+    '2025-12-15T04:49:22.002 - stpipe.step - INFO - Step pixel_replace done', '2025-12-15T04:49:22.245
+      - stpipe.step - INFO - Step resample_spec running with args (<ImageModel(1024,
+      1032) from jw01276003001_05101_00001_mirimage_cal.fits>,).', '2025-12-15T04:49:22.403
+      - jwst.resample.resample_spec - INFO - Specified output pixel scale ratio: 1.0.',
+    '2025-12-15T04:49:22.408 - jwst.resample.resample_spec - INFO - Computed output
+      pixel scale: 0.11057 arcsec.', '2025-12-15T04:49:22.411 - stcal.resample.resample
+      - INFO - Output pixel scale: 0.11056901263672668 arcsec.', '2025-12-15T04:49:22.411
+      - stcal.resample.resample - INFO - Driz parameter kernel: square', '2025-12-15T04:49:22.411
+      - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0', '2025-12-15T04:49:22.411
+      - stcal.resample.resample - INFO - Driz parameter fillval: NAN', '2025-12-15T04:49:22.411
+      - stcal.resample.resample - INFO - Driz parameter weight_type: exptime', '2025-12-15T04:49:22.412
+      - stcal.resample.resample - DEBUG - Output mosaic size (nx, ny): (45, 387)',
+    '2025-12-15T04:49:22.412 - jwst.resample.resample - INFO - Resampling science
+      and variance data', '2025-12-15T04:49:22.413 - stcal.resample.resample - DEBUG
+      - Using intensity scale iscale=1.0', '2025-12-15T04:49:22.631 - stcal.resample.resample
+      - INFO - Resampling science and variance data', '2025-12-15T04:49:22.637 - stcal.resample.resample
+      - INFO - Drizzling (1024, 1032) --> (387, 45)', '2025-12-15T04:49:22.641 - stcal.resample.resample
+      - INFO - Drizzling (1024, 1032) --> (387, 45)', '2025-12-15T04:49:22.643 - stcal.resample.resample
+      - INFO - Drizzling (1024, 1032) --> (387, 45)', '2025-12-15T04:49:22.723 - jwst.resample.resample_utils
+      - INFO - Estimated MIRI LRS slit width: 0.5147904271074765 deg arcsec.', '2025-12-15T04:49:22.733
+      - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  121.815508728
+      -66.315251904 121.818866385 -66.315167852 121.818888515 -66.315310573 121.815530859
+      -66.315394625', '2025-12-15T04:49:22.734 - jwst.resample.resample_spec_step
+      - INFO - Updating S_REGION: POLYGON ICRS  121.815508728 -66.315251904 121.818866385
+      -66.315167852 121.818888515 -66.315310573 121.815530859 -66.315394625.', '2025-12-15T04:49:22.869
+      - stpipe.step - INFO - Saved model in jw01276003001_05101_00001_mirimage_s2d.fits',
+    '2025-12-15T04:49:22.870 - stpipe.step - INFO - Step resample_spec done', '2025-12-15T04:49:23.107
+      - stpipe.step - INFO - Step extract_1d running with args (<SlitModel(387, 45)
+      from jw01276003001_05101_00001_mirimage_s2d.fits>,).', '2025-12-15T04:49:23.132
+      - jwst.extract_1d.extract_1d_step - INFO - Using EXTRACT1D reference file jwst_miri_extract1d_0007.json',
+    '2025-12-15T04:49:23.136 - jwst.extract_1d.extract_1d_step - INFO - Using APCORR
+      file jwst_miri_apcorr_0017.fits', '2025-12-15T04:49:23.140 - jwst.extract_1d.extract_1d_step
+      - INFO - Using PSF reference file jwst_miri_psf_0002.fits', '2025-12-15T04:49:23.190
+      - jwst.extract_1d.extract - WARNING - spectral_order is None; using 1', '2025-12-15T04:49:23.190
+      - jwst.extract_1d.extract - INFO - Processing spectral order 1', '2025-12-15T04:49:23.194
+      - jwst.extract_1d.source_location - INFO - Using dithered_ra and dithered_dec
+      to center extraction.', '2025-12-15T04:49:23.203 - jwst.extract_1d.extract -
+      INFO - Computed source location is 13.59, at pixel 193, wavelength 10.80', '2025-12-15T04:49:23.204
+      - jwst.extract_1d.extract - INFO - Nominal aperture start/stop: 27.00 -> 34.00
+      (inclusive)', '2025-12-15T04:49:23.205 - jwst.extract_1d.extract - INFO - Nominal
+      location is 30.50, so offset is -16.91 pixels', '2025-12-15T04:49:23.205 - jwst.extract_1d.extract
+      - INFO - Aperture start/stop: 10.09 -> 17.09 (inclusive)', '2025-12-15T04:49:23.208
+      - jwst.extract_1d.extract - INFO - Creating aperture correction.', '2025-12-15T04:49:23.486
+      - stpipe.step - INFO - Saved model in jw01276003001_05101_00001_mirimage_x1d.fits',
+    '2025-12-15T04:49:23.486 - stpipe.step - INFO - Step extract_1d done', '2025-12-15T04:49:23.487
+      - jwst.pipeline.calwebb_spec2 - INFO - Finished processing product jw01276003001_05101_00001_mirimage',
+    '2025-12-15T04:49:23.489 - jwst.pipeline.calwebb_spec2 - INFO - Ending calwebb_spec2',
+    '2025-12-15T04:49:23.489 - jwst.stpipe.core - INFO - Results used CRDS context:
+      jwst_1464.pmap']
+  extract_1d: ['2025-12-15T05:22:00.980 - stpipe.step - INFO - Step extract_1d running
+      with args (<SlitModel(388, 63) from jw01276-o003_t001_miri_p750l_s2d.fits>,).',
+    '2025-12-15T05:22:01.099 - jwst.extract_1d.extract_1d_step - INFO - Using EXTRACT1D
+      reference file jwst_miri_extract1d_0007.json', '2025-12-15T05:22:01.103 - jwst.extract_1d.extract_1d_step
+      - INFO - Using APCORR file jwst_miri_apcorr_0017.fits', '2025-12-15T05:22:01.106
+      - jwst.extract_1d.extract_1d_step - INFO - Using PSF reference file jwst_miri_psf_0002.fits',
+    '2025-12-15T05:22:01.145 - jwst.extract_1d.extract - WARNING - spectral_order
+      is None; using 1', '2025-12-15T05:22:01.145 - jwst.extract_1d.extract - INFO
+      - Processing spectral order 1', '2025-12-15T05:22:01.146 - jwst.extract_1d.extract
+      - INFO - Aperture start/stop: 27.00 -> 34.00 (inclusive)', '2025-12-15T05:22:01.149
+      - jwst.extract_1d.extract - INFO - Creating aperture correction.', '2025-12-15T05:22:01.171
+      - jwst.extract_1d.spec_wcs - WARNING - Wavelengths are not strictly monotonic,
+      inverse transform is not set']
+  master_background: ['2025-12-15T05:21:56.046 - stpipe.step - INFO - Step master_background
+      running with args (<jwst.datamodels.container.ModelContainer object at 0x14f070da3620>,).',
+    '2025-12-15T05:21:56.047 - stpipe.step - INFO - Step skipped.']
+  outlier_detection: ['2025-12-15T05:21:56.193 - stpipe.step - INFO - Step outlier_detection
+      running with args (<jwst.datamodels.container.ModelContainer object at 0x14f0701bc7d0>,).',
+    '2025-12-15T05:21:56.193 - jwst.outlier_detection.outlier_detection_step - INFO
+      - Outlier Detection mode: spec', '2025-12-15T05:21:56.194 - jwst.outlier_detection.outlier_detection_step
+      - INFO - Outlier Detection asn_id: o003', '2025-12-15T05:21:56.312 - jwst.resample.resample_spec
+      - INFO - Specified output pixel scale ratio: 1.0.', '2025-12-15T05:21:56.316
+      - jwst.resample.resample_spec - INFO - Computed output pixel scale: 0.11057
+      arcsec.', '2025-12-15T05:21:56.319 - stcal.resample.resample - INFO - Output
+      pixel scale: 0.11056901263561163 arcsec.', '2025-12-15T05:21:56.319 - stcal.resample.resample
+      - INFO - Driz parameter kernel: square', '2025-12-15T05:21:56.319 - stcal.resample.resample
+      - INFO - Driz parameter pixfrac: 1.0', '2025-12-15T05:21:56.320 - stcal.resample.resample
+      - INFO - Driz parameter fillval: NAN', '2025-12-15T05:21:56.320 - stcal.resample.resample
+      - INFO - Driz parameter weight_type: ivm', '2025-12-15T05:21:56.320 - stcal.resample.resample
+      - DEBUG - Output mosaic size (nx, ny): (63, 388)', '2025-12-15T05:21:56.320
+      - jwst.resample.resample - INFO - 1 exposures to drizzle together', '2025-12-15T05:21:56.321
+      - stcal.resample.resample - DEBUG - Using intensity scale iscale=1.0', '2025-12-15T05:21:56.498
+      - stcal.resample.resample - INFO - Resampling science and variance data', '2025-12-15T05:21:56.583
+      - jwst.resample.resample - INFO - 1 exposures to drizzle together', '2025-12-15T05:21:56.584
+      - stcal.resample.resample - DEBUG - Using intensity scale iscale=1.0', '2025-12-15T05:21:56.752
+      - stcal.resample.resample - INFO - Resampling science and variance data', '2025-12-15T05:21:56.964
+      - stcal.outlier_detection.utils - DEBUG - Bounding box from data shape: ((-0.5,
+      1031.5), (-0.5, 1023.5))', '2025-12-15T05:21:57.182 - stcal.outlier_detection.utils
+      - DEBUG - Pixmap shape: (1024, 1032)', '2025-12-15T05:21:57.183 - stcal.outlier_detection.utils
+      - DEBUG - Sci shape: (1024, 1032)', '2025-12-15T05:21:57.183 - stcal.outlier_detection.utils
+      - INFO - Blotting (1024, 1032) <-- (388, 63)', '2025-12-15T05:21:57.193 - stcal.outlier_detection.utils
+      - DEBUG - Bounding box from data shape: ((-0.5, 1031.5), (-0.5, 1023.5))', '2025-12-15T05:21:57.413
+      - stcal.outlier_detection.utils - DEBUG - Pixmap shape: (1024, 1032)', '2025-12-15T05:21:57.413
+      - stcal.outlier_detection.utils - DEBUG - Sci shape: (1024, 1032)', '2025-12-15T05:21:57.413
+      - stcal.outlier_detection.utils - INFO - Blotting (1024, 1032) <-- (388, 63)',
+    '2025-12-15T05:21:57.465 - jwst.outlier_detection.utils - INFO - 4 pixels marked
+      as outliers', '2025-12-15T05:21:57.479 - stcal.outlier_detection.utils - DEBUG
+      - Bounding box from data shape: ((-0.5, 1031.5), (-0.5, 1023.5))', '2025-12-15T05:21:57.687
+      - stcal.outlier_detection.utils - DEBUG - Pixmap shape: (1024, 1032)', '2025-12-15T05:21:57.687
+      - stcal.outlier_detection.utils - DEBUG - Sci shape: (1024, 1032)', '2025-12-15T05:21:57.687
+      - stcal.outlier_detection.utils - INFO - Blotting (1024, 1032) <-- (388, 63)',
+    '2025-12-15T05:21:57.697 - stcal.outlier_detection.utils - DEBUG - Bounding box
+      from data shape: ((-0.5, 1031.5), (-0.5, 1023.5))', '2025-12-15T05:21:57.912
+      - stcal.outlier_detection.utils - DEBUG - Pixmap shape: (1024, 1032)', '2025-12-15T05:21:57.912
+      - stcal.outlier_detection.utils - DEBUG - Sci shape: (1024, 1032)', '2025-12-15T05:21:57.912
+      - stcal.outlier_detection.utils - INFO - Blotting (1024, 1032) <-- (388, 63)',
+    '2025-12-15T05:21:57.963 - jwst.outlier_detection.utils - INFO - 10 pixels marked
+      as outliers']
+  pixel_replace: ['2025-12-15T05:21:58.730 - stpipe.step - INFO - Step pixel_replace
+      running with args (<jwst.datamodels.container.ModelContainer object at 0x14f0701bc7d0>,).',
+    '2025-12-15T05:21:59.231 - jwst.pixel_replace.pixel_replace - INFO - Input model
+      had 308 pixels replaced.', '2025-12-15T05:21:59.722 - jwst.pixel_replace.pixel_replace
+      - INFO - Input model had 314 pixels replaced.', '2025-12-15T05:21:59.724 - stpipe.step
+      - INFO - Step pixel_replace done']
+  resample_spec: ['2025-12-15T05:21:59.873 - stpipe.step - INFO - Step resample_spec
+      running with args (<jwst.datamodels.container.ModelContainer object at 0x14f0701909d0>,).',
+    '2025-12-15T05:22:00.022 - jwst.resample.resample_spec - INFO - Specified output
+      pixel scale ratio: 1.0.', '2025-12-15T05:22:00.026 - jwst.resample.resample_spec
+      - INFO - Computed output pixel scale: 0.11057 arcsec.', '2025-12-15T05:22:00.028
+      - stcal.resample.resample - INFO - Output pixel scale: 0.11056901263561163 arcsec.',
+    '2025-12-15T05:22:00.028 - stcal.resample.resample - INFO - Driz parameter kernel:
+      square', '2025-12-15T05:22:00.028 - stcal.resample.resample - INFO - Driz parameter
+      pixfrac: 1.0', '2025-12-15T05:22:00.028 - stcal.resample.resample - INFO - Driz
+      parameter fillval: NAN', '2025-12-15T05:22:00.028 - stcal.resample.resample
+      - INFO - Driz parameter weight_type: exptime', '2025-12-15T05:22:00.029 - stcal.resample.resample
+      - DEBUG - Output mosaic size (nx, ny): (63, 388)', '2025-12-15T05:22:00.029
+      - jwst.resample.resample - INFO - Resampling science and variance data', '2025-12-15T05:22:00.030
+      - stcal.resample.resample - DEBUG - Using intensity scale iscale=1.0', '2025-12-15T05:22:00.196
+      - stcal.resample.resample - INFO - Resampling science and variance data', '2025-12-15T05:22:00.201
+      - stcal.resample.resample - INFO - Drizzling (1024, 1032) --> (388, 63)', '2025-12-15T05:22:00.204
+      - stcal.resample.resample - INFO - Drizzling (1024, 1032) --> (388, 63)', '2025-12-15T05:22:00.207
+      - stcal.resample.resample - INFO - Drizzling (1024, 1032) --> (388, 63)', '2025-12-15T05:22:00.255
+      - stcal.resample.resample - DEBUG - Using intensity scale iscale=1.0', '2025-12-15T05:22:00.416
+      - stcal.resample.resample - INFO - Resampling science and variance data', '2025-12-15T05:22:00.421
+      - stcal.resample.resample - INFO - Drizzling (1024, 1032) --> (388, 63)', '2025-12-15T05:22:00.424
+      - stcal.resample.resample - INFO - Drizzling (1024, 1032) --> (388, 63)', '2025-12-15T05:22:00.427
+      - stcal.resample.resample - INFO - Drizzling (1024, 1032) --> (388, 63)', '2025-12-15T05:22:00.610
+      - jwst.resample.resample_utils - INFO - Estimated MIRI LRS slit width: 0.5147904271074765
+      deg arcsec.', '2025-12-15T05:22:00.619 - stcal.alignment.util - INFO - Update
+      S_REGION to POLYGON ICRS  121.814199969 -66.315284012 121.818931216 -66.315165576
+      121.818953343 -66.315308296 121.814222096 -66.315426733', '2025-12-15T05:22:00.620
+      - jwst.resample.resample_spec_step - INFO - Updating S_REGION: POLYGON ICRS  121.814199969
+      -66.315284012 121.818931216 -66.315165576 121.818953343 -66.315308296 121.814222096
+      -66.315426733.']
+meta:
+  aperture: {name: MIRIM_SLIT, pps_name: MIRIM_SLIT}
+  asn: {pool_name: jw01276_20251215t025925_pool.csv, table_name: jw01276-o003_20251215t025925_spec3_00001_asn.json}
+  background: {}
+  cal_step: {assign_wcs: COMPLETE, badpix_selfcal: SKIPPED, barshadow: SKIPPED, bkg_subtract: COMPLETE,
+    charge_migration: SKIPPED, clean_flicker_noise: SKIPPED, dark_sub: COMPLETE, dq_init: COMPLETE,
+    emicorr: COMPLETE, extract_1d: COMPLETE, firstframe: COMPLETE, flat_field: COMPLETE,
+    fringe: SKIPPED, gain_scale: SKIPPED, group_scale: SKIPPED, imprint: SKIPPED,
+    ipc: SKIPPED, jump: COMPLETE, lastframe: COMPLETE, linearity: COMPLETE, master_background: SKIPPED,
+    msa_flagging: SKIPPED, nsclean: SKIPPED, outlier_detection: COMPLETE, pathloss: COMPLETE,
+    photom: COMPLETE, pixel_replace: COMPLETE, ramp_fit: COMPLETE, refpix: SKIPPED,
+    resample: COMPLETE, reset: COMPLETE, residual_fringe: SKIPPED, rscd: COMPLETE,
+    saturation: COMPLETE, srctype: COMPLETE, straylight: SKIPPED}
+  calibration_software_revision: RELEASE
+  calibration_software_version: 1.20.2
+  compress: false
+  data_processing_software_version: 2025_4a
+  date: '2025-12-15T05:22:01.344'
+  dither: {dithered_dec: -66.31533717546856, dithered_ra: 121.81655666149904, position_number: 1,
+    primary_type: ALONG-SLIT-NOD, total_points: 2, x_offset: -0.9452017704311846,
+    y_offset: -9.9848497304863e-05}
+  exposure: {clock_adjust_rate: 0.0, count: 4, data_problem: false, datamode: 7, drop_frames1: 0,
+    drop_frames3: 0, duration: 12915.036, end_time: 60139.510608275465, exposure_time: 12915.036,
+    extended_emission_events: 0.0, frame_divisor: 1, frame_time: 2.77504, group_time: 2.775,
+    groupgap: 0, integration_time: 807.19, measurement_time: 12831.784, mid_time: 60139.43527408565,
+    nframes: 1, ngroups: 290, nints: 8, noutputs: 4, nresets_at_start: 0, nresets_between_ints: 1,
+    nsamples: 1, osf_file: 2023195T130936391_002_osf.xml, primary_cosmic_rays: 0.6528671460031423,
+    prime_parallel: PRIME, readpatt: FASTR1, sample_time: 10.0, sca_num: 493, start_time: 60139.35993989583,
+    type: MIR_LRS-FIXEDSLIT, zero_frame: false}
+  filename: jw01276-o003_t001_miri_p750l_x1d.fits
+  guide_star_catalog_version: GSC31
+  guidestar: {gs_dec: -66.24037752411245, gs_id: S4PY016507, gs_mag: 14.33889389038086,
+    gs_order: 1, gs_pcs_mode: FINEGUIDE, gs_ra: 121.5193985085501, gs_start_time: '2023-07-14
+      08:22:20.5880000', gs_stop_time: '2023-07-14 08:26:22.2520000', gs_udec: 0.02064045,
+    gs_umag: 0.01946747489273548, gs_ura: 0.0223111343, gs_v3_pa_science: 172.0021383378466,
+    visit_end_time: '2023-07-14 12:16:33.8660000'}
+  hga_move: false
+  instrument: {ccc_state: OPEN, detector: MIRIMAGE, filter: P750L, lamp_state: 'OFF',
+    miri_fpe_side: A, miri_ice_side: A, name: MIRI}
+  model_type: MultiSpecModel
+  nwfsest: 60141.08033179398
+  observation: {activity_id: '01', bkgdtarg: false, date: '2023-07-14', date_beg: '2023-07-14T08:38:18.807',
+    date_end: '2023-07-14T12:15:16.555', exposure_number: '1', obs_id: V01276003001P0000000005101,
+    observation_folder: WD0806 Observations, observation_label: MIRI LRS, observation_number: '003',
+    program_number: '01276', sequence_id: '1', template: MIRI Low Resolution Spectroscopy,
+    time: '08:38:18.807', visit_group: '05', visit_id: '01276003001', visit_number: '001'}
+  origin: STSCI
+  oss_software_version: '8.7'
+  prd_software_version: PRDOPSSOC-072
+  program: {category: GTO, pi_name: 'Lagage, Pierre-Olivier', science_category: Planets
+      And Planet Formation, title: Spectroscopic Observations of WD 0806-661B}
+  pwfseet: 60138.906365393515
+  ref_file:
+    area: {name: N/A}
+    camera: {name: N/A}
+    collimator: {name: N/A}
+    crds: {context_used: jwst_1464.pmap, sw_version: 13.0.6}
+    dark: {name: 'crds://jwst_miri_dark_0113.fits'}
+    dflat: {name: N/A}
+    disperser: {name: N/A}
+    distortion: {name: 'crds://jwst_miri_distortion_0047.asdf'}
+    emicorr: {name: 'crds://jwst_miri_emicorr_0003.asdf'}
+    extract1d: {name: 'crds://jwst_miri_extract1d_0007.json'}
+    fflat: {name: N/A}
+    filteroffset: {name: N/A}
+    flat: {name: 'crds://jwst_miri_flat_0790.fits'}
+    fore: {name: N/A}
+    fpa: {name: N/A}
+    gain: {name: 'crds://jwst_miri_gain_0042.fits'}
+    ifufore: {name: N/A}
+    ifupost: {name: N/A}
+    ifuslicer: {name: N/A}
+    linearity: {name: 'crds://jwst_miri_linearity_0032.fits'}
+    mask: {name: 'crds://jwst_miri_mask_0036.fits'}
+    msa: {name: N/A}
+    ote: {name: N/A}
+    pathloss: {name: 'crds://jwst_miri_pathloss_0002.fits'}
+    photom: {name: 'crds://jwst_miri_photom_0219.fits'}
+    readnoise: {name: 'crds://jwst_miri_readnoise_0085.fits'}
+    regions: {name: N/A}
+    reset: {name: 'crds://jwst_miri_reset_0077.fits'}
+    rscd: {name: 'crds://jwst_miri_rscd_0017.fits'}
+    saturation: {name: 'crds://jwst_miri_saturation_0034.fits'}
+    sflat: {name: N/A}
+    specwcs: {name: 'crds://jwst_miri_specwcs_0010.fits'}
+    superbias: {name: N/A}
+    wavelengthrange: {name: N/A}
+  resample: {pixel_scale_ratio: 1.0, pixfrac: 1.0, pointings: 2, weight_type: exptime}
+  subarray: {fastaxis: 1, name: FULL, slowaxis: 2, xsize: 1032, xstart: 1, ysize: 1024,
+    ystart: 1}
+  target: {catalog_name: '', category: Star, dec: -66.3154153145189, dec_uncertainty: 0.1,
+    description: Brown dwarfs, proper_motion_dec: -0.2896, proper_motion_epoch: '2000-01-01
+      00:00:00.0000000', proper_motion_ra: 0.3403, proposer_dec: -66.31352222222222,
+    proposer_name: WD0806-661B, proposer_ra: 121.81114583333333, ra: 121.81668314690653,
+    ra_uncertainty: 0.1, source_type_apt: POINT, type: FIXED}
+  telescope: JWST
+  time: {barycentric_correction: 56.51478851214051, barycentric_expend: 60139.43533220467,
+    barycentric_expmid: 60139.3979631034, barycentric_expstart: 60139.36059400218,
+    heliocentric_correction: 55.66430403850973, heliocentric_expend: 60139.43532236119,
+    heliocentric_expmid: 60139.397953259875, heliocentric_expstart: 60139.36058415861}
+  time_sys: UTC
+  time_unit: s
+  velocity_aberration: {va_dec_ref: -66.31604458371791, va_ra_ref: 121.80369453198124}
+  visit: {crowded_field: false, engdb_pointing_quality: CALCULATED_TRACK_TR_202111,
+    engineering_quality: OK, exp_only: false, internal_target: false, start_time: '2023-07-14
+      07:33:45.2630000', status: SUCCESSFUL, too_visit: false, total_exposures: 4,
+    tsovisit: false, type: PRIME_TARGETED_FIXED}
+spec:
+- !core/asdf-1.1.0
+  detector: MIRIMAGE
+  dispersion_direction: 2
+  extraction_xstart: 28
+  extraction_xstop: 35
+  extraction_ystart: 1
+  extraction_ystop: 388
+  meta:
+    date: '2025-12-15T05:22:01.171'
+    model_type: SpecModel
+    wcs: !<tag:stsci.edu:gwcs/wcs-1.4.0>
+      name: ''
+      pixel_shape: null
+      steps:
+      - !<tag:stsci.edu:gwcs/step-1.3.0>
+        frame: !<tag:stsci.edu:gwcs/frame-1.2.0>
+          axes_names: ['']
+          axes_order: [0]
+          axes_type: [SPATIAL]
+          axis_physical_types: ['custom:SPATIAL']
+          name: pixel_frame
+          naxes: 1
+          unit: [!unit/unit-1.0.0 pixel]
+        transform: !transform/compose-1.3.0
+          forward:
+          - !transform/remap_axes-1.4.0
+            inputs: [x0]
+            mapping: [0, 0, 0]
+            outputs: [x0, x1, x2]
+          - !transform/concatenate-1.3.0
+            forward:
+            - !transform/concatenate-1.3.0
+              forward:
+              - !transform/constant-1.5.0
+                dimensions: 1
+                inputs: [x]
+                outputs: [y]
+                value: 121.8165385062621
+              - !transform/constant-1.5.0
+                dimensions: 1
+                inputs: [x]
+                outputs: [y]
+                value: -66.3152971271705
+              inputs: [x0, x1]
+              outputs: [y0, y1]
+            - !transform/tabular-1.3.0
+              bounds_error: false
+              inputs: [x]
+              lookup_table: !core/ndarray-1.1.0
+                source: 0
+                datatype: float64
+                byteorder: little
+                shape: [388]
+              method: linear
+              outputs: [y]
+              points:
+              - !core/ndarray-1.1.0
+                source: 1
+                datatype: float64
+                byteorder: little
+                shape: [388]
+            inputs: [x0, x1, x]
+            outputs: [y0, y1, y]
+          inputs: [x0]
+          name: pixel_to_world
+          outputs: [y0, y1, y]
+      - !<tag:stsci.edu:gwcs/step-1.3.0>
+        frame: !<tag:stsci.edu:gwcs/composite_frame-1.0.0>
+          frames:
+          - !<tag:stsci.edu:gwcs/celestial_frame-1.2.0>
+            axes_names: [lon, lat]
+            axes_order: [0, 1]
+            axis_physical_types: [pos.eq.ra, pos.eq.dec]
+            name: sky
+            reference_frame: !<tag:astropy.org:astropy/coordinates/frames/icrs-1.1.0>
+              frame_attributes: {}
+            unit: [!unit/unit-1.0.0 deg, !unit/unit-1.0.0 deg]
+          - !<tag:stsci.edu:gwcs/spectral_frame-1.2.0>
+            axes_names: [wavelength]
+            axes_order: [2]
+            axis_physical_types: [em.wl]
+            name: spectral
+            unit: [!unit/unit-1.0.0 um]
+          name: world
+        transform: null
+  name: MIR_LRS-FIXEDSLIT
+  shutter_state: ''
+  slit_dec: -66.3152971271705
+  slit_ra: 121.8165385062621
+  slitlet_id: 0
+  source_id: 0
+  source_type: POINT
+  source_xpos: 0.0
+  source_ypos: 0.0
+  spec_table: !core/ndarray-1.1.0
+    source: fits:EXTRACT1D,1
+    datatype:
+    - {byteorder: big, datatype: float64, name: WAVELENGTH}
+    - {byteorder: big, datatype: float64, name: FLUX}
+    - {byteorder: big, datatype: float64, name: FLUX_ERROR}
+    - {byteorder: big, datatype: float64, name: FLUX_VAR_POISSON}
+    - {byteorder: big, datatype: float64, name: FLUX_VAR_RNOISE}
+    - {byteorder: big, datatype: float64, name: FLUX_VAR_FLAT}
+    - {byteorder: big, datatype: float64, name: SURF_BRIGHT}
+    - {byteorder: big, datatype: float64, name: SB_ERROR}
+    - {byteorder: big, datatype: float64, name: SB_VAR_POISSON}
+    - {byteorder: big, datatype: float64, name: SB_VAR_RNOISE}
+    - {byteorder: big, datatype: float64, name: SB_VAR_FLAT}
+    - {byteorder: big, datatype: uint32, name: DQ}
+    - {byteorder: big, datatype: float64, name: BACKGROUND}
+    - {byteorder: big, datatype: float64, name: BKGD_ERROR}
+    - {byteorder: big, datatype: float64, name: BKGD_VAR_POISSON}
+    - {byteorder: big, datatype: float64, name: BKGD_VAR_RNOISE}
+    - {byteorder: big, datatype: float64, name: BKGD_VAR_FLAT}
+    - {byteorder: big, datatype: float64, name: NPIXELS}
+    byteorder: big
+    shape: [388]
+  spectral_order: 1
+...
+ÓBLK 0                             ‘cvKƒ™CÔ×ğ!Á >   àV,@   àV,@   €9,@   àú+@   @øò+@   €Ôë+@    ®ä+@   €†İ+@   @\Ö+@   À/Ï+@   à È+@   àÏÀ+@   €œ¹+@   Àf²+@    .«+@    ô£+@   @·œ+@   àw•+@    6+@   Àñ†+@   àª+@   `ax+@   `q+@   ÀÆi+@   €ub+@    ![+@    ËS+@    qL+@   €E+@    ¶=+@    U6+@   €ğ.+@    ‰'+@   à +@   À±+@    A+@    Î	+@   €X+@   €ßú*@   `có*@    äë*@   àaä*@   €ÜÜ*@   àSÕ*@    ÈÍ*@   @9Æ*@    §¾*@   €·*@   Àx¯*@   ÀÜ§*@   @= *@   €š˜*@   `ô*@   ÀJ‰*@    *@    íy*@    9r*@   €j*@   @Æb*@   €[*@   @ES*@   @K*@   €µC*@    è;*@    4*@   @B,*@    i$*@    *@   à¬*@   ÀÈ*@   Àà*@   Àôü)@   àõ)@    í)@   @å)@   `İ)@   €Õ)@   €Í)@   `Å)@    ½)@   Àô´)@    à¬)@   `Ç¤)@   `ªœ)@    ‰”)@   €cŒ)@    9„)@   @|)@    Øs)@    ¡k)@    fc)@   @&[)@   ÀáR)@   à˜J)@   `KB)@   `ù9)@   À¢1)@   €G))@    ç )@    ƒ)@   À)@   À«)@    9ÿ(@   `Áö(@    Eî(@   àÃå(@   à=İ(@   à²Ô(@    #Ì(@    Ã(@   `ôº(@    U²(@   À±©(@   à¡(@    [˜(@   à§(@    ï†(@   `2~(@   Àou(@    ¨l(@    Ûc(@    [(@    1R(@    TI(@   àq@(@   @Š7(@    .(@    ª%(@   À²(@   @µ(@   `²
+(@   à©(@   À›ø'@    ˆï'@   Ànæ'@   ÀOİ'@    +Ô'@   à Ë'@   ÀĞÁ'@   àš¸'@   `_¯'@   à¦'@    Öœ'@   €‰“'@   `6Š'@   €İ€'@   €~w'@    n'@   À®d'@   À=['@   ÀÆQ'@   ÀIH'@   €Æ>'@   @=5'@   À­+'@    "'@    |'@   àÙ'@   €1'@   À‚û&@    Íñ&@   @è&@   `PŞ&@    ˆÔ&@   €¹Ê&@   `äÀ&@   À·&@   €&­&@   à=£&@    N™&@   ÀX&@    \…&@    Y{&@    Oq&@    >g&@   @']&@   @	S&@   `äH&@   À¸>&@   @†4&@   ÀL*&@   € &@   @Å&@    w&@    "&@   ÀÅö%@    bì%@   @øá%@    ‡×%@   €Í%@   àÂ%@    ¸%@    z­%@   àä¢%@   `H˜%@    ¤%@   €ù‚%@   àFx%@   àŒm%@    Ëb%@   €X%@    0M%@   €VB%@   àt7%@    ‹,%@   À˜!%@    %@   Àš%@   À %@    zõ$@   @\ê$@   €5ß$@   €Ô$@   `ÌÈ$@   À‰½$@   À=²$@    è¦$@    ˆ›$@   `$@   @¬„$@    /y$@   €§m$@   Àb$@    yV$@    ÓJ$@   À!?$@    e3$@   À'$@   àÌ$@   àï$@   À$@   @ø#@   `ì#@   à
+à#@   ÀôÓ#@   àÒÇ#@    ¥»#@   `k¯#@   €%£#@   `Ó–#@   àtŠ#@    
+~#@   €’q#@   `e#@   `}X#@   €ßK#@    4?#@    |2#@   @·%#@    ä#@   €#@   àÿ"@   `ò"@    å"@    û×"@   ÀÕÊ"@   `¢½"@   À`°"@    £"@    ²•"@   àDˆ"@    Éz"@   @>m"@   €¤_"@   ÀûQ"@   ÀCD"@   €|6"@   à¥("@    ¿"@   àÉ"@   @Äş!@   À®ğ!@   @‰â!@   ÀSÔ!@    Æ!@   à··!@   `Q©!@   @Úš!@    RŒ!@    º}!@    o!@   @V`!@   ÀŠQ!@   à­B!@   À¿3!@   @À$!@    ¯!@   @Œ!@    W÷ @    è @   `¸Ø @    MÉ @    Ğ¹ @    Aª @   `š @    èŠ @   `{ @    >k @    I[ @   @>K @   À; @   @ä* @   à“ @   @+
+ @   @Só@   @Ò@    ³°@   €@    =m@    0K@   Àé(@   €i@    ®ã@   €¶À@   €@   àz@   €ZV@   `f2@    0@   €¶é@   €øÄ@    õŸ@   àªz@   àU@   À=/@   €	@   à§â@   Àê»@   àß”@   @†m@   €ÜE@   Àá@   €”õ@   àóÌ@    ş£@   €³z@   `Q@    '@    Ãü@   ÀÒ@   à§@   @£{@   `ÖO@   @Ÿ#@    øö@   `ÚÉ@    @œ@   €$n@   @€?@   ÀM@    ‡à@    &°@   À$@   @}M@    )@    #è@   `e´@    é@   @¨J@   @@    Âİ@    ¦@   à‚m@    4@   à¹ù@    k¾@    ‚@    ›D@   @ë@   ÀíÅ@   à‹„@    ¯A@   `@ı@    )·@   àSo@    ¨%@   @Ú@    DŒ@   @â;@    mè@   @m‘@   Àg6@    íÖ@    Èr@    "
+@    Ô1@   À\ÿ@   @N¯@ÓBLK 0                             â€“ÆXßGY†¥î'¦L              ğ?       @      @      @      @      @      @       @      "@      $@      &@      (@      *@      ,@      .@      0@      1@      2@      3@      4@      5@      6@      7@      8@      9@      :@      ;@      <@      =@      >@      ?@      @@     €@@      A@     €A@      B@     €B@      C@     €C@      D@     €D@      E@     €E@      F@     €F@      G@     €G@      H@     €H@      I@     €I@      J@     €J@      K@     €K@      L@     €L@      M@     €M@      N@     €N@      O@     €O@      P@     @P@     €P@     ÀP@      Q@     @Q@     €Q@     ÀQ@      R@     @R@     €R@     ÀR@      S@     @S@     €S@     ÀS@      T@     @T@     €T@     ÀT@      U@     @U@     €U@     ÀU@      V@     @V@     €V@     ÀV@      W@     @W@     €W@     ÀW@      X@     @X@     €X@     ÀX@      Y@     @Y@     €Y@     ÀY@      Z@     @Z@     €Z@     ÀZ@      [@     @[@     €[@     À[@      \@     @\@     €\@     À\@      ]@     @]@     €]@     À]@      ^@     @^@     €^@     À^@      _@     @_@     €_@     À_@      `@      `@     @`@     ``@     €`@      `@     À`@     à`@      a@      a@     @a@     `a@     €a@      a@     Àa@     àa@      b@      b@     @b@     `b@     €b@      b@     Àb@     àb@      c@      c@     @c@     `c@     €c@      c@     Àc@     àc@      d@      d@     @d@     `d@     €d@      d@     Àd@     àd@      e@      e@     @e@     `e@     €e@      e@     Àe@     àe@      f@      f@     @f@     `f@     €f@      f@     Àf@     àf@      g@      g@     @g@     `g@     €g@      g@     Àg@     àg@      h@      h@     @h@     `h@     €h@      h@     Àh@     àh@      i@      i@     @i@     `i@     €i@      i@     Ài@     ài@      j@      j@     @j@     `j@     €j@      j@     Àj@     àj@      k@      k@     @k@     `k@     €k@      k@     Àk@     àk@      l@      l@     @l@     `l@     €l@      l@     Àl@     àl@      m@      m@     @m@     `m@     €m@      m@     Àm@     àm@      n@      n@     @n@     `n@     €n@      n@     Àn@     àn@      o@      o@     @o@     `o@     €o@      o@     Ào@     ào@      p@     p@      p@     0p@     @p@     Pp@     `p@     pp@     €p@     p@      p@     °p@     Àp@     Ğp@     àp@     ğp@      q@     q@      q@     0q@     @q@     Pq@     `q@     pq@     €q@     q@      q@     °q@     Àq@     Ğq@     àq@     ğq@      r@     r@      r@     0r@     @r@     Pr@     `r@     pr@     €r@     r@      r@     °r@     Àr@     Ğr@     àr@     ğr@      s@     s@      s@     0s@     @s@     Ps@     `s@     ps@     €s@     s@      s@     °s@     Às@     Ğs@     às@     ğs@      t@     t@      t@     0t@     @t@     Pt@     `t@     pt@     €t@     t@      t@     °t@     Àt@     Ğt@     àt@     ğt@      u@     u@      u@     0u@     @u@     Pu@     `u@     pu@     €u@     u@      u@     °u@     Àu@     Ğu@     àu@     ğu@      v@     v@      v@     0v@     @v@     Pv@     `v@     pv@     €v@     v@      v@     °v@     Àv@     Ğv@     àv@     ğv@      w@     w@      w@     0w@     @w@     Pw@     `w@     pw@     €w@     w@      w@     °w@     Àw@     Ğw@     àw@     ğw@      x@     x@      x@     0x@#ASDF BLOCK INDEX
+%YAML 1.1
+---
+- 80348
+- 83506
+...
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

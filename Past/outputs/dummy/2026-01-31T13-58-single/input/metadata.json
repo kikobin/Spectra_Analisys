@@ -1,0 +1,8 @@
+{
+    "target": "dummy",
+    "run_id": "2026-01-31T13-58-single",
+    "mode": "SINGLE FILE",
+    "sources": [
+        "dummy.fits"
+    ]
+}
