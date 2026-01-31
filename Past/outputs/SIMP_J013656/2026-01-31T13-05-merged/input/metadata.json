@@ -1,9 +1,0 @@
-{
-    "target": "SIMP_J013656",
-    "run_id": "2026-01-31T13-05-merged",
-    "mode": "AUTO + MERGED (nrs1+nrs2)",
-    "sources": [
-        "jw05814001001_03102_00003_nrs1_x1d.fits",
-        "jw05814001001_03102_00003_nrs2_x1d.fits"
-    ]
-}

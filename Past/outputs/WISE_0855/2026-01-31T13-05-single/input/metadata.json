@@ -1,8 +1,0 @@
-{
-    "target": "WISE_0855",
-    "run_id": "2026-01-31T13-05-single",
-    "mode": "AUTO (Best NRS1)",
-    "sources": [
-        "jw01230007001_05101_00001_nrs1_x1d.fits"
-    ]
-}

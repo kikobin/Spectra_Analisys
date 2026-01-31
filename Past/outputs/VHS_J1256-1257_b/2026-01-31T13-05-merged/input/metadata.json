@@ -1,9 +1,0 @@
-{
-    "target": "VHS_J1256-1257_b",
-    "run_id": "2026-01-31T13-05-merged",
-    "mode": "AUTO + MERGED (nrs1+nrs2)",
-    "sources": [
-        "jw01386013001_03104_00004_nrs1_x1d.fits",
-        "jw01386013001_03102_00003_nrs2_x1d.fits"
-    ]
-}
