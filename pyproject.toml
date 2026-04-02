@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "spectra-pipeline"
+version = "0.3.0"
+description = "JWST spectral analysis pipeline for molecular detection in substellar atmospheres"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "astropy>=5.3",
+    "matplotlib>=3.7",
+    "astroquery>=0.4.6",
+]
+
+[project.scripts]
+# After `pip install -e .`, run the pipeline from anywhere:
+spectra-run = "run_pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ml*", "ml_core*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"

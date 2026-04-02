@@ -127,20 +127,31 @@ def read_spectrum(filename: str, hdu_index=None, mask_dq=False):
                          # but mostly we expect length units.
                          wave_um = (wave_raw * wave_unit).to(u.um, equivalencies=u.spectral()).value
                 except (u.UnitConversionError, ValueError):
-                    # Fallback: try to guess from range? 
-                    # If mean > 1000, likely Angstroms.
-                    if np.mean(wave_raw) > 3000:
-                         warnings.warn("Unit conversion failed, but values look like Angstroms. Dividing by 10000.")
-                         wave_um = wave_raw / 10000.0
+                    # Unit conversion failed — fall back to range heuristic.
+                    # JWST in Å: ~6000–50000 → median >> 10000
+                    # JWST in nm: ~600–28000 → median 600–28000
+                    # JWST in μm: ~0.6–28    → median < 30
+                    med = float(np.nanmedian(wave_raw))
+                    if med > 10000:
+                        warnings.warn("Unit conversion failed; values look like Ångströms. Dividing by 10000.")
+                        wave_um = wave_raw / 10000.0
+                    elif med > 100:
+                        warnings.warn("Unit conversion failed; values look like nanometres. Dividing by 1000.")
+                        wave_um = wave_raw / 1000.0
                     else:
-                         warnings.warn(f"Could not convert {wave_unit} to um. Using raw values.")
+                        warnings.warn(f"Could not convert {wave_unit} to μm. Using raw values.")
             else:
-                # No unit. Heuristic check.
-                # JWST usually microns. 
-                # If values are huge, maybe Angstroms.
-                if np.nanmedian(wave_raw) > 5000:
-                    warnings.warn("No units found, but values look like Angstroms. Assuming Angstroms -> um.")
+                # No unit keyword in header — infer from value range.
+                # JWST in Å:  ~6 000–50 000  → median > 10 000
+                # JWST in nm: ~600–28 000    → median 600–28 000
+                # JWST in μm: ~0.6–28        → median < 30
+                med = float(np.nanmedian(wave_raw))
+                if med > 10000:
+                    warnings.warn("No unit keyword; values look like Ångströms. Assuming Å → μm.")
                     wave_um = wave_raw / 10000.0
+                elif med > 100:
+                    warnings.warn("No unit keyword; values look like nanometres. Assuming nm → μm.")
+                    wave_um = wave_raw / 1000.0
 
             # Metadata extraction
             meta = {

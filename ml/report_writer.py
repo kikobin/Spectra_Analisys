@@ -58,10 +58,10 @@ class ReportWriter:
         """
         inst_str = ", ".join(instruments) if instruments else "unspecified instruments"
         
-        # Identify high confidence detections for the abstract
+        # Identify high-confidence detections for the abstract
         confident_molecules = []
         for mol, label in data.get("ML confidence labels", {}).items():
-            if label == "LIKELY":
+            if label in ("STRONG", "LIKELY"):
                 confident_molecules.append(mol)
         
         abstract = f"This report defines the spectral analysis of {target} using data from {inst_str}. "
@@ -101,14 +101,28 @@ class ReportWriter:
                 snr = 0.0
                 bands = 0
 
-            line = f"- {molecule}: Classified as {conf_label}."
-            
-            if conf_label == "LIKELY":
-                line += f" Analysis reveals {bands} potential absorption bands with a signal to noise ratio of {snr:.1f}. The spectral morphology is consistent with theoretical models."
-            elif conf_label == "UNCERTAIN":
-                line += f" Marginal signals (SNR ~{snr:.1f}) were observed, but low spectral resolution or noise prevents a definitive identification."
-            elif conf_label == "UNLIKELY":
-                line += " No significant absorption features were detected above the noise floor."
+            line = f"- {molecule}: {conf_label}."
+
+            if conf_label == "STRONG":
+                line += (f" {bands} absorption band(s) detected at high significance"
+                         f" (SNR = {snr:.1f}). Spectral morphology is strongly"
+                         f" consistent with theoretical models.")
+            elif conf_label == "LIKELY":
+                line += (f" {bands} potential absorption band(s) identified"
+                         f" (SNR = {snr:.1f}). Spectral morphology is consistent"
+                         f" with models; confirmation at higher resolution is advisable.")
+            elif conf_label == "MARGINAL":
+                line += (f" Tentative spectral features at SNR = {snr:.1f} show"
+                         f" partial agreement with expected band positions."
+                         f" Independent verification is required.")
+            elif conf_label == "WEAK":
+                line += (f" Weak signal detected (SNR = {snr:.1f})."
+                         f" Cannot be confidently distinguished from instrumental noise.")
+            elif conf_label in ("NOT DETECTED", "UNLIKELY"):
+                line += " No significant absorption features detected above the noise floor."
+            elif conf_label in ("NO SPECTRAL COVERAGE", "NO COVERAGE"):
+                line += (" Instrument wavelength range does not cover the characteristic"
+                         " absorption features of this molecule.")
             
             lines.append(line)
             

@@ -52,21 +52,21 @@ def score_spectrum(data, filename=""):
     w = data['wavelength_um']
     f = data['flux']
     err = data['err']
-    
+
     if len(w) == 0:
         return -1.0
-        
-    # Metrics
+
     npts = len(w)
-    
+
     snr_med = 0.0
     if err is not None:
-        # Avoid division by zero/nan
         valid = (err > 0) & np.isfinite(f) & np.isfinite(err)
         if np.any(valid):
-            snr = f[valid] / err[valid]
-            snr_med = np.nanmedian(snr)
-            if snr_med < 0: snr_med = 0
+            px_snr = f[valid] / err[valid]
+            med = np.nanmedian(px_snr)
+            # Clip hot-pixel outliers (> 5× median) before taking median SNR
+            clipped = px_snr[px_snr < 5.0 * med] if med > 0 else px_snr
+            snr_med = max(0.0, float(np.nanmedian(clipped)) if len(clipped) > 0 else med)
             
     coverage_bonus = calculate_coverage_bonus(w)
     
@@ -193,66 +193,37 @@ def merge_arrays(w1, f1, e1, d1, w2, f2, e2, d2):
     
     # However, user instruction: "в зоне overlap (где wavelength пересекается) оставь точки с меньшим err"
     
-    # Let's implement a clean-up:
-    # If wavelengths are unique, we just keep them. 
-    # But if ranges overlap, we have intermixed points.
-    
-    # Refined approach:
-    # 1. Identify overlap region [overlap_min, overlap_max]
-    # 2. In this region, we have points from S1 and S2.
-    # 3. It's hard to associate points back to S1/S2 after sort without tracking.
-    #    Let's track source index (0 or 1).
-    
-    src1 = np.zeros(len(w1), dtype=int)
-    src2 = np.ones(len(w2), dtype=int)
-    src = np.concatenate([src1, src2])[srt]
-    
-    # Mask to keep
-    keep = np.ones(len(w), dtype=bool)
-    
-    # Iterate and remove high-error neighbors?
-    # Heuristic: if w[i+1] - w[i] < small_threshold (e.g. 1/R ~ 0.0001 um), compare err[i] and err[i+1].
-    
-    threshold = 0.001 # 1 nm
-    
-    # But this is slow in python loop.
-    # Let's rely on the fact that usually sorted array is fine, unless we really want single layer.
-    # User: "лучше всё же выбрать одну сторону".
-    # Ok, let's keep all points, but maybe filter NaN errors?
-    # User requirement: "concatenate... remove NaN/Inf... sort... overlap logic".
-    
-    # Let's just remove NaN flux/wave points first.
-    
+    # Track which source each point came from (0 = s1, 1 = s2)
+    src = np.concatenate([np.zeros(len(w1), dtype=int),
+                          np.ones(len(w2), dtype=int)])[srt]
+
+    # Remove NaN flux / wavelength
     valid = np.isfinite(w) & np.isfinite(f)
-    w = w[valid]
-    f = f[valid]
-    e = e[valid]
-    d = d[valid]
-    src = src[valid]
-    
-    # Overlap logical masking
-    # Finding overlap range
+    w, f, e, d, src = w[valid], f[valid], e[valid], d[valid], src[valid]
+
+    # ── Overlap handling ────────────────────────────────────────────────────
+    # In the overlap zone each wavelength has two observations (one per detector).
+    # Strategy: keep only the source with lower *median* error in the zone.
+    # This avoids double-density and removes the noisier detector edge.
     w_min_over = max(w1.min(), w2.min())
     w_max_over = min(w1.max(), w2.max())
-    
+
     if w_max_over > w_min_over:
-        # We have overlap.
-        # In this range, prefer points with lower error.
         in_overlap = (w >= w_min_over) & (w <= w_max_over)
-        
-        # This is tricky without binning. 
-        # Let's simplify: 
-        # Since nrs1 (src=0) and nrs2 (src=1) meet. 
-        # Usually one is much noisier at the edge.
-        # Let's keep points where Error < Median Error of that segment?
-        # Or better: just keep nrs2 in overlap? (Usually NRS2 is redder and covers it?)
-        # Or keep point with min error.
-        
-        pass 
-        # User said "оставь точки с меньшим err". 
-        # Since we can't align perfectly, we will leave ALL points except obvious duplicates.
-        # Let's just return the sorted array. Dealing with double density is acceptable for a "merged" product MVP.
-    
+        in_s1 = in_overlap & (src == 0)
+        in_s2 = in_overlap & (src == 1)
+
+        if np.any(in_s1) and np.any(in_s2):
+            e_s1 = e[in_s1]
+            e_s2 = e[in_s2]
+            med_e1 = np.nanmedian(e_s1[np.isfinite(e_s1)]) if np.any(np.isfinite(e_s1)) else np.inf
+            med_e2 = np.nanmedian(e_s2[np.isfinite(e_s2)]) if np.any(np.isfinite(e_s2)) else np.inf
+
+            # Drop the noisier source within the overlap zone
+            worse_src = 1 if med_e1 <= med_e2 else 0
+            keep = ~(in_overlap & (src == worse_src))
+            w, f, e, d = w[keep], f[keep], e[keep], d[keep]
+
     return w, f, e, d
 
 def merge_spectra(s1, s2):

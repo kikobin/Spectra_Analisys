@@ -9,53 +9,63 @@ Author: Antigravity Agent
 """
 
 import argparse
+import os
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import trapezoid
+from scipy.special import erfc
+from scipy.stats import t as t_dist
 
 
 try:
     import io_fits
     import continuum
     from ml.detection_confidence import ConfidenceAssessor
+    from config import MOLECULE_BANDS, SNR_VALID_BAND
 except ImportError:
-    pass
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    try:
+        from config import MOLECULE_BANDS, SNR_VALID_BAND
+    except ImportError:
+        SNR_VALID_BAND = 2.0
+        MOLECULE_BANDS = {}
 
-# Band Definitions
-# Format: 'Molecule': [ {'band': (start, end), 'side': (left_start, left_end, right_start, right_end)}, ... ]
-# Adding more precise windows if needed.
-MOLECULE_BANDS = {
-    'H2O': [
-        {'band': (1.35, 1.45), 'side': (1.30, 1.35, 1.45, 1.50)},
-        {'band': (1.80, 2.00), 'side': (1.70, 1.80, 2.00, 2.10)},
-        {'band': (2.55, 2.85), 'side': (2.45, 2.55, 2.85, 2.95)},
-        {'band': (2.95, 3.20), 'side': (2.85, 2.95, 3.20, 3.30)},
-        {'band': (3.85, 4.20), 'side': (3.70, 3.85, 4.20, 4.35)},
-        {'band': (5.80, 6.60), 'side': (5.50, 5.80, 6.60, 6.90)},
-        {'band': (10.0, 12.0), 'side': (9.00, 10.0, 12.0, 13.0)},
-    ],
-    'O2': [
-        {'band': (1.24, 1.30), 'side': (1.20, 1.24, 1.30, 1.34)},
-        {'band': (0.75, 0.77), 'side': (0.74, 0.75, 0.77, 0.78)}, # A-band
-    ],
-    'O3': [
-        {'band': (9.30, 9.90), 'side': (9.00, 9.30, 9.90, 10.2)},
-    ],
-}
+def _sideband_contamination(side, mol_name):
+    """
+    Returns a list of molecules whose absorption core overlaps with this band's sidebands.
+    Such overlap biases the baseline estimate (absorption in sideband looks like continuum),
+    causing the measured depth to be underestimated.
+    """
+    la, lb, ra, rb = side
+    flags = []
+    for other_mol, other_bands in MOLECULE_BANDS.items():
+        if other_mol == mol_name:
+            continue
+        for b_def in other_bands:
+            bs, be = b_def['band']
+            left_ov  = max(la, bs) < min(lb, be)
+            right_ov = max(ra, bs) < min(rb, be)
+            if left_ov or right_ov:
+                sides = '+'.join((['L'] if left_ov else []) + (['R'] if right_ov else []))
+                flags.append(f"{other_mol}@{bs:.2f}-{be:.2f}({sides})")
+    return flags
 
-def measure_band(w_um, residual, band=None, side=None):
+
+def measure_band(w_um, residual, band=None, side=None, err=None, mol_name=None):
     """
     Measures band properties: Depth, EQW, SNR.
 
     Args:
         w_um (array): wavelengths (um).
         residual (array): normalized flux (flux/continuum).
-        band (tuple): (start, end) of absorption band.
-        side (tuple): (la, lb, ra, rb) sidebands for baseline.
+        band (tuple): (start, end) of absorption band in μm.
+        side (tuple): (la, lb, ra, rb) sideband windows for baseline.
+        err (array, optional): flux errors — improves noise estimate.
 
     Returns:
-        dict: { 'depth', 'eqw', 'snr', 'covered', 'baseline', 'noise_std', 'n_band' }
+        dict: { 'depth', 'depth_err', 'eqw', 'snr', 'covered',
+                'baseline', 'noise_std', 'n_band' }
     """
     if band is None or side is None:
         return {'covered': False, 'note': 'No definition'}
@@ -71,93 +81,167 @@ def measure_band(w_um, residual, band=None, side=None):
             'n_band': 0, 'baseline': 1.0, 'noise_std': 0
         }
     
-    # 2. Sidebands (Baseline & Noise)
-    # Side: (la, lb) and (ra, rb)
+    # 2. Sidebands — linear interpolation baseline
     la, lb, ra, rb = side
-    side_mask = ((w_um >= la) & (w_um <= lb)) | ((w_um >= ra) & (w_um <= rb))
-    n_side = np.sum(side_mask)
-    
-    res_side = residual[side_mask]
-    
-    if n_side < 2:
-        # Not enough sideband data. 
-        # If we have band data but no sidebands, we can't reliably estimate baseline.
-        # However, for normalized spectra, baseline ~ 1.0.
-        baseline = 1.0
-        # Estimate noise from band itself? Dangerous if deep absorption.
-        # Fallback to global noise estimate? Or just return covered=False (Strict mode).
-        # Let's try to be helpful: assume baseline 1, noise = 0.01 (1%) dummy?
-        # Better: Mark as unreliable.
+    left_mask = (w_um >= la) & (w_um <= lb) & np.isfinite(residual)
+    right_mask = (w_um >= ra) & (w_um <= rb) & np.isfinite(residual)
+    n_left = np.sum(left_mask)
+    n_right = np.sum(right_mask)
+
+    if n_left + n_right < 2:
         return {
             'covered': False, 'note': 'No sideband coverage',
             'depth': 0, 'eqw': 0, 'snr': 0, 'n_band': n_band
         }
 
-    # Robust baseline (median of sidebands)
-    baseline = np.nanmedian(res_side)
-    
-    # Noise calculation (std in sidebands)
-    # We assume sidebands are flat-ish.
-    noise_std = np.nanstd(res_side)
+    # Noise from combined sidebands — NMAD (robust vs. sideband outliers)
+    all_side_vals = np.concatenate([
+        residual[left_mask] if n_left > 0 else np.array([]),
+        residual[right_mask] if n_right > 0 else np.array([])
+    ])
+    med_side = np.nanmedian(all_side_vals)
+    noise_std = 1.4826 * np.nanmedian(np.abs(all_side_vals - med_side))
     if noise_std <= 1e-12:
-        noise_std = 1e-12 # Prevent div/0
+        noise_std = np.nanstd(all_side_vals)  # fallback if all identical
+    if noise_std <= 1e-12:
+        noise_std = 1e-12
 
-    # 3. Band Measurements
-    res_band = residual[band_mask]
+    # Cross-check with formal pipeline errors when available
+    # Take max(NMAD, formal_err) — conservative: catches pipeline underestimates
+    if err is not None:
+        err_arr = np.asarray(err, dtype=float)
+        side_errs = np.concatenate([
+            err_arr[left_mask] if n_left > 0 else np.array([]),
+            err_arr[right_mask] if n_right > 0 else np.array([])
+        ])
+        valid_errs = side_errs[np.isfinite(side_errs) & (side_errs > 0)]
+        if len(valid_errs) > 0:
+            formal_noise = float(np.nanmedian(valid_errs))
+            noise_std = max(noise_std, formal_noise)
+
+    # 3. Band Measurements — wavelength-dependent (sloped) baseline
     w_band = w_um[band_mask]
-    
-    # Depth: baseline - min(res_band)? 
-    # For low-res, single pixel might be noise. Use median for robustness?
-    # Requirement: "Если спектр низкого разрешения — искать не 'min', а медиану/интеграл".
-    # Let's use percentile for depth to be robust against single pixels.
-    # Depth = baseline - minimum (max absorption).
-    # Robust Minimum: 5th percentile?
-    if n_band > 5:
-        val_at_depth = np.percentile(res_band, 5) # Close to bottom
+    res_band = residual[band_mask]
+
+    if n_left >= 2 and n_right >= 2:
+        # Linear interpolation between left and right sideband medians
+        w_L = np.nanmedian(w_um[left_mask])
+        w_R = np.nanmedian(w_um[right_mask])
+        v_L = np.nanmedian(residual[left_mask])
+        v_R = np.nanmedian(residual[right_mask])
+        baseline_arr = np.interp(w_band, [w_L, w_R], [v_L, v_R])
     else:
-        val_at_depth = np.min(res_band) # Few points, take min
-        
-    depth = baseline - val_at_depth
-    
-    # EQW
-    # Integral of (1 - flux/cont) dlambda? Or (baseline - residual) dlambda?
-    # EQW ~ Integral( (Ic - I)/Ic ) dlam. Ic ~ baseline. I/Ic = residual.
-    # So Integrand = 1 - (residual/baseline).
-    # Normalized to baseline.
-    integrand = 1.0 - (res_band / baseline)
+        # Only one side available — constant baseline
+        baseline_arr = np.full(len(w_band), np.nanmedian(all_side_vals))
+
+    baseline = float(np.nanmean(baseline_arr))
+
+    # Absorption array (positive = absorption dip)
+    absorption = baseline_arr - res_band
+
+    # Robust depth: 95th percentile of absorption (avoids single noisy pixels)
+    if len(absorption) > 5:
+        depth = float(np.percentile(absorption, 95))
+    else:
+        depth = float(np.max(absorption)) if len(absorption) > 0 else 0.0
+    depth = max(depth, 0.0)
+
+    # EQW using sloped baseline
+    safe_bl = np.where(np.abs(baseline_arr) > 1e-10, baseline_arr, 1e-10)
+    integrand = absorption / safe_bl
     eqw = 0.0
     if n_band > 1:
-        eqw = trapezoid(integrand, w_band)
-        
-    # 4. SNR
-    # signal = Depth
-    # noise = noise_std
-    snr = depth / noise_std if noise_std > 0 else 0
-    
+        eqw = float(trapezoid(integrand, w_band))
+
+    # ── SNR (two methods, take the more sensitive) ───────────────────────────
+    # 1. Peak-depth SNR: classical approach
+    snr_peak = depth / noise_std if noise_std > 0 else 0.0
+
+    # 2. Matched-filter (integrated) SNR:
+    #    SNR_mf = mean_absorption × √n_band / noise_std
+    #    Gains √n_band sensitivity over peak SNR for broad, low-res bands.
+    #    Equivalent to a top-hat matched filter across the whole band.
+    mean_absorption = float(np.nanmean(absorption)) if len(absorption) > 0 else 0.0
+    snr_integrated = max(0.0, mean_absorption * np.sqrt(n_band) / noise_std) \
+        if noise_std > 0 else 0.0
+
+    # Use the more sensitive of the two
+    snr = max(snr_peak, snr_integrated)
+
+    # Formal depth uncertainty: σ_depth = noise / √n_band  (standard error)
+    depth_err = noise_std / np.sqrt(max(1, n_band))
+
+    # ── Spectral resolution correction ──────────────────────────────────────
+    # At low resolution (PRISM/CLEAR, R ≈ 100-300) broad molecular features
+    # are diluted: the observed depth understates the true depth.
+    # Correction factor: f = W_band / (W_band + δλ_pixel)
+    # where δλ_pixel = median pixel size, a proxy for the instrument FWHM.
+    R_eff = 0.0
+    dilution_factor = 1.0
+    if n_band >= 2:
+        dw = float(np.median(np.diff(w_band)))   # median pixel size (μm)
+        w_center = float(np.nanmean(w_band))
+        band_width = band[1] - band[0]
+        if dw > 0 and band_width > 0:
+            R_eff = w_center / dw
+            dilution_factor = band_width / (band_width + dw)
+            if dilution_factor > 0.05:           # avoid div-by-near-zero
+                depth     = depth     / dilution_factor
+                depth_err = depth_err / dilution_factor
+
+    # ── False Alarm Probability ──────────────────────────────────────────────
+    # Use t-distribution for small samples (n_band < 30); Gaussian tail otherwise.
+    # The t-distribution has heavier tails → more conservative FAP for few pixels.
+    if snr > 0:
+        if n_band < 30:
+            fap = float(t_dist.sf(snr, df=max(1, n_band - 1)))
+        else:
+            fap = float(0.5 * erfc(snr / np.sqrt(2)))
+    else:
+        fap = 1.0
+
+    # ── Sideband contamination check ────────────────────────────────────────
+    # Warn when another molecule's absorption core overlaps this band's sidebands,
+    # which biases the linear baseline and causes depth underestimation.
+    contamination = _sideband_contamination(side, mol_name) if mol_name else []
+
     return {
         'covered': True,
         'depth': depth,
+        'depth_err': depth_err,
         'eqw': eqw,
         'snr': snr,
+        'snr_peak': snr_peak,
+        'snr_integrated': snr_integrated,
+        'fap': fap,
         'baseline': baseline,
         'noise_std': noise_std,
         'n_band': n_band,
+        'R_eff': round(R_eff, 1),
+        'dilution_factor': round(dilution_factor, 4),
+        'contamination': contamination,
         'band_mask': band_mask
     }
 
 def detect_molecules(w_um, residual, err=None, object_params=None):
     """
     Detects molecules using ConfidenceAssessor.
-    
+
+    Args:
+        w_um (array): wavelengths (μm).
+        residual (array): normalized flux (flux/continuum).
+        err (array, optional): flux errors — passed to measure_band for noise estimate.
+        object_params (dict, optional): physical context {'temperature', 'type'}.
+
     Returns:
-        dict: Report per molecule.
+        dict: Report per molecule with confidence assessment.
     """
     if object_params is None:
         object_params = {}
-        
+
     report = {}
     assessor = ConfidenceAssessor()
-    
+
     for mol, bands in MOLECULE_BANDS.items():
         mol_res = {
             'bands': [],
@@ -165,33 +249,47 @@ def detect_molecules(w_um, residual, err=None, object_params=None):
             'max_depth': 0.0,
             'spectral_coverage': False
         }
-        
+
         valid_bands = 0
-        
+
         for b_def in bands:
-            m = measure_band(w_um, residual, band=b_def['band'], side=b_def['side'])
-            
-            # Store info
+            m = measure_band(w_um, residual, band=b_def['band'],
+                             side=b_def['side'], err=err, mol_name=mol)
+
             info = m.copy()
             info['band_range'] = b_def['band']
-            info.pop('band_mask', None) # Too heavy for report
-            
+            info.pop('band_mask', None)
+
             mol_res['bands'].append(info)
-            
+
             if m['covered']:
                 mol_res['spectral_coverage'] = True
-                # Only count bands with meaningful signal towards multi-band bonus?
-                # Or just any covered band? Assessor expects "detected bands".
-                # Let's count bands with +SNR as "detected" for the count, 
-                # but pass specific metrics to assessor.
-                if m['snr'] > 1.0: 
+                if m['snr'] > SNR_VALID_BAND:
                     valid_bands += 1
-                
                 if m['snr'] > mol_res['max_snr']:
                     mol_res['max_snr'] = m['snr']
                 if m['depth'] > mol_res['max_depth']:
                     mol_res['max_depth'] = m['depth']
-        
+
+        # Combined SNR: quadrature sum over all bands with snr > 2
+        # sqrt(Σ snr_i²) is the matched-filter significance for independent bands
+        covered_snrs = [b['snr'] for b in mol_res['bands']
+                        if b.get('covered') and b['snr'] > SNR_VALID_BAND]
+        combined_snr = float(np.sqrt(np.sum(np.array(covered_snrs) ** 2))) \
+            if covered_snrs else 0.0
+
+        # Molecule-level FAP from combined SNR (joint significance across bands).
+        # Use t-distribution when fewer than 30 contributing bands.
+        n_contributing = len(covered_snrs)
+        mol_res['combined_snr'] = combined_snr
+        if combined_snr > 0:
+            if n_contributing < 30:
+                mol_res['fap'] = float(t_dist.sf(combined_snr, df=max(1, n_contributing - 1)))
+            else:
+                mol_res['fap'] = float(0.5 * erfc(combined_snr / np.sqrt(2)))
+        else:
+            mol_res['fap'] = 1.0
+
         # Assess Confidence
         assessment = assessor.assess(
             molecule_name=mol,
@@ -199,7 +297,8 @@ def detect_molecules(w_um, residual, err=None, object_params=None):
             num_bands=valid_bands,
             depth=mol_res['max_depth'],
             spectral_coverage=mol_res['spectral_coverage'],
-            object_params=object_params
+            object_params=object_params,
+            combined_snr=combined_snr
         )
         
         # Merge assessment into result
@@ -224,7 +323,6 @@ def plot_features_debug(w_um, residual, report, filename=""):
         c = colors.get(mol, 'm')
         # Highlight if at least Marginal
         if res.get('detected', False):
-            label = f"{mol} ({res['status']})"
             for b in res['bands']:
                 if b['covered']:
                     start, end = b['band_range']
@@ -273,7 +371,7 @@ def main():
         }
         
         # Features
-        report = detect_molecules(w, residual, err=data['err'], object_params=obj_params)
+        report = detect_molecules(w, residual, object_params=obj_params)
         
         # Print
         print(f"Analysis: {args.file}")

@@ -1,169 +1,240 @@
 import logging
+import numpy as np
 from typing import Dict, Any, Optional
+
 
 class ConfidenceAssessor:
     """
-    Assesses the confidence of a physical detection based on spectral metrics.
-    Now supports multi-level confidence (STRONG, LIKELY, MARGINAL, WEAK) and physical context.
+    Computes a confidence score and status label for a molecular detection.
+
+    Scoring model (additive, capped at 1.0):
+        Base SNR score    — up to 0.50   (single-band max SNR)
+        Combined SNR      — up to 0.10   (multi-band quadrature bonus)
+        Band-count bonus  — up to 0.20
+        Depth bonus       — up to 0.10
+        Physical prior    — ±0.15        (expected / unexpected molecule)
+        Quality cap       — ceiling on total score when data quality is low
+
+    Status thresholds:
+        STRONG   ≥ 0.80
+        LIKELY   ≥ 0.60
+        MARGINAL ≥ 0.40
+        WEAK     ≥ 0.20  (and SNR ≥ 1.5)
+        NOT DETECTED otherwise
     """
 
     def __init__(self):
         self.logger = logging.getLogger(__name__)
 
-    def assess(self, 
-               molecule_name: str, 
-               snr: float, 
-               num_bands: int, 
-               depth: float, 
-               spectral_coverage: bool, 
-               object_params: Optional[Dict[str, Any]] = None,
-               quality_score: Optional[float] = None) -> Dict[str, Any]:
+    def assess(
+        self,
+        molecule_name: str,
+        snr: float,
+        num_bands: int,
+        depth: float,
+        spectral_coverage: bool,
+        object_params: Optional[Dict[str, Any]] = None,
+        quality_score: Optional[float] = None,
+        combined_snr: Optional[float] = None,
+    ) -> Dict[str, Any]:
         """
-        Calculates confidence score and label for a given molecule.
-        
         Args:
-            molecule_name: "H2O", "O2", or "O3"
-            snr: Signal-to-Noise Ratio (max or avg of bands)
-            num_bands: Number of detected bands
-            depth: Max absorption depth
-            spectral_coverage: Boolean, true if the instrument covers the molecule's bio-signature region
-            object_params: Dictionary with keys 'temperature', 'type' (e.g., {'temperature': 161.3, 'type': 'Y'})
-            quality_score: Optional external quality metric (0-1)
+            molecule_name:    'H2O', 'O2', or 'O3'.
+            snr:              Max per-band SNR.
+            num_bands:        Number of bands with SNR > 2.
+            depth:            Max absorption depth (fractional, 0–1).
+            spectral_coverage: True if any band of this molecule is in range.
+            object_params:    {'temperature': K, 'type': str}.
+            quality_score:    Overall data quality [0–1] from ml.quality.
+            combined_snr:     Quadrature sum of per-band SNRs (√Σsnr²).
 
         Returns:
-            Dict containing:
-                - status: "STRONG", "LIKELY", "MARGINAL", "WEAK", "NOT DETECTED", "NO SPECTRAL COVERAGE"
-                - confidence: float (0.0 - 1.0)
-                - explanation: str
+            {status, confidence, label, explanation}
         """
         if not spectral_coverage:
             return {
                 "status": "NO SPECTRAL COVERAGE",
                 "confidence": 0.0,
-                "label": "NO COVERAGE", # Legacy field
-                "explanation": "No spectral coverage for this molecule."
+                "label": "NO SPECTRAL COVERAGE",
+                "explanation": "No spectral coverage for this molecule.",
             }
 
-        # Default params
         if object_params is None:
             object_params = {}
 
         score = 0.0
         explanations = []
 
-        # --- 1. Base Score from SNR (Max 0.5) ---
-        # Lower thresholds for exploratory science
-        # SNR >= 5.0 -> 0.5 (Solid)
-        # SNR >= 3.0 -> 0.4 (Good)
-        # SNR >= 2.0 -> 0.3 (Acceptable weak)
-        # SNR >= 1.5 -> 0.1 (Marginal)
-        
-        if snr >= 5.0:
-            score += 0.5
-            explanations.append(f"High SNR ({snr:.1f} >= 5.0)")
-        elif snr >= 3.0:
-            score += 0.4
-            explanations.append(f"Moderate SNR ({snr:.1f} >= 3.0)")
-        elif snr >= 2.0:
-            score += 0.3
-            explanations.append(f"Weak SNR ({snr:.1f} >= 2.0)")
-        elif snr >= 1.5:
-            score += 0.1
-            explanations.append(f"Marginal SNR ({snr:.1f} >= 1.5)")
-        else:
-            explanations.append(f"Noise floor SNR ({snr:.1f} < 1.5)")
+        # ── 1. Base SNR score (max 0.50) ───────────────────────────────────
+        # Use the better of per-band max SNR and combined quadrature SNR.
+        # Combined SNR reflects matched-filter significance across all bands.
+        eff_snr = max(snr, combined_snr or 0.0)
 
-        # --- 2. Band Count Bonus (Max 0.2) ---
-        if num_bands >= 3:
-            score += 0.2
-            explanations.append(f"Multi-band ({num_bands}+)")
+        if eff_snr >= 7.0:
+            score += 0.50
+            explanations.append(f"Very high SNR ({eff_snr:.1f})")
+        elif eff_snr >= 5.0:
+            score += 0.45
+            explanations.append(f"High SNR ({eff_snr:.1f})")
+        elif eff_snr >= 3.0:
+            score += 0.35
+            explanations.append(f"Moderate SNR ({eff_snr:.1f})")
+        elif eff_snr >= 2.0:
+            score += 0.20
+            explanations.append(f"Weak SNR ({eff_snr:.1f})")
+        elif eff_snr >= 1.5:
+            score += 0.08
+            explanations.append(f"Marginal SNR ({eff_snr:.1f})")
+        else:
+            explanations.append(f"Below noise floor (SNR={eff_snr:.1f})")
+
+        # ── 2. Combined-SNR multi-band bonus (max 0.10) ────────────────────
+        if combined_snr and combined_snr > snr + 0.5:
+            bonus = min(0.10, 0.05 * (combined_snr - snr))
+            score += bonus
+            explanations.append(f"Multi-band combined SNR={combined_snr:.1f} (+{bonus:.2f})")
+
+        # ── 3. Band-count bonus (max 0.20) ─────────────────────────────────
+        if num_bands >= 4:
+            score += 0.20
+            explanations.append(f"Strong multi-band ({num_bands} bands)")
+        elif num_bands == 3:
+            score += 0.15
+            explanations.append(f"Multi-band ({num_bands} bands)")
         elif num_bands == 2:
-            score += 0.1
+            score += 0.10
             explanations.append("Two bands")
         elif num_bands == 1:
-            # No bonus, but not penalty
-            explanations.append("Single band")
+            explanations.append("Single band only")
 
-        # --- 3. Depth Bonus (Max 0.1) ---
-        if depth >= 0.10: # 10%
-            score += 0.1
-            explanations.append(f"Deep Feature ({depth:.2f})")
-        elif depth >= 0.05: # 5%
-            score += 0.05
-        
-        # --- 4. Physical Context Modifiers ---
-        # "Priors"
-        temp = object_params.get('temperature', 1000) # Default to hot if unknown
-        obj_type = object_params.get('type', 'Unknown')
-        
-        # H2O Expectation: High for T/Y dwarfs (Temp < 1000K)
-        is_cold = temp < 1000
-        
+        # ── 4. Depth bonus (max 0.10) ───────────────────────────────────────
+        if depth >= 0.20:
+            score += 0.10
+            explanations.append(f"Very deep feature ({depth:.2f})")
+        elif depth >= 0.10:
+            score += 0.07
+            explanations.append(f"Deep feature ({depth:.2f})")
+        elif depth >= 0.05:
+            score += 0.03
+
+        # ── 5. Physical prior (±0.15) ───────────────────────────────────────
+        temp = float(object_params.get("temperature", 1500))
+
         if molecule_name == "H2O":
-            if is_cold:
-                score += 0.1
-                explanations.append("Expected molecule (Cold)")
-                
-        # O2/O3 Skepticism: Penalize if weak signal
-        if molecule_name in ["O2", "O3"]:
-            # If signal is already weak, apply penalty to prevent false positives
-            if snr < 3.0:
-                score -= 0.1
-                explanations.append("Penalty: Unexpected weak bio-marker")
+            # H2O is ubiquitous in substellar atmospheres; strength increases at T < 2300 K
+            if temp < 500:
+                score += 0.15
+                explanations.append("Strong prior: Y-dwarf (H2O dominant)")
+            elif temp < 1400:
+                score += 0.12
+                explanations.append("Strong prior: T-dwarf (H2O expected)")
+            elif temp < 2300:
+                score += 0.08
+                explanations.append("Prior: L-dwarf (H2O expected)")
+            elif temp < 4000:
+                score += 0.04
+                explanations.append("Prior: M-dwarf (H2O present)")
+            # Hot stars: no H2O prior bonus
 
-        # --- 5. Quality Score integration ---
+        elif molecule_name == "CH4":
+            # Dominant carbon carrier for T < 1400 K; very strong in T/Y dwarfs
+            if temp < 500:
+                score += 0.15
+                explanations.append("Strong prior: CH4 dominant in Y-dwarf (T < 500 K)")
+            elif temp < 1400:
+                score += 0.12
+                explanations.append("Strong prior: CH4 expected in T-dwarf (T < 1400 K)")
+            elif temp < 1800:
+                score += 0.04
+                explanations.append("Weak prior: CH4 at L/T boundary — marginal abundance")
+            else:
+                score -= 0.08
+                explanations.append("Penalty: CH4 unlikely at T > 1800 K (thermochemistry)")
+
+        elif molecule_name == "CO":
+            # CO dominant over CH4 for T > 1200 K; anti-correlated with CH4
+            if temp > 1400:
+                score += 0.08
+                explanations.append("Prior: CO expected in warm atmosphere (T > 1400 K)")
+            elif temp > 1200:
+                score += 0.03
+                explanations.append("Weak prior: CO/CH4 in chemical equilibrium near T~1200 K")
+            else:
+                score -= 0.08
+                explanations.append("Penalty: CO unlikely at T < 1200 K (favors CH4)")
+
+        elif molecule_name == "CO2":
+            # Trace but detectable at 4.3 μm even at low mixing ratios
+            score += 0.03
+            explanations.append("Weak prior: CO2 trace abundance expected in all objects")
+
+        elif molecule_name == "O2":
+            # O2 is very rare; single-band detections are almost certainly noise
+            if num_bands < 2:
+                score -= 0.15
+                explanations.append("Strong penalty: O2 requires ≥2 bands for credibility")
+            elif eff_snr < 5.0:
+                score -= 0.10
+                explanations.append("Penalty: O2 claim needs SNR ≥ 5 across multiple bands")
+
+        elif molecule_name == "O3":
+            # O3 9.6 μm band is real but easily confused with silicate features
+            if eff_snr < 4.0:
+                score -= 0.10
+                explanations.append("Penalty: O3 at 9.6 μm needs high SNR (silicate confusion)")
+            if num_bands < 2:
+                score -= 0.05
+                explanations.append("Penalty: single-band O3 detection — low reliability")
+
+        # ── 6. Data quality ceiling ─────────────────────────────────────────
         if quality_score is not None:
-            # If data quality is low, cap confidence
-            if quality_score < 0.5:
-                score = min(score, 0.4)
-                explanations.append(f"Low Data Quality ({quality_score:.1f})")
+            if quality_score < 0.25:
+                score = min(score, 0.25)
+                explanations.append(f"Quality ceiling: poor data (q={quality_score:.2f})")
+            elif quality_score < 0.50:
+                score = min(score, 0.50)
+                explanations.append(f"Quality ceiling: moderate data (q={quality_score:.2f})")
 
-        # Cap score
-        score = min(score, 1.0)
-        score = max(score, 0.0)
+        score = float(np.clip(score, 0.0, 1.0))
 
-        # --- Determine Status ---
-        # STRONG: > 0.8
-        # LIKELY: > 0.6
-        # MARGINAL: > 0.4
-        # WEAK/TENTATIVE: > 0.2 (Only if SNR is physically plausible)
-        # NOT DETECTED: < 0.2
-        
-        if score >= 0.8:
+        # ── Determine status ────────────────────────────────────────────────
+        if score >= 0.80:
             status = "STRONG"
-        elif score >= 0.6:
+        elif score >= 0.60:
             status = "LIKELY"
-        elif score >= 0.4:
+        elif score >= 0.40:
             status = "MARGINAL"
-        elif score >= 0.2 and snr >= 1.5:
+        elif score >= 0.20 and eff_snr >= 1.5:
             status = "WEAK"
         else:
             status = "NOT DETECTED"
-            # Force score to 0 if not detected
             score = 0.0
 
         return {
             "status": status,
-            "confidence": round(score, 2),
-            "label": status, # Legacy compatibility
-            "explanation": "; ".join(explanations)
+            "confidence": round(score, 3),
+            "label": status,
+            "explanation": "; ".join(explanations),
         }
 
+
 if __name__ == "__main__":
-    # verification block
     model = ConfidenceAssessor()
-    
-    test_cases = [
-        # (Name, SNR, Bands, Depth, Cov, Params)
-        ("H2O", 2.2, 2, 0.12, True, {'temperature': 160.0, 'type': 'Y'}),   # Weak but expect H2O
-        ("O2", 2.2, 1, 0.05, True, {'temperature': 160.0, 'type': 'Y'}),    # Weak unexpected O2
-        ("H2O", 0.9, 1, 0.02, True, {'temperature': 160.0, 'type': 'Y'}),   # Noise
-        ("O3", 5.0, 1, 0.1, True, {'temperature': 160.0, 'type': 'Y'}),     # Strong O3 (should be likely/strong despite penalty)
-        ("H2O", 10.0, 3, 0.5, False, {}),                                    # No Coverage
+
+    tests = [
+        # (name, snr, bands, depth, cov, params, quality, combined_snr)
+        ("H2O", 4.5, 3, 0.15, True, {"temperature": 650, "type": "T"}, 0.8, 6.2),
+        ("H2O", 2.2, 2, 0.08, True, {"temperature": 160, "type": "Y"}, 0.6, 3.1),
+        ("O2",  2.2, 1, 0.05, True, {"temperature": 300, "type": "Y"}, 0.7, 2.2),
+        ("O3",  5.5, 1, 0.12, True, {"temperature": 300, "type": "Y"}, 0.8, 5.5),
+        ("H2O", 0.9, 0, 0.01, True, {"temperature": 800, "type": "T"}, 0.4, 0.0),
+        ("H2O", 8.0, 4, 0.30, False, {}, None, 0.0),  # no coverage
     ]
 
-    print(f"{'MOL':<5} | {'SNR':<4} | {'STATUS':<12} | {'CONF':<4} | {'EXPLANATION'}")
+    print(f"{'MOL':<5} | {'SNR':>5} | {'cSNR':>5} | {'STATUS':<15} | {'CONF':>5} | EXPLANATION")
     print("-" * 100)
-    for name, snr, bands, depth, cov, params in test_cases:
-        res = model.assess(name, snr, bands, depth, cov, object_params=params)
-        print(f"{name:<5} | {snr:<4.1f} | {res['status']:<12} | {res['confidence']:<4} | {res['explanation']}")
+    for name, snr, bands, depth, cov, params, qual, csnr in tests:
+        r = model.assess(name, snr, bands, depth, cov,
+                         object_params=params, quality_score=qual, combined_snr=csnr)
+        print(f"{name:<5} | {snr:>5.1f} | {csnr:>5.1f} | {r['status']:<15} | "
+              f"{r['confidence']:>5.3f} | {r['explanation']}")

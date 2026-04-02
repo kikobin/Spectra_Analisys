@@ -21,6 +21,60 @@ try:
 except ImportError:
     io_fits = None
 
+# Physical constant h·c / k_B in m·K
+_HC_OVER_K = 0.014387769  # NIST 2018
+
+def _estimate_T_twocolor(w_um, flux):
+    """
+    Estimates blackbody temperature using two-color flux ratio (Wien approximation).
+
+    Uses the 75th-percentile flux in two spectral windows (near blue and red ends)
+    to avoid bias from molecular absorption bands. More robust than peak-position
+    Wien's law when the spectrum is dominated by absorption features.
+
+    T = (hc/k) * (1/λ2 - 1/λ1) / ln[ F1/F2 * (λ1/λ2)^5 ]
+    where λ1 < λ2 are the two reference wavelengths.
+
+    Returns T in Kelvin, or None if the estimate is unreliable.
+    """
+    finite_mask = np.isfinite(flux) & (flux > 0) & np.isfinite(w_um) & (w_um > 0)
+    if np.sum(finite_mask) < 10:
+        return None
+
+    w_f = w_um[finite_mask]
+    w_span = w_f.max() - w_f.min()
+    if w_span < 0.3:
+        return None  # Too narrow — no leverage for color ratio
+
+    # Window 1: 5–25% from blue end  (avoid edge artefacts)
+    # Window 2: 75–95% from blue end
+    w_min = w_f.min()
+    m1 = (w_um >= w_min + 0.05 * w_span) & (w_um <= w_min + 0.25 * w_span) & finite_mask
+    m2 = (w_um >= w_min + 0.75 * w_span) & (w_um <= w_min + 0.95 * w_span) & finite_mask
+
+    if np.sum(m1) < 3 or np.sum(m2) < 3:
+        return None
+
+    # 75th percentile: biased away from absorption troughs
+    f1 = float(np.percentile(flux[m1], 75))
+    f2 = float(np.percentile(flux[m2], 75))
+    lam1 = float(np.nanmedian(w_um[m1])) * 1e-6  # m
+    lam2 = float(np.nanmedian(w_um[m2])) * 1e-6  # m
+
+    if f1 <= 0 or f2 <= 0 or lam1 <= 0 or lam2 <= 0 or lam1 >= lam2:
+        return None
+
+    try:
+        log_arg = (f1 / f2) * (lam1 / lam2) ** 5
+        if log_arg <= 0:
+            return None
+        T_est = _HC_OVER_K * (1.0 / lam2 - 1.0 / lam1) / np.log(log_arg)
+    except Exception:
+        return None
+
+    return float(T_est) if 50.0 < T_est < 1e5 else None
+
+
 def fit_blackbody(w_um, flux, err=None, clip_sigma=3.0, max_iter=10):
     """
     Fits a BlackBody model to the data with robust asymmetric sigma-clipping.
@@ -79,12 +133,17 @@ def fit_blackbody(w_um, flux, err=None, clip_sigma=3.0, max_iter=10):
     e_norm = e_valid / f_norm_factor
     w_fit = w_valid # microns
     
-    # 3. Initial Guess
-    peak_idx = np.argmax(f_valid)
-    peak_w = w_valid[peak_idx]
-    # Wien's law: T ~ 2898 / lambda_max
-    T_guess = 2898.0 / peak_w if peak_w > 0 else 3000.0
-    T_guess = np.clip(T_guess, 100, 10000)
+    # 3. Initial Guess — two-color ratio (robust vs. absorption-dominated spectra)
+    T_guess = _estimate_T_twocolor(w_valid, f_valid)
+    if T_guess is not None:
+        T_guess = np.clip(T_guess, 100, 50000)
+        notes.append(f"T_guess (two-color): {T_guess:.0f} K")
+    else:
+        # Fallback: Wien's law from peak of flux
+        peak_idx = np.argmax(f_valid)
+        peak_w = w_valid[peak_idx]
+        T_guess = np.clip(2898.0 / peak_w, 100, 50000) if peak_w > 0 else 3000.0
+        notes.append(f"T_guess (Wien peak): {T_guess:.0f} K")
     
     # Model: Scale * BB(T)
     # Note: astropy BlackBody returns units. We will strip them for fitting stability.
@@ -138,8 +197,12 @@ def fit_blackbody(w_um, flux, err=None, clip_sigma=3.0, max_iter=10):
         
         # Calculate stats strictly on the CURRENT subset
         resid_subset = resid[current_mask]
-        sigma = np.std(resid_subset)
-        
+        # NMAD: robust σ estimate, unaffected by deep absorption lines in the subset
+        med_r = np.nanmedian(resid_subset)
+        sigma = 1.4826 * np.nanmedian(np.abs(resid_subset - med_r))
+        if sigma <= 0:
+            sigma = np.nanstd(resid_subset)  # fallback if all residuals identical
+
         if sigma == 0:
             best_model = fitted_model
             break
@@ -189,52 +252,56 @@ def fit_blackbody(w_um, flux, err=None, clip_sigma=3.0, max_iter=10):
         final_continuum = best_model(w * u.um).value * f_norm_factor
     
     # Check for unphysical results
-    if T_final < 100 or T_final > 40000:
+    if T_final < 100 or T_final > 50000:
         notes.append(f"Unphysical T={T_final:.1f}K. Using fallback.")
-        return _fallback_polynomial(w, f, notes)
+        return _fallback_polynomial(w, f, notes, err=err)
 
-    return _pack_result(w, f, final_continuum, T_final, scale_final, True, notes)
+    return _pack_result(w, f, final_continuum, T_final, scale_final, True, notes, err=err)
 
-def _fallback_polynomial(w, f, notes):
-    """Fallback: Polynomial fit (usually quadratic/cubic) in Log-Log space."""
+def _fallback_polynomial(w, f, notes, err=None):
+    """Fallback: cubic polynomial fit in log-log space."""
     notes.append("Using polynomial fallback.")
-    
+
     mask = (f > 0) & (w > 0) & np.isfinite(f) & np.isfinite(w)
     if np.sum(mask) < 5:
         return _fallback_result(w, f, notes + ["Not enough points for poly."], success=False)
-    
+
     w_valid = w[mask]
     f_valid = f[mask]
-    
-    # Log-Log fit
+
     x = np.log10(w_valid)
     y = np.log10(f_valid)
-    
+
     try:
-        # Fit cubic
         p = np.polyfit(x, y, 3)
         poly = np.poly1d(p)
-        
-        # Evaluate
-        # Handle all w (avoid log(<=0))
+
         cont = np.full_like(w, np.nan)
         pos = (w > 0)
         cont[pos] = 10**poly(np.log10(w[pos]))
         
-        return _pack_result(w, f, cont, -1.0, 1.0, False, notes)
+        return _pack_result(w, f, cont, -1.0, 1.0, False, notes, err=err)
     except Exception as e:
         return _fallback_result(w, f, notes + [f"Polyfit failed: {e}"], success=False)
 
-def _pack_result(w, f, continuum, T, scale, ok_flag, notes):
-    # Avoid division by zero
+def _pack_result(w, f, continuum, T, scale, ok_flag, notes, err=None):
     with np.errstate(divide='ignore', invalid='ignore'):
         residual = f / continuum
-        # Mask where continuum is <= 0 or nan
         bad_cont = (continuum <= 0) | np.isnan(continuum)
         residual[bad_cont] = np.nan
-        
         delta = continuum - f
-        
+
+    # Reduced chi-squared (2 free parameters: T and scale)
+    chi2_reduced = np.nan
+    if err is not None:
+        e = np.asarray(err, dtype=float)
+        valid = np.isfinite(f) & np.isfinite(continuum) & np.isfinite(e) & (e > 0)
+        n_dof = int(np.sum(valid)) - 2
+        if n_dof > 0:
+            chi2_reduced = float(
+                np.sum(((f[valid] - continuum[valid]) / e[valid]) ** 2) / n_dof
+            )
+
     return {
         'T_K': T,
         'scale': scale,
@@ -242,6 +309,7 @@ def _pack_result(w, f, continuum, T, scale, ok_flag, notes):
         'residual': residual,
         'delta': delta,
         'fit_ok': ok_flag,
+        'chi2_reduced': chi2_reduced,
         'notes': notes
     }
 
@@ -255,6 +323,7 @@ def _fallback_result(w, f, notes, success=False):
         'residual': np.full_like(f, np.nan),
         'delta': np.full_like(f, np.nan),
         'fit_ok': success,
+        'chi2_reduced': np.nan,
         'notes': notes
     }
 

@@ -1,0 +1,44 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# ── Pipeline outputs (generated, not source) ──────────────────────────────────
+outputs/
+data/working/
+data/raw/
+
+# ── FITS data files (large binaries — use DVC or similar for versioning) ─────
+*.fits
+*.fit
+*.fz
+
+# ── Jupyter / DataSpell ───────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── OS / IDE ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+
+# ── Pytest cache ─────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

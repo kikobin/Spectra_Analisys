@@ -22,7 +22,6 @@ import sys
 import os
 import json
 import numpy as np
-import time
 
 # Ensure local modules are importable
 try:
@@ -38,22 +37,12 @@ try:
         import ml.quality as ml_quality
         import ml.detection_confidence as ml_confidence
         import ml.report_writer as ml_report
-        
-        # Check if legacy MLManager is available
-        try:
-             from ml_core import MLManager
-             ml_manager = MLManager()
-        except ImportError:
-             ml_manager = None
-             
-        # Initialize classes
+
         conf_assessor = ml_confidence.ConfidenceAssessor()
         report_writer_obj = ml_report.ReportWriter()
-        
+
         ML_AVAILABLE = True
     except ImportError as e:
-        # Fallback if specific modules fail
-        # print(f"ML Modules not found: {e}") # Optional: suppress info log
         ML_AVAILABLE = False
         conf_assessor = None
         report_writer_obj = None
@@ -69,28 +58,15 @@ except ImportError:
         import organize_io
         # ML Integration (Optional)
         try:
-            from ml_core import MLManager # Keep old one for now if needed, or remove? Plan said remove.
-            # But wait, looking at the code I see `ml_manager` usage in scanning. 
-            # The prompt implies I should use the NEW modules I found: ml/quality.py etc.
-            # The previous `ml_core` might be a dummy or old. 
-            # Let's check if I should replace MLManager strictly or add to it. 
-            # The plan says: "Import ml.quality, ml.detection_confidence, ml.report_writer inside a try/except block". 
-            # I should probably keep MLManager for the ranking if it exists, OR replace it if the new modules cover it.
-            # The `ml_core` seems to be what was there before. 
-            # I will ADD the new imports. 
-            
             import ml.quality as ml_quality
             import ml.detection_confidence as ml_confidence
             import ml.report_writer as ml_report
-            
-            # Initialize classes
+
             conf_assessor = ml_confidence.ConfidenceAssessor()
             report_writer_obj = ml_report.ReportWriter()
-            
+
             ML_AVAILABLE = True
-        except ImportError as e:
-            # Fallback if specific modules fail
-            print(f"ML Modules not found: {e}")
+        except ImportError:
             ML_AVAILABLE = False
             conf_assessor = None
             report_writer_obj = None
@@ -142,7 +118,6 @@ class NumpyEncoder(json.JSONEncoder):
                             np.int16, np.int32, np.int64, np.uint8,
                             np.uint16, np.uint32, np.uint64)):
             return int(obj)
-            return int(obj)
         elif isinstance(obj, (np.float64, np.float32)):
             return float(obj)
         elif isinstance(obj, (np.ndarray,)):
@@ -151,62 +126,112 @@ class NumpyEncoder(json.JSONEncoder):
             return bool(obj)
         return json.JSONEncoder.default(self, obj)
 
+def _classify_object(T_K):
+    """Returns spectral type label and H2O/O2 expectation based on temperature."""
+    if T_K <= 0:
+        return "Unknown", False, False
+    if T_K < 500:
+        return "Y dwarf (very cold substellar)", True, False
+    if T_K < 1400:
+        return "T dwarf (cool substellar)", True, False
+    if T_K < 2300:
+        return "L dwarf (warm substellar)", True, False
+    if T_K < 3900:
+        return "M dwarf (red star)", True, False
+    if T_K < 7500:
+        return "FGK star", False, False
+    return "Hot star (>7500 K)", False, False
+
+
 def generate_summary(target, run_id, input_f, src_files, w, cont, dets, ml_results=None):
     """Generates summary text content."""
+    T_K = cont.get('T_K', 0) or 0
+    obj_class, h2o_expected, _ = _classify_object(T_K)
+
     lines = [
-        f"Target: {target}",
-        f"Run ID: {run_id}",
-        f"Input spectrum: {os.path.basename(input_f)}",
-        "Source files:",
-    ] + [f" - {os.path.basename(f)}" for f in src_files] + [
+        "=" * 70,
+        f"  SPECTRAL ANALYSIS REPORT",
+        "=" * 70,
+        f"  Target  : {target}",
+        f"  Run ID  : {run_id}",
+        f"  Input   : {os.path.basename(input_f)}",
+        f"  Sources : {', '.join(os.path.basename(f) for f in src_files)}",
+        "-" * 70,
+        f"  Wavelength range : {w.min():.4f} – {w.max():.4f} μm  ({len(w)} pts)",
+        f"  Continuum fit    : {'OK' if cont.get('fit_ok') else 'FAILED (polynomial fallback)'}",
+        f"  Temperature      : {T_K:.0f} K",
+        f"  Chi2 reduced     : {cont['chi2_reduced']:.2f}" if np.isfinite(cont.get('chi2_reduced', float('nan'))) else "  Chi2 reduced     : N/A (no errors)",
+        f"  Object class     : {obj_class}",
+        f"  H2O expected     : {'Yes' if h2o_expected else 'No / uncertain'}",
+        "=" * 70,
         "",
-        "=" * 60,
-        f"Wavelength Range: {w.min():.4f} - {w.max():.4f} um",
-        f"Data Points: {len(w)}",
-        f"Continuum Fit: {'OK' if cont.get('fit_ok') else 'FAILED'}",
-        f"Temperature: {cont.get('T_K', 0):.1f} K",
-        "-" * 60,
-        "Molecular Detections (Depth / SNR):"
+        "  BAND-BY-BAND ANALYSIS",
+        "",
+        f"  {'Mol':<5} {'Band (μm)':<13} {'Depth':>7} {'±err':>6} {'EQW':>8} {'SNR':>6} {'FAP':>9}",
+        "  " + "-" * 65,
     ]
-    
+
+    for mol, info in dets.items():
+        for b in info['bands']:
+            rng = b.get('band_range', (0, 0))
+            band_str = f"{rng[0]:.2f}–{rng[1]:.2f}"
+            if not b.get('covered', False):
+                lines.append(f"  {mol:<5} {band_str:<13} {'—':>7} {'—':>6} {'—':>8} {'—':>6} {'—':>9}  NO COVERAGE")
+            else:
+                depth_str = f"{b['depth']:.3f}"
+                derr_str  = f"±{b.get('depth_err', 0):.3f}"
+                eqw_str   = f"{b.get('eqw', 0):.4f}"
+                snr_str   = f"{b['snr']:.1f}"
+                fap       = b.get('fap', 1.0)
+                fap_str   = f"{fap:.2e}" if fap < 0.01 else f"{fap:.4f}"
+                lines.append(f"  {mol:<5} {band_str:<13} {depth_str:>7} {derr_str:>6} "
+                             f"{eqw_str:>8} {snr_str:>6} {fap_str:>9}")
+
+    lines += [
+        "  " + "-" * 65,
+        "",
+        "  DETECTION SUMMARY",
+        "",
+    ]
+
     found = False
     for mol, info in dets.items():
-        if info['detected']:
-            found = True
-            lines.append(f"  {mol}: DETECTED (Max SNR: {info['max_snr']:.1f})")
-            for b in info['bands']:
-                if b['covered']:
-                    rng = b.get('band_range', (0,0))
-                    lines.append(f"    - Band {rng[0]:.2f}-{rng[1]:.2f} um: Depth={b['depth']:.3f}, SNR={b['snr']:.1f}")
-        else:
-             if any(b['covered'] for b in info['bands']):
-                 lines.append(f"  {mol}: Not Detected (Max SNR < 3.0)")
-             else:
-                 lines.append(f"  {mol}: No Spectral Coverage")
+        status   = info.get('status', 'NOT DETECTED')
+        conf     = info.get('confidence', 0.0)
+        max_snr  = info.get('max_snr', 0.0)
+        mol_fap  = info.get('fap', 1.0)
+        expl     = info.get('explanation', '')
+        if status not in ('NO SPECTRAL COVERAGE',):
+            found = found or info.get('detected', False)
+        fap_str = f"{mol_fap:.2e}" if mol_fap < 0.01 else f"{mol_fap:.4f}"
+        lines.append(f"  {mol:<5} {status:<22} conf={conf:.3f}  SNR={max_snr:.1f}  FAP={fap_str}")
+        if expl:
+            lines.append(f"        → {expl}")
 
     if not found:
-        lines.append("  No robust molecular detections found.")
+        lines.append("  → No robust molecular detections found above threshold.")
 
-    lines.append("-" * 60)
+    lines += ["", "-" * 70]
 
-    # ML Report Injection
+    # ML section
     if ml_results:
-        # Quality
         if ml_results.get('quality'):
             q = ml_results['quality']
-            lines.append(f"ML Quality Score: {q['quality_score']:.2f} ({'Usable' if q['usable'] else 'Unusable'})")
+            lines.append(f"  ML Quality Score : {q['quality_score']:.2f}  ({'Usable' if q['usable'] else 'UNUSABLE'})")
             if q.get('notes'):
-                lines.append("Quality Notes: " + "; ".join(q['notes']))
-            lines.append("-" * 60)
-            
-        # Report Text
+                lines.append("  Quality notes    : " + "; ".join(q['notes']))
         if ml_results.get('generated_report'):
-            lines.append("\n=== AUTOMATED ML REPORT ===\n")
-            lines.append(ml_results['generated_report'])
-        else:
-             lines.append("INTERPRETATION LIMITS:\n1. O2/O3 are not definitive biosignatures alone.\n2. Cloud/Haze degeneracy applies.")
-    else:
-        lines.append("INTERPRETATION LIMITS:\n1. O2/O3 are not definitive biosignatures alone.\n2. Cloud/Haze degeneracy applies.")
+            lines += ["", "=== AUTOMATED REPORT ===", "", ml_results['generated_report']]
+
+    lines += [
+        "",
+        "-" * 64,
+        "  CAVEATS",
+        "  1. O2/O3 alone are not definitive atmospheric markers.",
+        "  2. Cloud/haze degeneracy may suppress or mimic features.",
+        "  3. Continuum model uncertainty propagates into band depths.",
+        "=" * 70,
+    ]
 
     return "\n".join(lines) + "\n"
 
@@ -231,9 +256,17 @@ def process_spectrum(data, target_name, run_id, run_dirs, src_files, input_fname
 
     residual = cont_res['residual']
     
+    # Build object context from continuum temperature
+    T_K = cont_res.get('T_K', 0) or 0
+    object_params = {
+        'temperature': T_K,
+        'type': 'Y' if T_K < 500 else ('T' if T_K < 1400 else ('L' if T_K < 2300 else 'M'))
+    }
+
     # Features
     try:
-        detections = features.detect_molecules(w_um, residual, err=err)
+        detections = features.detect_molecules(w_um, residual, err=err,
+                                               object_params=object_params)
         logger.step("Features analyzed")
     except Exception as e:
         logger.fail(f"Feature detection failed: {e}")
@@ -262,64 +295,36 @@ def process_spectrum(data, target_name, run_id, run_dirs, src_files, input_fname
             except Exception as e:
                 logger.warn(f"ML Quality failed: {e}")
 
-            # 2. Confidence Assessment
-            # Iterate through detections
+            # 2. Confidence — already computed by features.detect_molecules() via
+            # ConfidenceAssessor. Re-run here only to apply the data-quality ceiling,
+            # which is not available inside features.py.
             try:
+                q_score = ml_results['quality']['quality_score'] if ml_results['quality'] else None
                 conf_map = {}
-                q_score = ml_results['quality']['quality_score'] if ml_results['quality'] else 0.5
-                
                 for mol, info in detections.items():
-                    # Extract metrics from info
-                    # info structure from features.py usually: 
-                    # {'detected': bool, 'max_snr': float, 'bands': [...], ...}
-                    # We need: snr, num_bands, depth, spectral_coverage
-                    
-                    # spectral coverage check
-                    # We need to know if the molecule *could* be detected. 
-                    # logic in features.py usually handles 'covered' in bands.
-                    # info['bands'] is a list of dicts.
-                    
-                    has_coverage = False
-                    if 'bands' in info and len(info['bands']) > 0:
-                        # If any band is covered? Or all? Usually 'covered' flag exists.
-                        # Let's check info. 
-                        # features.py output varies. Assuming 'bands' list has 'covered'.
-                        # Let's derive coverage from bands.
-                        has_coverage = any(b.get('covered', False) for b in info['bands'])
+                    if q_score is not None:
+                        # Re-assess with quality ceiling using correct SNR threshold (> 2.0)
+                        num_bands = sum(1 for b in info.get('bands', [])
+                                        if b.get('snr', 0) > 2.0)
+                        c_res = conf_assessor.assess(
+                            molecule_name=mol,
+                            snr=info.get('max_snr', 0.0),
+                            num_bands=num_bands,
+                            depth=info.get('max_depth', 0.0),
+                            spectral_coverage=info.get('spectral_coverage', False),
+                            object_params=object_params,
+                            quality_score=q_score,
+                            combined_snr=info.get('combined_snr', 0.0),
+                        )
+                        conf_map[mol] = c_res
                     else:
-                        # Fallback
-                        has_coverage = False
-
-                    # Depth
-                    # Find max depth among bands
-                    max_depth = 0.0
-                    for b in info.get('bands', []):
-                        d = b.get('depth', 0.0)
-                        if d > max_depth:
-                            max_depth = d
-                            
-                    num_bands_detected = 0
-                    if info['detected']:
-                         # How many bands contributed? 
-                         # usually features.py returns 'n_bands_detected' or we count based on SNR threshold?
-                         # Let's trust 'num_bands' if it exists, or count bands > 3.0 SNR?
-                         # Info has 'max_snr'. 
-                         # Let's count bands with snr > 3.0
-                         for b in info.get('bands', []):
-                             if b.get('snr', 0) > 3.0:
-                                 num_bands_detected += 1
-                    
-                    # Run Assessment
-                    c_res = conf_assessor.assess(
-                        molecule_name=mol,
-                        snr=info.get('max_snr', 0.0),
-                        num_bands=num_bands_detected,
-                        depth=max_depth,
-                        spectral_coverage=has_coverage,
-                        quality_score=q_score
-                    )
-                    conf_map[mol] = c_res
-                
+                        # Pull already-computed values directly from detections
+                        conf_map[mol] = {
+                            'status':      info.get('status', 'NOT DETECTED'),
+                            'confidence':  info.get('confidence', 0.0),
+                            'label':       info.get('label', 'NOT DETECTED'),
+                            'explanation': info.get('explanation', ''),
+                        }
                 ml_results['confidence'] = conf_map
                 logger.step(f"ML Confidence assessed for {len(conf_map)} molecules")
             except Exception as e:
@@ -358,11 +363,7 @@ def process_spectrum(data, target_name, run_id, run_dirs, src_files, input_fname
                 # Adapt detections for ReportWriter
                 adapted_dets = {}
                 for mol, info in detections.items():
-                    # Count bands > 3 snr
-                    nb = 0
-                    for b in info.get('bands', []):
-                         if b.get('snr', 0) > 3.0:
-                             nb += 1
+                    nb = sum(1 for b in info.get('bands', []) if b.get('snr', 0) > 2.0)
                     adapted_dets[mol] = {
                         "snr": info.get('max_snr', 0.0),
                         "num_bands": nb
@@ -404,7 +405,9 @@ def process_spectrum(data, target_name, run_id, run_dirs, src_files, input_fname
             import warnings
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                plotting.plot_all(w_um, flux, cont_res['continuum'], residual, detections, plot_path)
+                plotting.plot_all(w_um, flux, cont_res['continuum'], residual, detections, plot_path,
+                                              err=err, T_K=cont_res.get('T_K'),
+                                              target_name=target_name)
         except Exception as e:
             logger.warn(f"Plotting error: {e}")
             
@@ -439,8 +442,6 @@ def main():
     target_name = args.target_name
     timestamp = organize_io.get_timestamp_str()
     
-    scan_result = None
-    
     # Auto-detect Target Name if not provided
     if not target_name:
         if is_dir:
@@ -472,20 +473,6 @@ def main():
         # Scan
         logger.info(f"Scanning {input_path}...")
         best = merge.find_best_spectra(input_path)
-        
-        # ML Ranking (Optional Override)
-        if ML_AVAILABLE and ml_manager:
-            try:
-                # Get list of fits files
-                all_fits = [os.path.join(input_path, f) for f in os.listdir(input_path) if f.endswith('.fits')]
-                if all_fits:
-                    ranked = ml_manager.rank_spectra(all_fits)
-                    if ranked:
-                        logger.info(f"ML suggests best file: {os.path.basename(ranked[0][0])} (Score: {ranked[0][1]:.2f})")
-                        # For now, we just log it. In future, we could set selected_file here.
-            except Exception as e:
-                logger.warn(f"ML Ranking failed: {e}")
-
         nrs1 = best['nrs1']
         nrs2 = best['nrs2']
         
