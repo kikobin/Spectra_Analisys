@@ -1,56 +1,37 @@
+from __future__ import annotations
 
-import sys
 import os
+import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from ml.report_writer import ReportWriter, AnalysisResult
+from ml.report_writer import ReportWriter
 
-def test_forbidden_words():
-    print("Testing forbidden words redaction...")
-    # Inject forbidden words into the "explanation" field which is passed through
-    data = AnalysisResult(
-        target_name="Test Planet",
-        instruments=["Test"],
-        physical_detections={},
-        ml_confidence={
-            "O2": {"label": "LIKELY", "explanation": "This is a biosignature of life."}
-        },
-        spectral_coverage=[(1.0, 2.0)]
-    )
-    
-    report = ReportWriter.generate_report(data)
-    
-    if "life" in report.lower() or "biosignature" in report.lower():
-        print("FAILED: Forbidden words found in report.")
-        print(report)
-        sys.exit(1)
-        
-    if "[REDACTED]" not in report:
-        print("FAILED: Redaction marker not found.")
-        print(report)
-        sys.exit(1)
-        
-    print("PASSED: Forbidden words redacted.")
 
-def test_no_detections():
-    print("\nTesting no detections...")
-    data = AnalysisResult(
-        target_name="Empty Planet",
-        instruments=["Test"],
-        physical_detections={},
-        ml_confidence={},
-        spectral_coverage=[(1.0, 2.0)]
-    )
-    
-    report = ReportWriter.generate_report(data)
-    
-    if "No statistically significant molecular absorption features" not in report:
-        print("FAILED: Did not report no detections correctly.")
-        sys.exit(1)
-        
-    print("PASSED: No detections handled.")
+def test_forbidden_words_redaction() -> None:
+    data = {
+        "target name": "Test Planet",
+        "instrument(s)": ["Test"],
+        "physical detections": {"O2": {"snr": 3.0, "num_bands": 1}},
+        "ML confidence labels": {},
+        "ML confidence": {"O2": {"label": "LIKELY", "explanation": "This is a biosignature of life."}},
+        "spectral coverage": {"O2": True},
+    }
 
-if __name__ == "__main__":
-    test_forbidden_words()
-    test_no_detections()
-    print("\nAll tests passed!")
+    report = ReportWriter().generate_report(data)
+    assert "life" not in report.lower()
+    assert "biosignature" not in report.lower()
+    assert "[REDACTED]" in report
+
+
+def test_no_detections_message() -> None:
+    data = {
+        "target name": "Empty Planet",
+        "instrument(s)": ["Test"],
+        "physical detections": {},
+        "ML confidence labels": {},
+        "spectral coverage": {"H2O": True},
+    }
+
+    report = ReportWriter().generate_report(data)
+    assert "No definitive molecular absorption features" in report

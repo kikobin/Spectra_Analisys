@@ -1,0 +1,85 @@
+======================================================================
+  SPECTRAL ANALYSIS REPORT
+======================================================================
+  Target  : DEMO
+  Run ID  : 2026-04-23T04-18-demo
+  Input   : demo_dummy_x1d.fits
+  Sources : demo_dummy_x1d.fits
+----------------------------------------------------------------------
+  Wavelength range : 1.0000 – 12.0000 μm  (1000 pts)
+  Continuum fit    : OK
+  Temperature      : 10144 K
+  Chi2 reduced     : 3.08
+  Object class     : Hot star (>7500 K)
+  H2O expected     : No / uncertain
+======================================================================
+
+  BAND-BY-BAND ANALYSIS
+
+  Mol   Band (μm)       Depth   ±err      EQW    SNR       FAP
+  -----------------------------------------------------------------
+  H2O   1.35–1.45       0.241 ±0.453   0.0188    0.5    0.3289
+  H2O   1.80–2.00       0.020 ±0.199  -0.0033    0.0    0.4908
+  H2O   2.55–2.85       0.071 ±0.100   0.0021    0.1    0.4469
+  H2O   2.95–3.20       0.057 ±0.086  -0.0032    0.1    0.4442
+  H2O   3.85–4.20       0.054 ±0.043  -0.0034    0.2    0.4123
+  H2O   5.80–6.60       0.077 ±0.012  -0.0072    0.7    0.2301
+  H2O   10.00–12.00     0.098 ±0.004   0.0115    2.0    0.0245
+  O2    1.24–1.30       0.027 ±0.696   0.0002    0.0    0.4939
+  O2    0.75–0.77           —      —        —      —         —  NO COVERAGE
+  O3    9.30–9.90       0.064 ±0.007  -0.0059    1.2    0.1189
+  CH4   1.63–1.80       0.065 ±0.249   0.0007    0.1    0.4737
+  CH4   2.20–2.45       0.071 ±0.127   0.0006    0.1    0.4542
+  CH4   3.25–3.60       0.048 ±0.057  -0.0071    0.1    0.4415
+  CO    4.60–4.80       0.124 ±0.044   0.0052    0.7    0.2554
+  CO    2.29–2.38       0.027 ±0.238  -0.0025    0.0    0.4843
+  CO2   4.22–4.38       0.121 ±0.063   0.0044    0.6    0.2852
+  -----------------------------------------------------------------
+
+  DETECTION SUMMARY
+
+  H2O   NOT DETECTED           conf=0.000  SNR=2.0  FAP=1.0000
+        → Marginal SNR (2.0); Very deep feature (0.24)
+  O2    NOT DETECTED           conf=0.000  SNR=0.0  FAP=1.0000
+        → Below noise floor (SNR=0.0); Strong penalty: O2 requires ≥2 bands for credibility
+  O3    NOT DETECTED           conf=0.000  SNR=1.2  FAP=1.0000
+        → Below noise floor (SNR=1.2); Penalty: O3 at 9.6 μm needs high SNR (silicate confusion); Penalty: single-band O3 detection — low reliability
+  CH4   NOT DETECTED           conf=0.000  SNR=0.1  FAP=1.0000
+        → Below noise floor (SNR=0.1); Penalty: CH4 unlikely at T > 1800 K (thermochemistry)
+  CO    NOT DETECTED           conf=0.000  SNR=0.7  FAP=1.0000
+        → Below noise floor (SNR=0.7); Deep feature (0.12); Prior: CO expected in warm atmosphere (T > 1400 K)
+  CO2   NOT DETECTED           conf=0.000  SNR=0.6  FAP=1.0000
+        → Below noise floor (SNR=0.6); Deep feature (0.12); Weak prior: CO2 trace abundance expected in all objects
+  → No robust molecular detections found above threshold.
+
+----------------------------------------------------------------------
+  ML Quality Score : 0.80  (Usable)
+
+=== AUTOMATED REPORT ===
+
+REPORT FOR TARGET: DEMO
+----------------------------------------
+
+ABSTRACT
+This report defines the spectral analysis of DEMO using data from JWST (Simulated/Real). The analysis focused on the identification of molecular absorption features within the observed wavelength range. No definitive molecular absorption features were identified above the noise threshold in this analysis. These results provide constraints on the atmospheric composition, subject to the instrumental sensitivity and spectral coverage described herein.
+
+RESULTS
+- H2O: NOT DETECTED. No significant absorption features detected above the noise floor.
+- O2: NOT DETECTED. No significant absorption features detected above the noise floor.
+- O3: NOT DETECTED. No significant absorption features detected above the noise floor.
+- CH4: NOT DETECTED. No significant absorption features detected above the noise floor.
+- CO: NOT DETECTED. No significant absorption features detected above the noise floor.
+- CO2: NOT DETECTED. No significant absorption features detected above the noise floor.
+
+LIMITATIONS
+The validity of these results is strictly bound by the following limitations:
+1. Observational Data: Analysis is largely dependent on the sensitivity and calibration of JWST (Simulated/Real).
+2. Spectral Coverage: The dataset provides coverage for all target molecules, though sensitivity varies across the wavelength range.
+3. Atmospheric Modeling: Detections are based on cross-correlation with template spectra; degenerate solutions with other atmospheric species or stellar activity cannot be fully ruled out.
+
+----------------------------------------------------------------
+  CAVEATS
+  1. O2/O3 alone are not definitive atmospheric markers.
+  2. Cloud/haze degeneracy may suppress or mimic features.
+  3. Continuum model uncertainty propagates into band depths.
+======================================================================

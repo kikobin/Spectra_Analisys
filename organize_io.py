@@ -24,7 +24,7 @@ def get_run_id(timestamp_str, tag):
     clean_tag = tag.replace(" ", "_").replace("/", "-")
     return f"{timestamp_str}-{clean_tag}"
 
-def setup_run_directories(target_name, run_id):
+def setup_run_directories(target_name, run_id, outputs_dir=None):
     """
     Creates the output directory structure for a specific run.
     
@@ -40,7 +40,8 @@ def setup_run_directories(target_name, run_id):
     Returns:
         dict: Paths to the created directories.
     """
-    base_run_dir = os.path.join(OUTPUTS_DIR, target_name, run_id)
+    base = outputs_dir or OUTPUTS_DIR
+    base_run_dir = os.path.join(base, target_name, run_id)
     
     dirs = {
         "root": base_run_dir,

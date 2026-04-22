@@ -22,6 +22,7 @@ import sys
 import os
 import json
 import numpy as np
+from pathlib import Path
 
 # Ensure local modules are importable
 try:
@@ -31,6 +32,7 @@ try:
     import plotting
     import merge
     import organize_io
+    import demo_data
     # ML Integration (Optional)
     # ML Integration (Optional)
     try:
@@ -56,6 +58,7 @@ except ImportError:
         import plotting
         import merge
         import organize_io
+        import demo_data
         # ML Integration (Optional)
         try:
             import ml.quality as ml_quality
@@ -342,8 +345,13 @@ def process_spectrum(data, target_name, run_id, run_dirs, src_files, input_fname
                 
                 # Confidence labels
                 label_map = {}
+                conf_detail_map = {}
                 for mol, res in ml_results['confidence'].items():
                     label_map[mol] = res['label']
+                    conf_detail_map[mol] = {
+                        "label": res.get("label"),
+                        "explanation": res.get("explanation", ""),
+                    }
 
                 report_data = {
                     "target name": target_name,
@@ -357,6 +365,7 @@ def process_spectrum(data, target_name, run_id, run_dirs, src_files, input_fname
                     # I should map it to be safe.
                     
                     "ML confidence labels": label_map,
+                    "ML confidence": conf_detail_map,
                     "spectral coverage": cov_map
                 }
                 
@@ -418,6 +427,10 @@ def main():
     
     # Positional: Input (File or Dir)
     parser.add_argument("input", nargs='?', default=".", help="Input file (.fits) or directory to scan")
+
+    # Demo mode (synthetic FITS)
+    parser.add_argument("--demo", action="store_true", help="Run on a synthetic FITS spectrum (no downloads needed)")
+    parser.add_argument("--demo-seed", type=int, default=42, help="Random seed for --demo spectrum generation")
     
     # Optional Overrides
     parser.add_argument("--target-name", type=str, help="Override Target Name")
@@ -434,6 +447,20 @@ def main():
     
     args = parser.parse_args()
     logger = PipelineLogger(args.verbose)
+
+    # 0. DEMO MODE (generate a small synthetic FITS)
+    if args.demo:
+        repo_root = Path(os.path.dirname(os.path.abspath(__file__)))
+        demo_dir = repo_root / "data" / "inputs" / "demo"
+        demo_file = demo_dir / "demo_dummy_x1d.fits"
+        try:
+            demo_data.make_dummy_fits(demo_file, seed=int(args.demo_seed))
+        except Exception as e:
+            logger.fail(f"Demo spectrum generation failed: {e}")
+            sys.exit(2)
+        args.input = str(demo_file)
+        if not args.target_name:
+            args.target_name = "DEMO"
     
     # 1. ANALYZE INPUT
     input_path = os.path.abspath(args.input)
@@ -497,12 +524,13 @@ def main():
                  sys.exit(1)
     else:
         # Single File
-        mode_str = "SINGLE FILE"
+        mode_str = "DEMO (synthetic)" if args.demo else "SINGLE FILE"
         selected_file = input_path
 
     # 3. SETUP I/O
-    run_id = organize_io.get_run_id(timestamp, "merged" if args.merge_nrs else "single")
-    run_dirs = organize_io.setup_run_directories(target_name, run_id)
+    run_tag = "demo" if args.demo else ("merged" if args.merge_nrs else "single")
+    run_id = organize_io.get_run_id(timestamp, run_tag)
+    run_dirs = organize_io.setup_run_directories(target_name, run_id, outputs_dir=args.outdir)
     work_dirs = organize_io.setup_working_directories(target_name)
     
     # Header Print

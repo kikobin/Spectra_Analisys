@@ -1,5 +1,6 @@
 import logging
-from typing import Dict, Any, List
+import re
+from typing import Dict, Any, List, Mapping
 
 class ReportWriter:
     """
@@ -11,6 +12,9 @@ class ReportWriter:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.prohibited_words = ["life", "biosignature"]
+        self._prohibited_re = [
+            re.compile(rf"\b{re.escape(w)}\b", flags=re.IGNORECASE) for w in self.prohibited_words
+        ]
 
     def generate_report(self, data: Dict[str, Any]) -> str:
         """
@@ -44,7 +48,13 @@ class ReportWriter:
             f"LIMITATIONS\n{limitations}"
         )
 
-        return report
+        return self._redact(report)
+
+    def _redact(self, text: str) -> str:
+        redacted = text
+        for rx in self._prohibited_re:
+            redacted = rx.sub("[REDACTED]", redacted)
+        return redacted
 
     def _validate_input(self, data: Dict[str, Any]):
         required_keys = ["target name", "instrument(s)", "physical detections", "ML confidence labels", "spectral coverage"]
@@ -83,13 +93,20 @@ class ReportWriter:
         """
         lines = []
         detections = data.get("physical detections", {})
-        confidence = data.get("ML confidence labels", {})
+        confidence_labels: Mapping[str, str] = data.get("ML confidence labels", {}) or {}
+        confidence_details: Mapping[str, Any] = data.get("ML confidence", {}) or {}
         
         if not detections:
             return "No specific molecular searches were performed."
 
         for molecule in detections.keys():
-            conf_label = confidence.get(molecule, "UNKNOWN")
+            # Backward-compatible: either {mol: "LIKELY"} or {mol: {"label": "...", "explanation": "..."}}
+            conf_label = confidence_labels.get(molecule)
+            explanation = ""
+            if conf_label is None and molecule in confidence_details and isinstance(confidence_details[molecule], dict):
+                conf_label = confidence_details[molecule].get("label")
+                explanation = str(confidence_details[molecule].get("explanation") or "").strip()
+            conf_label = conf_label or "UNKNOWN"
             phys_data = detections[molecule]
             
             # Extract physical details if available, handle if just a boolean or dict
@@ -123,6 +140,9 @@ class ReportWriter:
             elif conf_label in ("NO SPECTRAL COVERAGE", "NO COVERAGE"):
                 line += (" Instrument wavelength range does not cover the characteristic"
                          " absorption features of this molecule.")
+
+            if explanation:
+                line += f" Note: {explanation}"
             
             lines.append(line)
             

@@ -1,11 +1,29 @@
 # Spectra — JWST Molecular Detection Pipeline
 
+![tests](https://github.com/kikobin/Spectra_Analisys/actions/workflows/ci.yml/badge.svg)
+
 Автоматизированный пайплайн для поиска молекулярных сигнатур (H₂O, CH₄, CO, CO₂, O₂, O₃)
 в атмосферах субзвёздных объектов по спектрам JWST/NIRSpec и JWST/MIRI.
 
 ---
 
+## Portfolio (что показывает проект)
+
+- **End-to-end аналитический пайплайн**: ingest FITS → (опционально) merge NRS1+NRS2 → continuum fit → измерение полос → confidence → отчёт.
+- **Устойчивость к реальным данным**: авто-определение колонок/единиц, fail-safe ML слой, структурированные выходы.
+- **Воспроизводимость**: демо-режим без скачивания данных + тесты.
+
 ## Быстрый старт
+
+### 0. Демо без данных (рекомендовано)
+
+Создаёт синтетический FITS в `data/inputs/demo/` и прогоняет полный пайплайн:
+
+```bash
+python run_pipeline.py --demo --outdir outputs_demo
+```
+
+Результаты: `outputs_demo/DEMO/<RUN_ID>/` (plot + `results.json` + `summary.txt`).
 
 ### 1. Установка зависимостей
 
@@ -38,6 +56,13 @@ python run_pipeline.py my_spectrum_x1d.fits
 Результаты сохраняются в `outputs/<TARGET>/<RUN_ID>/`.
 
 ---
+
+## Пример результатов
+
+![demo spectrum](docs/assets/spectrum_demo.png)
+
+- Пример JSON: `docs/sample_results.json`
+- Пример текста отчёта: `docs/sample_summary.txt`
 
 ## Структура проекта
 
@@ -94,6 +119,8 @@ Spectra_Analisys/
 | Опция | По умолчанию | Описание |
 |---|---|---|
 | `INPUT` | `.` | Файл `.fits` или директория |
+| `--demo` | off | Синтетический FITS (без скачивания данных) |
+| `--demo-seed INT` | `42` | Seed для `--demo` |
 | `--target-name STR` | из заголовка | Имя объекта |
 | `--no-plot` | off | Отключить графики |
 | `--no-json` | off | Отключить JSON-отчёт |
@@ -130,5 +157,6 @@ Spectra_Analisys/
 ## Запуск тестов
 
 ```bash
+pip install -r requirements-dev.txt
 pytest tests/ -v
 ```

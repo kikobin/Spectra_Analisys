@@ -26,6 +26,7 @@ data/raw/
 # ── Jupyter / DataSpell ───────────────────────────────────────────────────────
 .ipynb_checkpoints/
 *.ipynb
+!notebooks/*.ipynb
 
 # ── OS / IDE ──────────────────────────────────────────────────────────────────
 .DS_Store

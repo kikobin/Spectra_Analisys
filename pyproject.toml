@@ -20,6 +20,19 @@ dependencies = [
 # After `pip install -e .`, run the pipeline from anywhere:
 spectra-run = "run_pipeline:main"
 
+[tool.setuptools]
+py-modules = [
+    "config",
+    "continuum",
+    "demo_data",
+    "features",
+    "io_fits",
+    "merge",
+    "organize_io",
+    "plotting",
+    "run_pipeline",
+]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["ml*", "ml_core*"]
